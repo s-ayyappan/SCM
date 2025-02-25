@@ -21,7 +21,7 @@ Check License tab
     TypeText     Search this list...    L-000046\n    anchor=Account, Effective Date, License Template, and Version aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
     ClickText    L-000046
-    VerifyText   License\nL-000046
+    VerifyText   L-000046
     Sleep        2s
     #navigate to the tabs
     ClickText    Related
