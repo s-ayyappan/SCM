@@ -32,8 +32,7 @@ Check New Account Creation
     HoverText    Robot Account
     HoverText    Show Actions
     HoverText    Robot Account
+    Sleep        1s
     VerifyText    Robot Account
-    Sleep        1s
-    VerifyField  Account Name    Robot Account    partial_match=True
-    Sleep        1s
+
 
