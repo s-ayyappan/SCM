@@ -27,8 +27,12 @@ Check New Account Creation
     SwipeDown    1
     ClickText    Save    partial_match=False
     UseModal     Off
-    VerifyText   Success notification.\nAccount "Robot Account" was created.
-    VerifyText   Account\nRobot Account
+    ClickItem    search-button
+    TypeText    Search...    Robot Account\n    tag=input
+    HoverText    Robot Account
+    HoverText    Show Actions
+    HoverText    Robot Account
+    VerifyText    Robot Account
     Sleep        1s
     VerifyField  Account Name    Robot Account    partial_match=True
     Sleep        1s
