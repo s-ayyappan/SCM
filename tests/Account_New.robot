@@ -23,7 +23,7 @@ Check New Account Creation
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
     ComboBox     Search Address    Oxford
-    TypeText     Billing Zip/Postal Code    ox41gb
+    TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
     ClickText    Save    partial_match=False
     UseModal     Off
