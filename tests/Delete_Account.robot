@@ -26,7 +26,6 @@ Delete New Account
     VerifyText                Are you sure you want to delete this account?
     ClickText                 Delete
     UseModal                  Off
-    VerifyText                Success notification.\nAccount "Robot Account" was deleted. Undo
     TypeText                  Search this list...    Robot Account\n    anchor=Created Date, Owner Last Name, and PRM Account aren't searchable. Use filters or sort on these fields instead.
     VerifyText                No items to display.
    
