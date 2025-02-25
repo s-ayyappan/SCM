@@ -9,7 +9,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Permission Requests
-    [tags]                    PR
+    [tags]                    Permission Request
     Appstate                  Home
     LaunchApp                 Permission Requests
 
