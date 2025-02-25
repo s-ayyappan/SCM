@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Cases
-    [tags]                    Sources
+    [tags]                    Cases
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Cases
