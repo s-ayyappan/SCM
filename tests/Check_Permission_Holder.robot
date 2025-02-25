@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Permission Holder
-    [tags]                    Sources
+    [tags]                    Permission Holder
     Appstate                  Home
     LaunchApp                 Sources
   
