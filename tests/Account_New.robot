@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check New Account Creation
-    [tags]                    Accounts
+    [tags]                    New Accounts
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
@@ -29,7 +29,7 @@ Check New Account Creation
     UseModal     Off
     VerifyText   Success notification.\nAccount "Robot Account" was created.
     VerifyText   Account\nRobot Account
-    Sleep                     1s
+    Sleep        1s
     VerifyField  Account Name    Robot Account    partial_match=True
     Sleep        1s
 
