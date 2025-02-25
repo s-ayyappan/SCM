@@ -22,8 +22,10 @@ Check License tab
     Sleep        2s
     ClickText    L-000046
     VerifyText   L-000046
-    Sleep        2s
+    Sleep        1s
     #navigate to the tabs
     ClickText    Related
+    Sleep        1s
     ClickText    Source Link Management
+    Sleep        1s
     ClickText    Details
