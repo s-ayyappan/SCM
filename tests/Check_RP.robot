@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Right and Permission
-    [tags]                    Licenses
+    [tags]                    Rights and Permissions
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Licenses
