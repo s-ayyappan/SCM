@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Delete New Account 
-    [tags]                    Accounts
+    [tags]                    Delete Accounts
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Accounts
