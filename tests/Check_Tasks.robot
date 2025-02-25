@@ -10,7 +10,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Tasks tab    
-    [tags]                    Sources
+    [tags]                    Tasks
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Tasks
