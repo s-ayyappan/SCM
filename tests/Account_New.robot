@@ -28,11 +28,12 @@ Check New Account Creation
     ClickText    Save    partial_match=False
     UseModal     Off
     ClickItem    search-button
-    TypeText    Search...    Robot Account\n    tag=input
+    TypeText     Search...    Robot Account\n    tag=input
+    Sleep        1s
     HoverText    Robot Account
+    Sleep        1s
     HoverText    Show Actions
     HoverText    Robot Account
     Sleep        1s
-    VerifyText    Robot Account
-
+    VerifyText   Robot Account
 
