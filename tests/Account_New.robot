@@ -2,10 +2,10 @@
 # before running this suite.
 
 *** Settings ***
-Library    QForce
-Resource                      ../resources/common.robot
-Suite Setup                   Setup Browser
-Suite Teardown                End suite
+Library           QForce
+Resource          ../resources/common.robot
+Suite Setup       Setup Browser
+Suite Teardown    End suite
 
 
 *** Test Cases ***
@@ -37,3 +37,12 @@ Check New Account Creation
     Sleep        1s
     VerifyText   Robot Account
 
+
+*** Test Cases ***
+Example test ${Billing Country} ${Code}
+    # Your tests here, this is just an example
+    # just use the values from excel using variable names
+    # ClickText     ${Billing Country}
+    # VerifyText    ${Code}
+
+  
