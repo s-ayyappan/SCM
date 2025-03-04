@@ -7,6 +7,27 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
+*** Settings ***
+Library    QWeb
+Library    DataDriver    reader_class=TestDataApi    name=TestDATA.csv
+
+#Suite Setup       Open Browser        about:blank     Chrome
+#Suite Teardown    Close All Browsers
+#Test Template     Example Test
+
+*** Test Cases ***
+Example Test with ${Billing Country} ${Code}
+
+*** Keywords ***
+Example Test
+    [Arguments]    ${Billing Country}    ${Code}
+    # Your tests here, this is just an example
+    # just use the values from excel using variable names
+    # ClickText     ${Billing Country}
+    # VerifyText    ${Code}
+
+  
+
 
 *** Test Cases ***
 Check New Account Creation
