@@ -22,6 +22,10 @@ Check New Account Creation
     UseModal     On
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
+    
+    TypeText    ECH Country   ${Billing Country}
+    TypeText    ECH Region    ${Code}
+        
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
