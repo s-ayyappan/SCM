@@ -22,10 +22,7 @@ Check New Account Creation
     UseModal     On
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
-    
-    TypeText    ECH Country   ${Billing Country}
-    TypeText    ECH Region    ${Code}
-        
+         
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
@@ -33,20 +30,13 @@ Check New Account Creation
     UseModal     Off
     ClickItem    search-button
     TypeText     Search...    Robot Account\n    tag=input
-    Sleep        1s
+    Sleep        4s
     HoverText    Robot Account
-    Sleep        1s
+    Sleep        4s
     HoverText    Show Actions
     HoverText    Robot Account
-    Sleep        1s
+    Sleep       4s
     VerifyText   Robot Account
 
-
-*** Test Cases ***
-Example test ${Billing Country} ${Code}
-    # Your tests here, this is just an example
-    # just use the values from excel using variable names
-    # ClickText     ${Billing Country}
-    # VerifyText    ${Code}
 
   
