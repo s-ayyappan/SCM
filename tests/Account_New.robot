@@ -6,8 +6,6 @@ Library           QForce
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
-
-*** Settings ***
 Library    QWeb
 Library    DataDriver    reader_class=TestDataApi    name=TestDATA.csv
 
@@ -43,6 +41,12 @@ Check New Account Creation
     UseModal     On
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
+    
+    
+
+    TypeText    ECH Country    ${Billing Country}
+    TypeText    ECH City    ${Code}
+
          
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
