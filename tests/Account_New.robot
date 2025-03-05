@@ -3,15 +3,11 @@
 
 *** Settings ***
 Library           QForce
+Library    QWeb
+Library    DataDriver    reader_class=TestDataApi    name=TestDATA.csv
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
-Library    QWeb
-Library    DataDriver    reader_class=TestDataApi    name=TestDATA.csv
-
-#Suite Setup       Open Browser        about:blank     Chrome
-#Suite Teardown    Close All Browsers
-#Test Template     Example Test
 
 *** Test Cases ***
 Example Test with ${Billing Country} ${Code}
@@ -23,8 +19,6 @@ Example Test
     # just use the values from excel using variable names
     # ClickText     ${Billing Country}
     # VerifyText    ${Code}
-
-  
 
 
 *** Test Cases ***
@@ -41,12 +35,9 @@ Check New Account Creation
     UseModal     On
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
-    
-    
-
+  
     TypeText    ECH Country    ${Billing Country}
     TypeText    ECH City    ${Code}
-
          
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
