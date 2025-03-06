@@ -9,14 +9,6 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
-*** Keywords ***
-Example Test
-    [Arguments]    ${Billing Country}    ${Code}
-    # Your tests here, this is just an example
-    # just use the values from excel using variable names
-    # ClickText     ${Billing Country}
-    # VerifyText    ${Code}
-
 
 *** Test Cases ***
 Check New Account Creation
