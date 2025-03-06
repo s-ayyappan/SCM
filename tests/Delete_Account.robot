@@ -29,6 +29,7 @@ Delete New Account
     UseModal                  Off
     Sleep                     5s
     TypeText                  Search this list...    Robot Account\n    anchor=Created Date, Owner Last Name, and PRM Account aren't searchable. Use filters or sort on these fields instead.
+    Sleep                     5s
     VerifyText                No items to display.
    
 
