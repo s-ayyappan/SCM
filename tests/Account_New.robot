@@ -9,9 +9,6 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
-*** Test Cases ***
-Example Test with ${Billing Country} ${Code}
-
 *** Keywords ***
 Example Test
     [Arguments]    ${Billing Country}    ${Code}
