@@ -40,7 +40,7 @@ Check New Account Creation
     Sleep        4s
     HoverText    Show Actions
     HoverText    Robot Account
-    Sleep       4s
+    Sleep        4s
     VerifyText   Robot Account
 
 
