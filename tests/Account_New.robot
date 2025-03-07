@@ -25,8 +25,8 @@ Check New Account Creation
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
   
-    TypeText    ECH Country    ${Billing Country}
-    TypeText    ECH City    ${Code}
+    TypeText    ECH Country   
+    TypeText    ECH City    
          
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
