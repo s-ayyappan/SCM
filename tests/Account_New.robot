@@ -42,7 +42,7 @@ Check New Account Creation
     Sleep        4s
     ClickText    Robot Account
     Sleep        4s
-    VerifyText    Robot Account
+    VerifyText   Robot Account
     ClickItem    search-button
     TypeText     Search...    Robot Account\n    tag=input
 
