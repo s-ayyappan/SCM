@@ -1,6 +1,3 @@
-# NOTE: readme.txt contains important information you need to take into account
-# before running this suite.
-
 *** Settings ***
 Library           QForce
 Library           QWeb
@@ -33,7 +30,7 @@ Check New Account Creation
     SwipeDown    1
     ClickText    Save    partial_match=False
     UseModal     Off
-    ClickItem    search-button
+#    ClickItem    search-button
     TypeText     Search...    Robot account\n
     Sleep        4s
     ClickText    Robot Account
