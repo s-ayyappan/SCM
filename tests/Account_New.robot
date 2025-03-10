@@ -38,7 +38,7 @@ Check New Account Creation
 
     ClickItem    search-button
     ClickText    Clear
-    TypeText    Search...    Robot account\n
+    TypeText     Search...    Robot account\n
     Sleep        4s
     ClickText    Robot Account
     Sleep        4s
