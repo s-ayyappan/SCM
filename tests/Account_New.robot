@@ -34,7 +34,6 @@ Check New Account Creation
     ClickText    Save    partial_match=False
     UseModal     Off
     ClickItem    search-button
-    ClickText    Clear
     TypeText     Search...    Robot account\n
     Sleep        4s
     ClickText    Robot Account
