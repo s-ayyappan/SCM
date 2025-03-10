@@ -25,23 +25,26 @@ Check New Account Creation
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
   
-    TypeText    ECH Country   
-    TypeText    ECH City    
+    TypeText    ECH Country                United Kingdom
+    TypeText    ECH City                   Oxford    
          
     ComboBox     Search Address    Oxford
     TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
     ClickText    Save    partial_match=False
     UseModal     Off
+    
+    
+
+    ClickItem    search-button
+    ClickText    Clear
+    TypeText    Search...    Robot account\n
+    Sleep        4s
+    ClickText    Robot Account
+    Sleep        4s
+    VerifyText    Robot Account
     ClickItem    search-button
     TypeText     Search...    Robot Account\n    tag=input
-    Sleep        4s
-    HoverText    Robot Account
-    Sleep        4s
-    HoverText    Show Actions
-    HoverText    Robot Account
-    Sleep        4s
-    VerifyText   Robot Account
 
 
   
