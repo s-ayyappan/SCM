@@ -9,7 +9,7 @@ Suite Teardown    End suite
 
 *** Test Cases ***
 Check New Account Creation
-    [tags]                    Accounts
+    [tags]                    Accounts Conversations New
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
