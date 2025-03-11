@@ -47,7 +47,7 @@ Check New Account Creation
     SwipeDown
     ClickItem    Conversations
     VerifyText   Conversations
-    VerifyText    Robot Conversation
+    VerifyText   Robot Conversation
     
 
 
