@@ -42,6 +42,12 @@ Check New Account Creation
     Sleep        2s
     VerifyField  Account    Robot Account    tag=a    partial_match=True
     ClickFieldValue    Account
+#check whether the newly added conversation is list under conversations
+    ClickText    Related
+    SwipeDown
+    ClickItem    Conversations
+    VerifyText   Conversations
+    VerifyText    Robot Conversation
     
 
 
