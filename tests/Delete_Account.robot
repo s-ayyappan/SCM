@@ -14,13 +14,14 @@ Delete New Account
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Accounts
-
+#search the account selected for deletion
     TypeText                  Search this list...    Robot Account\n    anchor=Created Date, Owner Last Name, and PRM Account aren't searchable. Use filters or sort on these fields instead.
     Sleep                     2s
     VerifyText                Robot Account
     ClickText                 Show Actions
     HoverText                 Show more actions
     HoverText                 Delete
+#select the 
     ClickText                 Delete
     Sleep                     5s
     UseModal                  On
@@ -28,6 +29,7 @@ Delete New Account
     ClickText                 Delete
     UseModal                  Off
     Sleep                     5s
+
     TypeText                  Search this list...    Robot Account\n    anchor=Created Date, Owner Last Name, and PRM Account aren't searchable. Use filters or sort on these fields instead.
     Sleep                     5s
     VerifyText                No items to display.
