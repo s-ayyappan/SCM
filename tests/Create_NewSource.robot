@@ -7,7 +7,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Sources
-    [tags]                    Sources
+    [tags]                    Sources    New    
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Sources
@@ -31,6 +31,5 @@ Check Sources
 #Save the source
     ClickText                     Save    partial_match=False
     UseModal                      Off
-    ClickText                     Save    partial_match=False
     VerifyText                    New Robot Title
 
