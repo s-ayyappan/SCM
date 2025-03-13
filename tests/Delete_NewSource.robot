@@ -14,8 +14,8 @@ Check Sources
 
 #Search for the source
     TypeText      Search this list...    New Robot Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
-    VerifyText    New Robot Title
-    ClickText     T-55849
+    VerifyText    New Robot Title        anchor=1
+ #   ClickText     T-55849
     HoverText     Details
     ClickText     Show more actions
     ClickText     Delete
