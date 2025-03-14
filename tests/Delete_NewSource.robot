@@ -9,6 +9,7 @@ Suite Teardown                End suite
 *** Test Cases ***
 Delete Source
     [tags]                    Sources    Delete
+    [Documentation]           Deleting a new source which was created during robotic testing
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Sources
