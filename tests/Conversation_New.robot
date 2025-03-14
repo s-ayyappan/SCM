@@ -8,7 +8,7 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check New Account Creation
+Create New Conversation
     [tags]                    Accounts Conversations New
     Appstate                  Home
     Sleep                     1s
