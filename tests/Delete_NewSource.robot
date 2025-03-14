@@ -16,7 +16,7 @@ Delete Source
 #Search for the source
     TypeText      Search this list...    New Robot Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     VerifyText    New Robot Title        
-    ClickElement  //div[@class='slds-truncate']//div 
+ #   ClickText    (//div[@class='slds-truncate']//div) timeout=10
 #    ClickText  class='slds-truncate'                  
     ClickText    Show Actions
     ClickText    Delete
