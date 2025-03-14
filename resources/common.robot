@@ -1,5 +1,6 @@
 *** Settings ***
 Library                   QForce
+Library                   QWeb
 Library                   String
 Suite Setup               OpenBrowser    about:blank    chrome
 
