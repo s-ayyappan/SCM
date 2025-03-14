@@ -8,7 +8,7 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check New Account Creation
+Delete Conversation
     [tags]                    Accounts  Conversations Delete
     Appstate                  Home
     Sleep                     1s
