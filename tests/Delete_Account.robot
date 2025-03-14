@@ -9,7 +9,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Delete New Account 
+Delete Account 
     [tags]                    Delete Accounts
     [Documentation]           This test is to delete a account which was created as part of the automated regression.
     Appstate                  Home
