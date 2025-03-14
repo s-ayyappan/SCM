@@ -6,7 +6,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Check Sources
+Delete Source
     [tags]                    Sources    Delete
     Appstate                  Home
     Sleep                     2s
