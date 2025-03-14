@@ -1,4 +1,5 @@
 *** Settings ***
+Library    QWeb
 Library    QForce
 Library    String
 Resource                      ../resources/common.robot
@@ -15,6 +16,8 @@ Delete Source
 #Search for the source
     TypeText      Search this list...    New Robot Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     VerifyText    New Robot Title        
+    ClickElement  //div[@class='slds-truncate']//div 
+#    ClickText  class='slds-truncate'                  
     ClickText    Show Actions
     ClickText    Delete
     UseModal      On
