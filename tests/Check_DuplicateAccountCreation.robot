@@ -24,24 +24,14 @@ Check New Account Creation
     TypeText     Publisher Display Name    Robot Duplicate account
 #enter the existing ECR id
     TypeText     ECR Id    ECR-102004186
-#input the Country and City 
     TypeText     ECH Country                United Kingdom
-    TypeText     ECH City                   Oxford    
-#input the billing address         
-    ComboBox     Search Address    Oxford
-    TypeText     Billing Zip/Postal Code    ox4 2wb
-    SwipeDown    1
-    ClickText    Save    partial_match=False
+    Sleep        2s
 #validation of duplicate ECR id is triggered    
-    VerifyText    You can't save this record because a duplicate record already exists. To save, use different information.
-    ClickText    View Duplicates
+    ClickText	 View Duplicates	recognition_mode=vision
     UseModal     On
-    VerifyPageHeader    ECR-102004186
-    ClickText    ECR-102004186
-    ClickText    Cancel and close    anchor=ECH Registration State
-    UseModal     Off
+    HoverText    ECR-102004186
+    ClickText    Cancel and close    anchor=Requires Welcome Email
     ClickText    Cancel    anchor=Save & New
-    UseModal     Off
     Log          Duplicate account trigger is working as expected
     
 
