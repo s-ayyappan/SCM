@@ -42,7 +42,7 @@ Check New Account Creation
     UseModal     Off
     ClickText    Cancel    anchor=Save & New
     UseModal     Off
-    log          Duplicate account trigger is working as expected
+    Log          Duplicate account trigger is working as expected
     
 
 
