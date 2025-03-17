@@ -10,7 +10,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check New Account Creation
     [tags]                    Accounts
-    [Documentation]           Check user not allowed to create duplication account with same ECR ID
+    [Documentation]           Check user not allowed to create duplicate account with same ECR ID
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
@@ -31,7 +31,6 @@ Check New Account Creation
     UseModal     On
     HoverText    ECR-102004186
     ClickText    Cancel and close    anchor=Requires Welcome Email
-    ClickText    Cancel    anchor=Save & New
     Log          Duplicate account trigger is working as expected
     
 
