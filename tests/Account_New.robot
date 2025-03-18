@@ -30,12 +30,12 @@ Check New Account Creation
     SwipeDown    1
     ClickText    Save    partial_match=False
     UseModal     Off
-#    ClickItem    search-button
-    TypeText     Search...    Robot account\n
-    Sleep        4s
-    ClickText    Robot Account
-    Sleep        4s
-    VerifyText   Robot Account            
+#ClickItem    search-button
+    LaunchApp                 Accounts
+    TypeText    Search this list...    Robot account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    ClickText   Robot Account
+    VerifyText  Robot Account
+    Log         New Account successfully created  
 
     
 
