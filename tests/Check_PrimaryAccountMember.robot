@@ -14,13 +14,17 @@ Check New Account Creation
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
-        
-    ClickText    New
-    TypeText     Enter Keyword To Search For An Organisation...    Robot account
-    ClickText    Search    partial_match=False
+    
+
+    TypeText    Search this list...    rOBOT ACCOUNT\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+#    ClickText    Search    partial_match=False
+    ClickText   Robot Account
+    Sleep       2s
+    VerifyText  Robot Account
     
     ClickText    Related
     ClickText    Add Team Members
+    Sleep        2s
     UseModal     On
     ClickText    Edit User: Item    anchor=User ID
     ComboBox     Search People...    Sundar Ayyappan
@@ -33,3 +37,5 @@ Check New Account Creation
     ClickText    Details
     ClickText    Related
     ClickText    Sundar Ayyappan Team Member Record
+   
+    
