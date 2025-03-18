@@ -18,3 +18,18 @@ Check New Account Creation
     ClickText    New
     TypeText     Enter Keyword To Search For An Organisation...    Robot account
     ClickText    Search    partial_match=False
+    
+    ClickText    Related
+    ClickText    Add Team Members
+    UseModal     On
+    ClickText    Edit User: Item    anchor=User ID
+    ComboBox     Search People...    Sundar Ayyappan
+    ClickText    Edit Team Role: Item    anchor=--None--
+    PickList     Team Role    Publishing Relations Manager - Serial Content
+    ClickText    Edit Primary: Item    anchor=Delete item 1
+    ClickCheckbox    Publishing Relations Manager - Serial ContentEdit Team Role: Item 1 Edited    on    partial_match=False
+    ClickText    Save
+    UseModal     Off
+    ClickText    Details
+    ClickText    Related
+    ClickText    Sundar Ayyappan Team Member Record
