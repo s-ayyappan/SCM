@@ -19,7 +19,6 @@ Funding Body Validations
     VerifyText    New Robot Title        
     ${Sources}=      Set Variable   T-
     ClickElement     //a[contains(@title,'${Sources}')]
-    SwipeDown
 #edit the funding body id
     ClickText    Edit Funding Body ID
 #set the source to Funding Body id
@@ -52,3 +51,4 @@ Funding Body Validations
     TypeText     Funding Body ID    123456789101112\n
     ClickText    Save
     sleep        2s
+    RefreshPage
