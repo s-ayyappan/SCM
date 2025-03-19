@@ -10,7 +10,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check Primary Account Team Member
     [tags]                    Accounts
-    [Documentation]           Check the Primary Account Team Member logic
+    [Documentation]           Add a new Account Team Member as Account onwer
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
