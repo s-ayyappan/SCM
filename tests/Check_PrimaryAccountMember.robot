@@ -1,14 +1,14 @@
 *** Settings ***
 Library           QForce
 Library           QWeb
-Library           DataDriver    reader_class=TestDataApi    name=TestDATA.csv
+Library           QVision
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check New Account Creation
+Check Primary Account Team Member
     [tags]                    Accounts
     [Documentation]           Check the Primary Account Team Member logic
     Appstate                  Home
@@ -16,17 +16,17 @@ Check New Account Creation
     LaunchApp                 Accounts
     
 
-    TypeText    Search this list...    rOBOT ACCOUNT\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    TypeText    Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
 #    ClickText    Search    partial_match=False
     ClickText   Robot Account
     Sleep       2s
     VerifyText  Robot Account
-    
     ClickText    Related
     ClickText    Add Team Members
     Sleep        2s
     UseModal     On
-    ClickText    Edit User: Item    anchor=User ID
+ #   ClickText    Edit User: Item    anchor=User ID
+    ClickText	 Edit User: Item	recognition_mode=vision
     ComboBox     Search People...    Sundar Ayyappan
     ClickText    Edit Team Role: Item    anchor=--None--
     PickList     Team Role    Publishing Relations Manager - Serial Content
