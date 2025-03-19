@@ -25,17 +25,22 @@ Check Primary Account Team Member
     ClickText    Add Team Members
     Sleep        2s
     UseModal     On
- #   ClickText    Edit User: Item    anchor=User ID
-    ClickText	 Edit User: Item	recognition_mode=vision
+#add a new team member and mark him as primary
+    ClickText	 Edit User: Item	anchor=Team Role
     ComboBox     Search People...    Sundar Ayyappan
-    ClickText    Edit Team Role: Item    anchor=--None--
+    ClickText    Edit Team Role: Item    anchor=Team Role
     PickList     Team Role    Publishing Relations Manager - Serial Content
+    VerifyText    Primary
     ClickText    Edit Primary: Item    anchor=Delete item 1
-    ClickCheckbox    Publishing Relations Manager - Serial ContentEdit Team Role: Item 1 Edited    on    partial_match=False
+    HotKey        Space
     ClickText    Save
     UseModal     Off
     ClickText    Details
-    ClickText    Related
-    ClickText    Sundar Ayyappan Team Member Record
-   
+#verify the team member
+    VerifyField    Account Owner    Sundar Ayyappan    tag=a    partial_match=True
+    Log            New account owner added
+
+
+
+
     
