@@ -31,8 +31,8 @@ Check New Account Creation
     ClickText    Save    partial_match=False
     UseModal     Off
 #ClickItem    search-button
-    LaunchApp                 Accounts
-    TypeText    Search this list...    Robot account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    LaunchApp   Accounts
+    TypeText    Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText   Robot Account
     VerifyText  Robot Account
     Log         New Account successfully created  
