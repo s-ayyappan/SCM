@@ -18,5 +18,4 @@ Check Cases
 #open Serial Content cases
     
     ClickText    Select a List View: Cases
-    ClickText    Serial Content
-    TypeText    Search this list...    Robotics\n    anchor=Change Owner
+
