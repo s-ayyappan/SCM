@@ -12,8 +12,7 @@ Create New Source
     Sleep                     2s
     LaunchApp                 Sources
 
-#create a new source by clicking New
-              
+#create a new source by clicking New       
     ClickText                     New
     UseModal                      On
     ClickText                     Next
