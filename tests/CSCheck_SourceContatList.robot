@@ -23,7 +23,6 @@ Check Source Contact List
 
     ClickText                 Related
     SwipeDown
-    SwipeDown
     VerifyText                Source Contact links
   #  ClickText                 Source Contact links anchor=1 timeout=1
    # ClickElement      //*[@id\='\"tab-2\"']/slot[1]/flexipage-component2[2]/slot[1]/lst-related-list-container[1]/div[1]/div[7]/lst-related-list-single-container[1]/laf-progressive-container[1]/slot[1]/lst-related-list-single-app-builder-mapper[1]/article[1]/lst-related-list-view-manager[1]/lst-common-list-internal[1]/lst-list-view-manager-header[1]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]/a[1]
