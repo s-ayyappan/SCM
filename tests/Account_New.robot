@@ -29,15 +29,17 @@ Check New Account Creation
     TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
     ClickText    Save    partial_match=False
+    Sleep        2s
     UseModal     Off
 #ClickItem    search-button
     LaunchApp   Accounts
     TypeText    Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    Sleep       2s
     ClickText   Robot Account
     VerifyText  Robot Account
     Log         New Account successfully created  
 
-    
+
 
 
   
