@@ -29,6 +29,7 @@ Create New Source
     TypeText                      Funding Body ID    11223344
 #Save the source
     ClickText                     Save    partial_match=False
+    Sleep                         2s
     UseModal                      Off
     VerifyText                    New Robot Title
 
