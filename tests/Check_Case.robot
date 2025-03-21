@@ -16,6 +16,12 @@ Check Cases
     LaunchApp                 Cases
 
 #open Serial Content cases
-    
-    ClickText    Select a List View: Cases
-
+    TypeText     Search this list...    Robotics Testing Case\n    anchor=Change Owner
+    Sleep        1s
+    ClickText    Robotics Testing Case
+    VerifyText   Robotics Testing Case
+    VerifyText   User Responded
+    VerifyField  Case Owner    Change Owner    partial_match=True
+    VerifyField  Case Origin    Email    partial_match=True
+    ClickText    View Details
+    Log          Able to successfully open a existing case
