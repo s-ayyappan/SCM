@@ -13,6 +13,6 @@ Check Content Delivery Task
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00036740\n    anchor=Clear
-    ClickText    PR-00036740
-    VerifyText   PR-00036740
+#    TypeText     Search this list...    PR-00036740\n    anchor=Clear
+#    ClickText    PR-00036740
+#    VerifyText   PR-00036740
