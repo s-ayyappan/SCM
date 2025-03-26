@@ -10,7 +10,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check Cases
     [tags]                    Cases
-    [Documentation]           Cehck the Cases are able to open and view        
+    [Documentation]           Check the Cases are able to open and view        
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Cases
