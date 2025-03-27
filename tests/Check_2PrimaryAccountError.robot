@@ -10,7 +10,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check Two Primary Account Team Member error
     [tags]                    Accounts
-    [Documentation]           Add a new Account Team Member as Account onwer
+    [Documentation]           Add a second account member added as primary is not allowed
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
