@@ -35,7 +35,6 @@ Delete Contact and Case
     VerifyText    Cases
     ClickText    New
     UseModal    On
-    #ClickText    New     anchor=Change Owner
     ClickText    Next    anchor=Cancel
     ComboBox     Search Contacts...    Robotics contact
     ComboBox     Search Accounts...    Aalborg University
@@ -62,3 +61,4 @@ Delete Contact and Case
     ClickText    Delete
     Sleep        1s
     VerifyText   Nothing to see here
+#wait until the UAT deployment of sCMS1019 ticket
