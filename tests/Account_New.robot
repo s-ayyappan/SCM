@@ -1,11 +1,10 @@
-# NOTE: readme.txt contains important information you need to take into account
-# before running this suite.
-
 *** Settings ***
-Library    QForce
-Resource                      ../resources/common.robot
-Suite Setup                   Setup Browser
-Suite Teardown                End suite
+Library           QForce
+Library           QWeb
+Library           DataDriver    reader_class=TestDataApi    name=TestDATA.csv
+Resource          ../resources/common.robot
+Suite Setup       Setup Browser
+Suite Teardown    End suite
 
 
 *** Test Cases ***
@@ -22,14 +21,22 @@ Check New Account Creation
     UseModal     On
     TypeText     *Account Name    Robot Account
     TypeText     Publisher Display Name    Robot Account
+#input the Country and City 
+    TypeText    ECH Country                United Kingdom
+    TypeText    ECH City                   Oxford    
+#input the billing address         
     ComboBox     Search Address    Oxford
-    TypeText     Billing Zip/Postal Code    ox41gb
+    TypeText     Billing Zip/Postal Code    ox4 2wb
     SwipeDown    1
     ClickText    Save    partial_match=False
+    Sleep        2s
     UseModal     Off
-    VerifyText   Success notification.\nAccount "Robot Account" was created.
-    VerifyText   Account\nRobot Account
-    Sleep                     1s
-    VerifyField  Account Name    Robot Account    partial_match=True
-    Sleep        1s
+#Check the successfull creation of account 
+    VerifyText    Robot Account             anchor=Account
+    VerifyField   Account Name    Robot Account    partial_match=True
+    VerifyField   Publisher Display Name    Robot Account    partial_match=True
+    Log           New Account successfully created  
 
+
+
+  
