@@ -14,13 +14,12 @@ Check Primary Account Team Member
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
-    
 
+#ClickText    Search    partial_match=False
     TypeText    Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
-#    ClickText    Search    partial_match=False
-    ClickText   Robot Account
-    Sleep       2s
-    VerifyText  Robot Account
+    ClickText    Robot Account
+    Sleep        2s
+    VerifyText   Robot Account
     ClickText    Related
     ClickText    Add Team Members
     Sleep        2s
@@ -30,15 +29,15 @@ Check Primary Account Team Member
     ComboBox     Search People...    Sundar Ayyappan
     ClickText    Edit Team Role: Item    anchor=Team Role
     PickList     Team Role    Publishing Relations Manager - Serial Content
-    VerifyText    Primary
+    VerifyText   Primary
     ClickText    Edit Primary: Item    anchor=Delete item 1
-    HotKey        Space
+    HotKey       Space
     ClickText    Save
     UseModal     Off
     ClickText    Details
 #verify the team member
-    VerifyField    Account Owner    Sundar Ayyappan    tag=a    partial_match=True
-    Log            New account owner added
+    VerifyField  Account Owner    Sundar Ayyappan    tag=a    partial_match=True
+    Log          New account owner added
 
 
 
