@@ -15,8 +15,6 @@ Delete Contact and Case
     Sleep                     1s
     LaunchApp                 Contacts
 #create a new contact for robotics testing
-
-
     ClickText    New
     UseModal     On
     PickList     Salutation    Mr.
@@ -32,9 +30,9 @@ Delete Contact and Case
 
 #create new case 
     LaunchApp    Cases
-    VerifyText    Cases
+    VerifyText   Cases
     ClickText    New
-    UseModal    On
+    UseModal     On
     ClickText    Next    anchor=Cancel
     ComboBox     Search Contacts...    Robotics contact
     ComboBox     Search Accounts...    Aalborg University
@@ -42,15 +40,6 @@ Delete Contact and Case
     ClickText    Save    partial_match=False
     UseModal     Off
     VerifyField  Contact Name    Robotics contact    tag=a    partial_match=True
-
-#delete the case
-
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    TypeText     Search this list...    robotics contact\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
-    VerifyText   Nothing to see here
 
 #delete the contact    
     LaunchApp    Contacts
@@ -61,4 +50,24 @@ Delete Contact and Case
     ClickText    Delete
     Sleep        1s
     VerifyText   Nothing to see here
-#wait until the UAT deployment of sCMS1019 ticket
+
+
+
+#delete the case
+    ClickText    Delete
+    UseModal     On
+    ClickText    Delete
+    UseModal     Off
+    TypeText     Search this list...    robotics contact\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
+    VerifyText   Nothing to see here
+
+#chech the case does not have deleted contact reference
+    LaunchApp    Cases
+    ClickItem    search-button
+    VerifyText   00001694
+    TypeText     Search...    00001694\n
+    ClickText    Case Number
+    VerifyText   00001694
+    ClickText    00001694    anchor=Case Number
+    VerifyField  Contact Name    ${EMPTY}
+    Log          Case does not have deleted contact reference      
