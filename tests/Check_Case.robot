@@ -23,5 +23,7 @@ Check Cases
     VerifyText   User Responded
     VerifyField  Case Owner    Change Owner    partial_match=True
     VerifyField  Case Origin    Email    partial_match=True
-    ClickText    View Details
+    VerifyField  Priority    Medium    partial_match=True
+    ClickText    Details
+    ClickText    Related
     Log          Able to successfully open a existing case
