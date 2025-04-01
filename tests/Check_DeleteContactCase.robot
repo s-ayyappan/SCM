@@ -47,8 +47,9 @@ Delete Contact and Case
     ClickText    Robotics contact     
     UseModal     On
     ClickText    Delete
-    ClickText    Delete
     Sleep        1s
+    ClickText    Delete
+    Sleep        2s
     VerifyText   Nothing to see here
 
 #delete the contact
