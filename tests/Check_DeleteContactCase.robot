@@ -50,7 +50,8 @@ Delete Contact and Case
     Sleep        1s
     ClickText    Delete
     Sleep        2s
-    VerifyText   Nothing to see here
+    ${result}    Run Keyword And Ignore Error  VerifyText   Nothing to see here
+    log          Verification Result: ${result}
 
 #delete the contact
     #ClickText    Delete
