@@ -53,14 +53,6 @@ Delete Contact and Case
     ${result}    Run Keyword And Ignore Error  VerifyText   Nothing to see here
     log          Verification Result: ${result}
 
-#delete the contact
-    #ClickText    Delete
-    #UseModal     On
-    #ClickText    Delete
-    #UseModal     Off
-    #TypeText     Search this list...    robotics contact\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
-    #VerifyText   Nothing to see here
-
 #chech the case does not have deleted contact reference
     LaunchApp    Cases
     ClickItem    search-button
