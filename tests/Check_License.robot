@@ -2,6 +2,7 @@
 # before running this suite.
 
 *** Settings ***
+Library    QWeb
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -13,17 +14,14 @@ Check License tab
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Licenses
-
     ClickText    Select a List View: Licenses
-    ClickText    All
+    ClickText    Recently Viewed (Pinned list)
+    TypeText    Search this list...    L-000046\n    anchor=License Template
+    HoverText    L-000046
+    VerifyText    World Scientific Publishing Co Pte Ltd
     ClickText    L-000046
-    ClickText    Licenses
-    TypeText     Search this list...    L-000046\n    anchor=Account, Effective Date, License Template, and Version aren't searchable. Use filters or sort on these fields instead.
-    Sleep        2s
-    ClickText    L-000046
-    VerifyText   L-000046
     Sleep        1s
-    #navigate to the tabs
+#navigate to the tabs
     ClickText    Related
     Sleep        1s
     ClickText    Source Link Management
