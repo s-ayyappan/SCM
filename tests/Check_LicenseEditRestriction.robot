@@ -16,7 +16,7 @@ Check License Template Edit Restrictions
 #navigate to a license
     ClickText    Select a List View: Licenses
     ClickText    All
-    HoverText    L-010698
+#    HoverText    L-010698
     TypeText     Search this list...    Elsevier b.v\n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
     VerifyText   BioOne
     ClickText    L-009111
