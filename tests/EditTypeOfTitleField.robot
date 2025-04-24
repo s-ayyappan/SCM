@@ -11,6 +11,7 @@ Edit type of Title
     Sleep                     2s
     LaunchApp                 Sources
 
+#scms-1027 ticket functionality
 #logged in as SF admin
 #search the source
     TypeText                  Search this list...    Copado title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
