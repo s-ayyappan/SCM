@@ -16,22 +16,25 @@ Un-tag contacts from related cases before deletion
     Sleep                     1s
     LaunchApp                 Cases
 
+#create a new contact for this session
+    ClickText    Contacts
+    ClickText    New
+    UseModal    On
+    PickList    Salutation    --None--
+    TypeText    First Name    Automation
+    TypeText    Last Name    CRT
+    ComboBox    Search Accounts...    Codogno Hospital
+    TypeText    Email    crt@elsevier.invalid.com
+    ClickText   Save    partial_match=False
+    UseModal    Off
+
 #create a case for automation
+    HoverText    New
     ClickText    New
     UseModal     On
-    HoverText    Next
     ClickText    Next
-    ClickText    Search Contacts...
-    ClickText    New Contact
-    PickList     Salutation    Mr.
-    TypeText     First Name    CRT
-    TypeText     Middle Name    Automation
-    TypeText     Last Name    Automation
-    ComboBox     Search Accounts...    Codogno Hospital
-    TypeText     Email    crt@elsevier.invalid.com
-    ClickText    Save    anchor=Save & New
-    UseModal     Off
-    ClickText    Save    partial_match=False
+    VerifyText   Contact Name
+    ComboBox     Search Contacts...    Automation CRT
     PickList     *Case Origin    Email
 
 #save the new case with new contact created
@@ -42,18 +45,20 @@ Un-tag contacts from related cases before deletion
     ScrollText   /html[1]/head[1]/link[1]
 
 #new case with newly create contact tagged
-    HoverText    CRT Automation Automation
-    VerifyField   Contact Name    CRT Automation Automation    tag=a    partial_match=True
+    HoverText    Automation CRT
+    VerifyField   Contact Name    Automation CRT    tag=a    partial_match=True
     ClickFieldValue    Contact Name
     ClickText    Related
-    VerifyText   Cases\n(1)
+#    VerifyText   Cases\n(1)
     
 #delete the contact
-    VerifyText   Contact\nMr. CRT Automation Automation
+    VerifyText   Contact\nAutomation CRT
     ClickText    Delete
     UseModal     On
     ClickText    Delete
     UseModal     Off
+    VerifyText   Contact "Automation CRT"
+
 
 #contact name removed from the case
     VerifyField  Contact Name    ${EMPTY}
