@@ -28,7 +28,7 @@ Check New Version of License create PR with Type of Title from Existing PR
     HoverText    L-010380
     ClickText    L-010380
     ClickText    Create new Version
-   # VerifyText   Success notification.\nSuccess\nRecords created
+#VerifyText   Success notification.\nSuccess\nRecords created
     ClickText    L-010380
     RefreshPage
     Sleep        2s
