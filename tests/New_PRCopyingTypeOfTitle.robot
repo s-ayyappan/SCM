@@ -18,11 +18,11 @@ Check New Version of License create PR with Type of Title from Existing PR
     ClickText    All
     TypeText     Search this list...    L-010380\n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
       
-    VerifyText    Permission Holder Ruben Test
+    VerifyText   Permission Holder Ruben Test
     ClickText    L-010380
-    HoverText    Open Permission Requests (1) Preview
-    HoverText    Permission Requests (1)
-    ClickText    Permission Requests (1)
+#    HoverText    Open Permission Requests (1) Preview
+#    HoverText    Permission Requests (1)
+    ClickText    Permission Requests    anchor=Barting and Pricing Line Items
     ClickText    PR-00024512
     VerifyField  Type of Title    Funding Org Opportunity    partial_match=True
     HoverText    L-010380
