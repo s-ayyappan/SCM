@@ -13,9 +13,9 @@ Check Permission Requests
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00000130\n    anchor=Clear
-    ClickText    PR-00000130
-    VerifyText   PR-00000130
+    TypeText     Search this list...    PR-00024535\n    anchor=Clear
+    ClickText    PR-00024535
+    VerifyText   PR-00024535
     ClickText    Related
     ClickText    Details
     
