@@ -58,8 +58,9 @@ Check New Version of License create PR with Type of Title from Existing PR
     
     ${tt}=       Set Variable
     UseTable     Item Number                 
-    ${name}=     GetCellText   Type of Title         
-    Log To Console                    message= name
+    ${name}=     GetFieldValue        Type of Title        
+    Log  ${name}
+
 
 #//*[@id="window"]/span/slot/span/slot/span
 #/html/body/div[4]/div[1]/section/div[1]/div[2]/div[2]/div[1]/div/div/div/div[2]/div/div/one-record-home-flexipage2/forcegenerated-flexipage_license_license__c__view_js___lmt___1730980266000/record_flexipage-desktop-record-page-decorator/div[1]/records-record-layout-event-broker/slot/slot/flexipage-record-home-template-desktop2/div/div[2]/div[1]/slot/flexipage-component2[2]/slot/flexipage-tabset2/div/lightning-tabset/div/slot/slot/flexipage-tab2[2]/slot/flexipage-component2/slot/lst-related-list-container/div/div[1]/lst-related-list-single-container/laf-progressive-container/slot/lst-related-list-single-app-builder-mapper/article/lst-related-list-view-manager/lst-common-list-internal/div/div/lst-primary-display-manager/div/lst-primary-display/lst-primary-display-grid/lightning-datatable/div[2]/div/div/table/tbody/tr[2]/th/lightning-primitive-cell-factory/span/div/lightning-primitive-custom-cell/lst-output-lookup/force-lookup/div/records-hoverable-link/div/a/span/slot/span/slot/span
