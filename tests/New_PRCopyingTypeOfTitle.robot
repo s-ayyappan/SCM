@@ -56,10 +56,10 @@ Check New Version of License create PR with Type of Title from Existing PR
     HotKey       Tab
     HotKey       Enter
     
-    ${tt}=       Set Variable
-    UseTable     Item Number                 
-    ${name}=     GetFieldValue        Type of Title        
-    Log  ${name}
+  
+ 
+#    ${name}=     GetFieldValue        Type of Title        
+#    Log  ${name}
 
 
 #//*[@id="window"]/span/slot/span/slot/span
