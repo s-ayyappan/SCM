@@ -2,6 +2,7 @@
 Library           QForce
 Library           QWeb
 Library           QVision
+Library           String
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
@@ -18,9 +19,8 @@ Un-tag contacts from related cases before deletion
     LaunchApp                 Cases
 
 #create a new contact for this session
-    ${ed}=       Set Variable     error dialog
-    ClickText    Contacts
-    ClickText    New
+    ClickText   Contacts
+    ClickText   New
     UseModal    On
     PickList    Salutation    --None--
     TypeText    First Name    Automation
@@ -28,10 +28,19 @@ Un-tag contacts from related cases before deletion
     ComboBox    Search Accounts...    Codogno Hospital
     TypeText    Email    crt@elsevier.invalid.com
     ClickText   Save    partial_match=False
+    ${ed}=      IsText    Similar Record Exist   
+   
+    Run Keyword If    ${ed}    Existing Contact
+...ELSE    Create New Contact
+    
+                       
+*** Keywords ***
+Existing Contact
+     ClickText    Cancel
 
-    ${ed} = Run Keyword And Return Status Page Should Contain error dialog
-    Run Keyword If  ${ed}   ClickText    Cancel    partial_match=False  level=INFO
-    Run Keyword Unless  ${ed}   ClickText   Save    partial_match=Fals  level=INFO
+Create New Contact
+    ClickText    Save
+   
 
 #     ${status} =   Run Keyword And Return Status  Page Should Contain  Nothing to see here
 #    Run Keyword If  ${status}  Log  "Login successful"  level=INFO
