@@ -31,7 +31,7 @@ Un-tag contacts from related cases before deletion
     ${ed}=      IsText    Similar Record Exist   
    
     Run Keyword If    ${ed}    Existing Contact
-...ELSE    Create New Contact
+...ELSE           Create New Contact
     
                        
 *** Keywords ***
