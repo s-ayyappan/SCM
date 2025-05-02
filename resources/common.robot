@@ -101,3 +101,10 @@ DeleteLeads
     VerifyNoText          Undo
     ClickText             Leads                    partial_match=False
 
+Delete PR
+    HoverText    Fields
+    ClickText    Delete
+    UseModal     On
+    ClickText    Delete
+    UseModal     Off
+    ClickText    L-010380
