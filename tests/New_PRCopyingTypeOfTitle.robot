@@ -40,11 +40,21 @@ Check New Version of License create PR with Type of Title from Existing PR
     ${sametype}=       IsText         Funding Org Opportunity       
 
 #apply logic to check type of title is same
+    Run Keyword If     ${sametype}    Delete PR
     Run Keyword Unless  ${sametype}   Not match
     
 *** Keywords ***
 Not match
-    Log    Type of tile not copying correctly         
+    Log    Type of tile not copying correctly
+
+Delete PR
+    HoverText    Fields
+    ClickText    Delete
+    UseModal     On
+    ClickText    Delete
+    UseModal     Off
+    ClickText    L-010380
+
 
 
    
