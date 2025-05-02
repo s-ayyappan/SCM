@@ -101,7 +101,7 @@ DeleteLeads
     VerifyNoText          Undo
     ClickText             Leads                    partial_match=False
 
-Delete PR
+DeletePR
     HoverText    Fields
     ClickText    Delete
     UseModal     On
