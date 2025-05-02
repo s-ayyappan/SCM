@@ -34,26 +34,16 @@ Check New Version of License create PR with Type of Title from Existing PR
     ClickText    Permission Requests        anchor=Barting and Pricing Line Items
     ClickCheckbox    Select Item 2    on    partial_match=False
     HotKey       Tab
+    Sleep        2s
     HotKey       Enter
-
+    
     VerifyField    Type of Title    Funding Org Opportunity  
     ${sametype}=       IsText         Funding Org Opportunity       
 
 #apply logic to check type of title is same
-    Run Keyword If     ${sametype}    Delete PR
-    Run Keyword Unless  ${sametype}   Not match
-    
-*** Keywords ***
-Not match
-    Log    Type of tile not copying correctly
+    Run Keyword If     ${sametype}    DeletePR
 
-Delete PR
-    HoverText    Fields
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    ClickText    L-010380
+
 
 
 
