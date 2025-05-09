@@ -9,6 +9,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check License Template Edit Restrictions
     [tags]                    Licenses
+    [Documentation]           No one should be able to update license template on license SCMS-1028
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Licenses
