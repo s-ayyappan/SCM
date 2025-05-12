@@ -2,11 +2,24 @@
 Library           QForce
 Library           QWeb
 Library           QVision
+Library           CopadoAI 
 Library           String
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
+*** Keywords ***
+Existing Contact
+     ClickText    Cancel
+
+Create New Contact
+    ClickText    Save
+
+Handle Similar Record
+    ${is_duplicate}=    IsText    Similar Records Exist
+    Return from Keyword If Not ${is_duplicate} ${FALSE}
+    ClickText           Cancel    partial_match=False
+    Return From Keyword ${TRUE}
 
 
 *** Test Cases ***
@@ -28,18 +41,17 @@ Un-tag contacts from related cases before deletion
     ComboBox    Search Accounts...    Codogno Hospital
     TypeText    Email    crt@elsevier.invalid.com
     ClickText   Save    partial_match=False
-    ${ed}=      IsText    Similar Record Exist   
+
+    ${handledialog}=        Handle Similar Record
+    UseModal            Off
+   # VerifyText    Similar Records Exist
+   # ${ed}=      IsText    Similar Record Exist   
    
-    Run Keyword If    ${ed}    Existing Contact
-...ELSE           Create New Contact
+ #   Run Keyword If    ${ed}    Existing Contact
+#...ELSE           Create New Contact
     
                        
-*** Keywords ***
-Existing Contact
-     ClickText    Cancel
 
-Create New Contact
-    ClickText    Save
    
 
 #     ${status} =   Run Keyword And Return Status  Page Should Contain  Nothing to see here
@@ -63,10 +75,8 @@ Create New Contact
 #                 ClickText   Save    partial_match=False
 #                 UseModal    Off   
 
-VerifyText    Similar Records Exist
+    VerifyText    Similar Records Exist
     ClickText    Cancel    partial_match=False
-    
-
     UseModal    Off
 
 
@@ -112,5 +122,3 @@ VerifyText    Similar Records Exist
     UseModal     Off
     VerifyText   was deleted. Undo
     
-
-#clickelement  //*[text()\='${DelOpp}']/../..//div[3]//button[2]//span
