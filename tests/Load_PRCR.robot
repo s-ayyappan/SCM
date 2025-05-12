@@ -5,7 +5,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Check Permission Requests
+Check PRCR Loading
     [tags]                    Permission Request
     [Documentation]           Test to check PRCR under Permission Request is loading as normal
     Appstate                  Home
