@@ -10,15 +10,11 @@ Suite Teardown    End suite
 *** Keywords ***
 Handle Duplicate Warning
     [Documentation]    Handles the duplicate record warning dialog
-    ${status}=    Run Keyword And Return Status 
-    VerifyText    Similar Record Exist    timeout=5
+    ${duplicate_exists}=    IsText    Similar Records Exist    
 
-    Run Keyword If    ${status}    Click Save Anyway
-...ELSE    Log    No duplicate warning displayed
-
-Click Save Anyway
-    [Documentation]    Clicks the Save button on duplicate warning
-    ClickText         Cancel    timeout=5
+    IF    ${duplicate_exists}
+        ClickText    nCancel    timeout=5
+    END
 
 
 *** Test Cases ***
@@ -39,9 +35,7 @@ Un-tag contacts from related cases before deletion
     TypeText    Last Name    CRT
     ComboBox    Search Accounts...    Codogno Hospital
     TypeText    Email    crt@elsevier.invalid.com
-    ClickText   Save    partial_match=False
-
-    # Click Save and handle duplicate warning
+    ClickText         Save
     Handle Duplicate Warning
 
 
