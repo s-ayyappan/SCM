@@ -9,11 +9,12 @@ Suite Teardown    End suite
 
 *** Keywords ***
 Handle Duplicate Warning
+
     [Documentation]    Handles the duplicate record warning dialog
     ${duplicate_exists}=    IsText    Similar Records Exist    
 
-    IF    ${duplicate_exists}
-        ClickText    nCancel    timeout=5
+    IF  ${duplicate_exists}
+        ClickText    Cancel    timeout=5
     END
 
 
@@ -36,51 +37,13 @@ Un-tag contacts from related cases before deletion
     ComboBox    Search Accounts...    Codogno Hospital
     TypeText    Email    crt@elsevier.invalid.com
     ClickText         Save
-    Handle Duplicate Warning
+    ${duplicate_exists}=    IsText    Similar Records Exist
+    Log  - Name:${duplicate_exists}
 
-
-
-
-    
-
-
-
- #   ${has_duplicate}=    Run Keyword And Return    Check For Duplicate Warning
- #   Run Keyword If    ${has_duplicate}    Handle Duplicate Dialog
-   # VerifyText    Similar Records Exist
-   # ${ed}=      IsText    Similar Record Exist   
-   
- #   Run Keyword If    ${ed}    Existing Contact
-#...ELSE           Create New Contact
-    
-                       
-
-   
-
-#     ${status} =   Run Keyword And Return Status  Page Should Contain  Nothing to see here
-#    Run Keyword If  ${status}  Log  "Login successful"  level=INFO
-#    Run Keyword Unless  ${status}  Log  "Nothing to see here"  level=ERROR
-#    ClickText    Show more actions
-
-
-
-#    VerifyText    Email\n\nFax\n\nDepartment\n\nHome Phone\n\nReports To\n\nOther Phone\n\nLeft Employment?\n\nDescription\n\nContact Role\n\n--None--\nDo Not Call\n\nInactive\n\n\nError\nCancel\nSave & New\nSave\n\nClose error dialog\nSimilar Records Exist\nThis record looks like an existing record. Make sure to check any potential duplicate records before saving.\nView Duplicates
-#    ClickText    Close error dialog
-#    VerifyText          'Similar Records Exist' visible= False
-#    GetText             error dialog
-#    Log                 ${text}          
-
-#    ${Errormsg}   QForce.Get Text      error dialog
-    
-#        Run Keyword If ${Errormsg} == 'Similar Records Exist' 
-#                ClickText    Cancel    partial_match=False
-#            Else             
-#                 ClickText   Save    partial_match=False
-#                 UseModal    Off   
-
-    VerifyText    Similar Records Exist
-    ClickText    Cancel    partial_match=False
-    UseModal    Off
+    IF  ${duplicate_exists}
+        ClickText    Cancel    timeout=5
+    END
+    #Handle Duplicate Warning
 
 
 #create a case for automation
