@@ -2,24 +2,23 @@
 Library           QForce
 Library           QWeb
 Library           QVision
-Library           CopadoAI 
 Library           String
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
 *** Keywords ***
-Existing Contact
-     ClickText    Cancel
+Handle Duplicate Warning
+    [Documentation]    Handles the duplicate record warning dialog
+    ${status}=    Run Keyword And Return Status 
+    VerifyText    Similar Record Exist    timeout=5
 
-Create New Contact
-    ClickText    Save
+    Run Keyword If    ${status}    Click Save Anyway
+...ELSE    Log    No duplicate warning displayed
 
-Handle Similar Record
-    ${is_duplicate}=    IsText    Similar Records Exist
-    Return from Keyword If Not ${is_duplicate} ${FALSE}
-    ClickText           Cancel    partial_match=False
-    Return From Keyword ${TRUE}
+Click Save Anyway
+    [Documentation]    Clicks the Save button on duplicate warning
+    ClickText         Cancel    timeout=5
 
 
 *** Test Cases ***
@@ -42,8 +41,18 @@ Un-tag contacts from related cases before deletion
     TypeText    Email    crt@elsevier.invalid.com
     ClickText   Save    partial_match=False
 
-    ${handledialog}=        Handle Similar Record
-    UseModal            Off
+    # Click Save and handle duplicate warning
+    Handle Duplicate Warning
+
+
+
+
+    
+
+
+
+ #   ${has_duplicate}=    Run Keyword And Return    Check For Duplicate Warning
+ #   Run Keyword If    ${has_duplicate}    Handle Duplicate Dialog
    # VerifyText    Similar Records Exist
    # ${ed}=      IsText    Similar Record Exist   
    
@@ -122,3 +131,27 @@ Un-tag contacts from related cases before deletion
     UseModal     Off
     VerifyText   was deleted. Undo
     
+
+*** Keywords ***
+Existing Contact
+     ClickText    Cancel
+
+Create New Contact
+    ClickText    Save
+
+Handle Similar Record
+    ${is_duplicate}=    IsText    Similar Records Exist
+    Return from Keyword If Not ${is_duplicate} ${FALSE}
+    ClickText           Cancel    partial_match=False
+    Return From Keyword ${TRUE}
+
+Check For Duplicate Warning
+    [Documentation]    Checks if duplicate warning appears and returns True/False
+    ${status}=    Run Keyword And Return Status    VerifyText    We found duplicate records.    timeout=5
+    [Return]    ${status}
+
+Handle Duplicate Dialog
+    [Documentation]    Handles the duplicate record warning dialog
+    VerifyText     We found duplicate records.
+    VerifyText     Save Anyway
+    ClickText      Save Anyway    timeout=5
