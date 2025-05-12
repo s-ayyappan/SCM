@@ -7,17 +7,6 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
-*** Keywords ***
-Handle Duplicate Warning
-
-    [Documentation]    Handles the duplicate record warning dialog
-    ${duplicate_exists}=    IsText    Similar Records Exist    
-
-    IF  ${duplicate_exists}
-        ClickText    Cancel    timeout=5
-    END
-
-
 *** Test Cases ***
 Un-tag contacts from related cases before deletion
 #scms-911 ticket functionality
@@ -25,7 +14,7 @@ Un-tag contacts from related cases before deletion
     [Documentation]           Un-tag Contacts from related cases before deletion     
     Appstate                  Home
     Sleep                     1s
-    LaunchApp                 Cases
+    LaunchApp                 Contacts
 
 #create a new contact for this session
     ClickText   Contacts
@@ -37,16 +26,18 @@ Un-tag contacts from related cases before deletion
     ComboBox    Search Accounts...    Codogno Hospital
     TypeText    Email    crt@elsevier.invalid.com
     ClickText         Save
-    ${duplicate_exists}=    IsText    Similar Records Exist
-    Log  - Name:${duplicate_exists}
-
-    IF  ${duplicate_exists}
-        ClickText    Cancel    timeout=5
+#check whether duplicate or similar contact already exists
+    ${duplicate_exists}=    Set Variable    Similar Records Exist
+    IF    '${duplicate_exists}' == 'Similar Records Exist'
+        Log    >>> Duplicates were found
+        ClickText    Cancel    partial_match=False
+    ELSE
+        Log    >>> No duplicates found
+        ClickText    Save    partial_match=False
     END
-    #Handle Duplicate Warning
-
 
 #create a case for automation
+    LaunchApp    Cases
     HoverText    New
     ClickText    New
     UseModal     On
@@ -58,19 +49,16 @@ Un-tag contacts from related cases before deletion
 #save the new case with new contact created
     ClickText    Save    partial_match=False
     ClickText    Related
-    ScrollText   Recent Items
     ClickText    Details
-    ScrollText   /html[1]/head[1]/link[1]
 
 #new case with newly create contact tagged
     HoverText    Automation CRT
     VerifyField   Contact Name    Automation CRT    tag=a    partial_match=True
     ClickFieldValue    Contact Name
     ClickText    Related
-#    VerifyText   Cases\n(1)
     
 #delete the contact
-    VerifyText   Contact\nAutomation CRT
+    VerifyText   Automation CRT
     ClickText    Delete
     UseModal     On
     ClickText    Delete
@@ -87,28 +75,3 @@ Un-tag contacts from related cases before deletion
     ClickText    Delete
     UseModal     Off
     VerifyText   was deleted. Undo
-    
-
-*** Keywords ***
-Existing Contact
-     ClickText    Cancel
-
-Create New Contact
-    ClickText    Save
-
-Handle Similar Record
-    ${is_duplicate}=    IsText    Similar Records Exist
-    Return from Keyword If Not ${is_duplicate} ${FALSE}
-    ClickText           Cancel    partial_match=False
-    Return From Keyword ${TRUE}
-
-Check For Duplicate Warning
-    [Documentation]    Checks if duplicate warning appears and returns True/False
-    ${status}=    Run Keyword And Return Status    VerifyText    We found duplicate records.    timeout=5
-    [Return]    ${status}
-
-Handle Duplicate Dialog
-    [Documentation]    Handles the duplicate record warning dialog
-    VerifyText     We found duplicate records.
-    VerifyText     Save Anyway
-    ClickText      Save Anyway    timeout=5
