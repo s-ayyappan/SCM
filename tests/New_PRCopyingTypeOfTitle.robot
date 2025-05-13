@@ -32,10 +32,11 @@ Check New Version of License create PR with Type of Title from Existing PR
     RefreshPage
     Sleep        2s
     ClickText    Permission Requests        anchor=Barting and Pricing Line Items
+    VerifyText    New
     ClickCheckbox    Select Item 2    on    partial_match=False
     HotKey       Tab
-    Sleep        2s
-    HotKey       Enter
+    ClickText    PR                   anchor=Select Item 2
+
     
     VerifyField    Type of Title    Funding Org Opportunity  
     ${sametype}=       IsText         Funding Org Opportunity       
