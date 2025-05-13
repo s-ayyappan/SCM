@@ -8,15 +8,6 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
-
-*** Keywords ***
-Delete Funding Opportunity
-    ClickText    Delete
-    UseModal    On
-    ClickText    Delete
-    UseModal    Off
-
-
 *** Test Cases ***
 Check New Version of License create PR with Type of Title from Existing PR
     [tags]                    Licenses
