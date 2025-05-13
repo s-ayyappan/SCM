@@ -50,28 +50,16 @@ Check New Version of License create PR with Type of Title from Existing PR
 #verify the Type of Title value    
     VerifyField    Type of Title    Funding Org Opportunity  
     ${sametype}=       GetFieldValue        Type of Title
-    Run Keyword If    '${sametype}' == 'Funding Org Opportunity'         
-    ... Run Keywords
-    ... ClickText    Delete    AND
-    ... UseModal    On    AND
-    ... ClickText    Delete    AND
-    ... UseModal    Off
+    IF  '${sametype}' == 'Funding Org Opportunity'
+        ClickText    Delete
+        UseModal    On  
+        ClickText    Delete
+        UseModal    Off
     ELSE
         Log    Type of Title not equal
-
-
-
-
-
-
-
-    ${sametype}=       GetFieldValue        Type of Title
- #   Should Be Equal   ${sametype}    Funding Org Opportunity     
-    IF  '${sametype}'  ==  'Funding Org Opportunity'
-        Delete PR
-    ELSE
-        Log  'Type of Title not equal' 
     END
+
+
 
 
 
