@@ -1,10 +1,20 @@
 *** Settings ***
 Library           QForce
+Library           QString
 Library           QWeb
 Library           QVision
+Library           OperatingSystem 
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
+
+
+*** Keywords ***
+Delete Funding Opportunity
+    ClickText    Delete
+    UseModal    On
+    ClickText    Delete
+    UseModal    Off
 
 
 *** Test Cases ***
@@ -37,12 +47,32 @@ Check New Version of License create PR with Type of Title from Existing PR
     HotKey       Tab
     ClickText    PR                   anchor=Select Item 2
 
-    
+#verify the Type of Title value    
     VerifyField    Type of Title    Funding Org Opportunity  
-    ${sametype}=       IsText         Funding Org Opportunity       
+    ${sametype}=       GetFieldValue        Type of Title
+    Run Keyword If    '${sametype}' == 'Funding Org Opportunity'         
+    ... Run Keywords
+    ... ClickText    Delete    AND
+    ... UseModal    On    AND
+    ... ClickText    Delete    AND
+    ... UseModal    Off
+    ELSE
+        Log    Type of Title not equal
 
-#apply logic to check type of title is same
-    Run Keyword If     ${sametype}    DeletePR
+
+
+
+
+
+
+    ${sametype}=       GetFieldValue        Type of Title
+ #   Should Be Equal   ${sametype}    Funding Org Opportunity     
+    IF  '${sametype}'  ==  'Funding Org Opportunity'
+        Delete PR
+    ELSE
+        Log  'Type of Title not equal' 
+    END
+
 
 
 
