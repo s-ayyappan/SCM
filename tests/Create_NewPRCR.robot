@@ -24,9 +24,6 @@ Create New PRCR
     ClickText    Permission Request Contact Roles
     ClickText    New
     UseModal     On
-
-#    ComboBox    Search Permission Requests...    PR-00024512
-  #  ClickText    Clear Selection
     ComboBox     Search Accounts...    Aalborg University
     ComboBox     Search Contacts...    Julie Roy
     ClickText    Save    partial_match=False
