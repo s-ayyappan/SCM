@@ -19,22 +19,19 @@ Create New PRCR
     ClickText    PR-00024512
     VerifyText   PR-00024512
     ClickText    Related
+
 #Create new PRCR 
-
-
     ClickText    Permission Request Contact Roles
     ClickText    New
-    UseModal    On
-    
-    
+    UseModal     On
 
 #    ComboBox    Search Permission Requests...    PR-00024512
   #  ClickText    Clear Selection
-    ComboBox    Search Accounts...    Aalborg University
-    ComboBox    Search Contacts...    Julie Roy
+    ComboBox     Search Accounts...    Aalborg University
+    ComboBox     Search Contacts...    Julie Roy
     ClickText    Save    partial_match=False
-    UseModal    Off
-#    VerifyText    Permission Request Contact Role "PRCR-00016446" was created.
+    UseModal     Off
+
 #clean up the newly created PRCR
     RefreshPage
     ClickText    Permission Request Contact Roles
@@ -42,6 +39,6 @@ Create New PRCR
     ClickText    Show Actions    anchor=Ramadurga Muthuirlandy
     Sleep        2s
     ClickText    Delete
-    UseModal    On
+    UseModal     On
     ClickText    Delete
-    UseModal    Off
+    UseModal     Off
