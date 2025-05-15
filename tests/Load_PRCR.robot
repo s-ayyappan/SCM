@@ -24,6 +24,7 @@ Check PRCR Loading
 
     ClickText    Permission Request Contact Roles
     ClickCheckbox    Select Item 5    on    partial_match=False
-    ClickText    PRCR-00016453
+    ClickText    PRCR                 anchor=Select Item 5
     Sleep        2s
+    VerifyText    Permission Request Contact Role
 
