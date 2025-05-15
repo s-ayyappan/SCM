@@ -28,6 +28,7 @@ Create New PRCR
     ComboBox     Search Contacts...    Julie Roy
     ClickText    Save    partial_match=False
     UseModal     Off
+    Sleep        2s
 
 #clean up the newly created PRCR
     RefreshPage
