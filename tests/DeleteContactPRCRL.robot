@@ -14,7 +14,6 @@ Delete Contact and linked PRCR
     Sleep                     2s
     LaunchApp                 Contacts
 
-
 #create a new contact for robotics testing
     ClickText    New
     UseModal     On
@@ -36,6 +35,10 @@ Delete Contact and linked PRCR
         ClickText    Save    partial_match=False
     END
     UseModal     Off
+    Sleep        2s
+#search the existing contact    
+    TypeText    Search this list...    Robotics PRCRcontact\n    anchor=Clear
+    ClickText    Robotics PRCRcontact
     VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
 
 #navigate to existing PR
@@ -58,13 +61,12 @@ Delete Contact and linked PRCR
     ComboBox     Search Contacts...    Robotics PRCRcontact
     ClickText    Save    partial_match=False
     UseModal     Off
+    Sleep        2s
 
 #capture the new PRCR details
     ClickCheckbox    Select Item 6    on    partial_match=False
     ClickText        PRCR             anchor=Select Item 6
     ${prcrValue}=    GetText            Permission Request Contact Role 
-      
-
 
 #delete the contact    
     LaunchApp    Contacts
@@ -91,8 +93,7 @@ Delete Contact and linked PRCR
     VerifyText   PR-00024512
     ClickText    Related
     ClickText    Permission Request Contact Roles
-    #ClickCheckbox    Select Item 6    on    partial_match=False
-    #ClickText        PRCR             anchor=Select Item 6
+
 # First verify that checkbox is not present using Is Text
     ${exists}=         Is Text          Select Item 6
 
