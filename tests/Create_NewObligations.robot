@@ -30,7 +30,7 @@ Create New Obligation in PR
     VerifyText    New                  
     ClickText     New    
     UseModal      On
-#    ComboBox      Search Rights and Permissions...    RP-010166
+    ComboBox      Search Rights and Permissions...    RP-010166
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
