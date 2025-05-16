@@ -16,10 +16,10 @@ Create New Obligation in PR
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00024512\n    anchor=Clear
+    TypeText     Search this list...    PR-00024530\n    anchor=Clear
     Sleep        2s
-    ClickText    PR-00024512
-    VerifyText   PR-00024512
+    ClickText    PR-00024530
+    VerifyText   PR-00024530
     ClickText    Related
     Sleep        2s
 
@@ -30,55 +30,38 @@ Create New Obligation in PR
     VerifyText    New                  
     ClickText     New    
     UseModal      On
-    ComboBox      Search Rights and Permissions...    RP-010166
+    ComboBox      Search Rights and Permissions...    RP-010181
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
     UseModal      Off
     Sleep        2s
-    ClickText    PR-00024512
+    ClickText    PR-00024530
     ClickText    Related
     
    
       
 #Navigate to the obligations thru the license->RP->obligations
-    ClickText    L-010380
-    ClickText    Rights and Permissions (1)
-    ClickText    RP-010166
+    ClickText    L-010395
+    ClickText    Rights and Permissions 
+    ClickText    RP-010181
     ClickText    Obligations                        
 
 #Select the last created obligations using hotkeys and delete
     VerifyText    New
 # First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 5    timeout=2
+    ${exists}=         Is Text          Select Item 1    timeout=2
     IF  ${exists}
-        ClickCheckbox    Select Item 5    on    partial_match=False
+        ClickCheckbox    Select Item 1    on    partial_match=False
         HotKey       Tab
-        ClickText    O                  anchor=Select Item 5
+        ClickText    O                  anchor=Select Item 1
     ELSE            
         Log  Checkbox not found, skipping this step
     END
 
-
-
-
-    ${exists}=         Is Text          Select Item 5    timeout=2
-    Run Keyword If     ${exists}        ClickCheckbox    Select Item 5    on    partial_match=False
-                #HotKey       Tab
-                ClickText    O                  anchor=Select Item 5
-            ELSE   
-                Log  Checkbox not found, skipping this step   
-                
-
-# Verify the checkbox does not exist (exists should be False)
-    Should Not Be True    ${exists}    msg=Checkbox 'Select Item 5' was not found
-    ClickCheckbox    Select Item 5    on    partial_match=False
-    HotKey       Tab
-    ClickText    O                  anchor=Select Item 5
-
-    Log                   PRCR successfully deleted
-
-    HotKey       Enter 
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
+#delete the created obligation
+    ClickText   Delete
+    UseModal    On
+    ClickText   Delete
+    UseModal    Off
+    VerifyText  was deleted. Undo
