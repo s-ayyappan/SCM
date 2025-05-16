@@ -8,7 +8,7 @@ Suite Teardown                End suite
 Create New PRCR
     [tags]                    Permission Request
     [Documentation]           Test to create PRCR under Permission Request 
-    Appstate                  Home
+    Appstate                  Home 
     Sleep                     2s
     LaunchApp                 Permission Requests
 
