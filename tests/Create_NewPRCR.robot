@@ -29,14 +29,25 @@ Create New PRCR
     ClickText    Save    partial_match=False
     UseModal     Off
     Sleep        2s
+    RefreshPage
 
 #clean up the newly created PRCR
     RefreshPage
     ClickText    Permission Request Contact Roles
-    ClickCheckbox    Select Item 6    on    partial_match=False
-    ClickText    Show Actions    anchor=Ramadurga Muthuirlandy
-    Sleep        2s
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
+# First verify that checkbox is not present using Is Text
+    ${exists}=         Is Text          Select Item 6    timeout=2
+    IF  ${exists}
+        ClickCheckbox    Select Item 6    on    partial_match=False
+        HotKey       Tab
+        ClickText    O                  anchor=Select Item 6
+        ClickCheckbox    Select Item 6   on    partial_match=False
+        ClickText    Show Actions    anchor=Ramadurga Muthuirlandy
+        Sleep        2s
+        ClickText    Delete
+        UseModal     On
+        ClickText    Delete
+        UseModal     Off
+    ELSE            
+        Log  Checkbox not found, skipping this step
+    END
+
