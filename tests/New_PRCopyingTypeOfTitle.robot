@@ -33,7 +33,7 @@ Check New Version of License create PR with Type of Title from Existing PR
     RefreshPage
     Sleep        2s
     ClickText    Permission Requests        anchor=Barting and Pricing Line Items
-    VerifyText    New
+    VerifyText   New
     ClickCheckbox    Select Item 2    on    partial_match=False
     HotKey       Tab
     ClickText    PR                   anchor=Select Item 2
