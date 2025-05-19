@@ -7,7 +7,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Delete Contact and linked PRCR
+Delete Contact and linked Source Link
     [tags]                    Permission Request
     [Documentation]           Test to check while deleting contact, then connected Source link is deleted
     Appstate                  Home
