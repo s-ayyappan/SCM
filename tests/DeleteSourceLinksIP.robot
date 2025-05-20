@@ -8,7 +8,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Delete Contact and linked Source Link
-    [tags]                    Permission Request
+    [tags]                    Permission Request, Contacts
     [Documentation]           Test to check while deleting contact, then connected Source link is deleted
     Appstate                  Home
     Sleep                     2s
