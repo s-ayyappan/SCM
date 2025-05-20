@@ -87,7 +87,7 @@ Delete Contact and linked PRCR
     LaunchApp    Permission Requests
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    TypeText    Search this list...    PR-00024512\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
+    TypeText     Search this list...    PR-00024512\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
     ClickText    PR-00024512
     VerifyText   PR-00024512
