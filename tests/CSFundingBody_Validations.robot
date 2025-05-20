@@ -7,7 +7,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Funding Body Validations
-    [tags]                    Sources   Funding body 
+    [tags]                    Sources,Funding body 
     [Documentation]           Validation for the funding body ID where it only accept the numeric inputs
     Appstate                  Home
     Sleep                     2s
