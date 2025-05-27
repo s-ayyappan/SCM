@@ -14,18 +14,18 @@ Create New PRCR
 
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    TypeText    Search this list...    PR-00024512\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
+    TypeText    Search this list...    PR-00024717\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
-    ClickText    PR-00024512
-    VerifyText   PR-00024512
+    ClickText    PR-00024717
+    VerifyText   PR-00024717
     ClickText    Related
 
 #Create new PRCR 
     ClickText    Permission Request Contact Roles
     ClickText    New
     UseModal     On
-    ComboBox     Search Accounts...    Aalborg University
-    ComboBox     Search Contacts...    Julie Roy
+    ComboBox     Search Accounts...    Mersin University
+    ComboBox     Search Contacts...    Kalpana B
     ClickText    Save    partial_match=False
     UseModal     Off
     Sleep        2s
