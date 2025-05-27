@@ -18,7 +18,7 @@ Check Related Permission Requests for Account
     TypeText     Search this list...    PR-00024535\n    anchor=Clear
     ClickText    PR-00024535
     VerifyText   PR-00024535
-    ${prtext} =  
+    ${prtext} =  GetText    Permission Request Name            
     ClickText    Related
     ClickText    Details
 
@@ -26,12 +26,11 @@ Check Related Permission Requests for Account
     
     ClickText    Dean Witter Foundation
     ClickText    Related
-    ScrollText    Recent Items
-    ScrollText    Recent Items
+    SwipeDown
 
     ClickText    PR-00024535
 
-    VerifyText    Permission Request Name
-    VerifyText    Permission Request Name\nPR-00024535
+    VerifyText   Permission Request Name
+    VerifyText   Permission Request Name\nPR-00024535
  
 
