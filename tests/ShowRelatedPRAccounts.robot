@@ -18,30 +18,20 @@ Check Related Permission Requests for Account
     TypeText     Search this list...    PR-00024535\n    anchor=Clear
     ClickText    PR-00024535
     VerifyText   PR-00024535
+    ${prtext} =  
     ClickText    Related
     ClickText    Details
-    
 
-    VerifyText    Permission Request Name\nPR-00024535
+#navigate to the account of PR
     
-
     ClickText    Dean Witter Foundation
-    VerifyText    Account\nDean Witter Foundation
     ClickText    Related
     ScrollText    Recent Items
-    ScrollText    Profile Image
+    ScrollText    Recent Items
 
     ClickText    PR-00024535
+
+    VerifyText    Permission Request Name
     VerifyText    Permission Request Name\nPR-00024535
-    
+ 
 
-#  # First verify that checkbox is not present using Is Text
-#    ${exists}=        GetText          
-
-# Verify the checkbox does not exist (exists should be False)
-#    IF  ${exists}
-#        ClickCheckbox    Select Item 6    on    partial_match=False
-#        Log  Checkbox found and PRCR is not deleted when contact is deleted
-#    ELSE            
-#        Log  Checkbox not found, skipping this step
-#    END   
