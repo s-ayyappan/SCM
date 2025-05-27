@@ -35,13 +35,13 @@ Create New PRCR
     RefreshPage
     ClickText    Permission Request Contact Roles
 # First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 6    timeout=2
+    ${exists}=         Is Text          Select Item 2    timeout=2
     IF  ${exists}
-        ClickCheckbox    Select Item 6    on    partial_match=False
+        ClickCheckbox    Select Item 2    on    partial_match=False
         HotKey       Tab
-        ClickText    O                  anchor=Select Item 6
-        ClickCheckbox    Select Item 6   on    partial_match=False
-        ClickText    Show Actions    anchor=Ramadurga Muthuirlandy
+        ClickText    O                  anchor=Select Item 2
+        ClickCheckbox    Select Item 2   on    partial_match=False
+        ClickText    Show Actions    anchor=Kalpana Balaraman
         Sleep        2s
         ClickText    Delete
         UseModal     On
