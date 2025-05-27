@@ -32,9 +32,11 @@ Check Related Permission Requests for Account
 
     VerifyText   Permission Request Name
     ${prtextaccount}=  GetText         Permission Request Name
-    IF  ${prtext}  ==  ${prtextaccount}
-        #VerifyText   Permission Request Name\nPR-00024535
-        Log  Same PR exist in Account Related tab
+    IF    "${prtext}" == "${prtextaccount}"
+        Log    Same PR exist in Account Related tab
+        VerifyText    ${prtext}    timeout=10
+    ELSE
+        Log    PR texts do not match
     END
  
 
