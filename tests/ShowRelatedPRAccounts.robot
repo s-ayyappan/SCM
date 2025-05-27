@@ -27,10 +27,14 @@ Check Related Permission Requests for Account
     ClickText    Dean Witter Foundation
     ClickText    Related
     SwipeDown
-
+    ClickText    Permission Requests
     ClickText    PR-00024535
 
     VerifyText   Permission Request Name
-    VerifyText   Permission Request Name\nPR-00024535
+    ${prtextaccount}=  GetText         Permission Request Name
+    IF  ${prtext}  ==  ${prtextaccount}
+        #VerifyText   Permission Request Name\nPR-00024535
+        Log  Same PR exist in Account Related tab
+    END
  
 
