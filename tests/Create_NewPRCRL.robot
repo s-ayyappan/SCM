@@ -14,33 +14,34 @@ Create New PRCR
 
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    TypeText    Search this list...    PR-00024717\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
+    TypeText    Search this list...    PR-00024934\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
-    ClickText    PR-00024717
-    VerifyText   PR-00024717
+    ClickText    PR-00024934
+    VerifyText   PR-00024934
     ClickText    Related
 
 #Create new PRCR 
     ClickText    Permission Request Contact Roles
     ClickText    New
     UseModal     On
-    ComboBox     Search Accounts...    Mersin University
-    ComboBox     Search Contacts...    Kalpana B
-    ClickText    Save    partial_match=False
+    ComboBox     Search Accounts...    Avignon University
+    ComboBox     Search Contacts...    Auto CRT
+    ClickText    Cancel    partial_match=False
     UseModal     Off
     Sleep        2s
+    VerifyText    Permission Request Contact Roles
     RefreshPage
 
 #clean up the newly created PRCR
     RefreshPage
     ClickText    Permission Request Contact Roles
 # First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 2    timeout=2
+    ${exists}=         Is Text          Select Item 1    timeout=2
     IF  ${exists}
-        ClickCheckbox    Select Item 2    on    partial_match=False
+        ClickCheckbox    Select Item 1    on    partial_match=False
         HotKey       Tab
-        ClickText    O                  anchor=Select Item 2
-        ClickCheckbox    Select Item 2   on    partial_match=False
+        ClickText    O                  anchor=Select Item 1
+        ClickCheckbox    Select Item 1   on    partial_match=False
         ClickText    Show Actions    anchor=Kalpana Balaraman
         Sleep        2s
         ClickText    Delete
