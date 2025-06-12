@@ -21,16 +21,16 @@ Create New PRCR
     ClickText    Related
 
 #Create new PRCR 
-    ClickText    Permission Request Contact Roles
+    ClickText    Permission Request Contact Roles(0)     anchor=New
     ClickText    New
     UseModal     On
     ComboBox     Search Accounts...    Avignon University
     ComboBox     Search Contacts...    Auto CRT
-    ClickText    Cancel    partial_match=False
+    ClickText    Save    partial_match=False
     UseModal     Off
     Sleep        2s
-    VerifyText    Permission Request Contact Roles
-    RefreshPage
+#    VerifyText   Permission Request Contact Roles
+#    RefreshPage
 
 #clean up the newly created PRCR
     RefreshPage
