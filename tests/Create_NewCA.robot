@@ -15,8 +15,8 @@ Create Contract Agreement
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00000015\n    anchor=Clear
-    ClickText    PR-00000015
-    VerifyText   PR-00000015
+    TypeText     Search this list...    PR-00024509\n    anchor=Clear
+    ClickText    PR-00024509
+    VerifyText   PR-00024509
     ClickText    Related
     ClickText    Details
