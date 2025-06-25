@@ -22,10 +22,10 @@ Check New Version of License create PR with Type of Title from Existing PR
       
  #   VerifyText   Permission Holder Ruben Test
     ClickText    L-010751
-    ClickText    Permission Requests    anchor=Barting and Pricing Line Items
-    ClickText    PR-00024988
+    ClickText    Permission Requests(1)    anchor=Barting and Pricing Line Items
+#    HotKey       Tab
+    ClickText    PR                        anchor=Pending
     VerifyField  Type of Title    Funding Org Opportunity  
-    HoverText    L-010751
     ClickText    L-010751
     ClickText    Create new Version
 #VerifyText   Success notification.\nSuccess\nRecords created
