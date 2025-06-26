@@ -16,9 +16,25 @@ Check B&P model forecasting
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00024530\n    anchor=Clear
+    TypeText     Search this list...    PR-00024504\n    anchor=Clear
     Sleep        2s
-    ClickText    PR-00024530
-    VerifyText   PR-00024530
+    ClickText    PR-00024504
+    VerifyText   PR-00024504
     ClickText    Related
     Sleep        2s
+
+#update bartering and pricing model
+    ClickText    Update Bartering and Pricing Model
+    UseModal    On
+    ClickText    Publish Bartering and Pricing Model
+    VerifyText    Update Bartering and Pricing Model
+    VerifyText    Barting and pricing model has been updated
+    ClickText    Cancel and close
+    UseModal     Off
+    ClickText    L-010372
+    ClickText    Barting and Pricing Line Items          anchor=Permission Requests
+    ClickText    BPL-00000124
+#verify the loading of Bartering and pricing line item
+    VerifyText    Barting and Pricing Line Item
+    ClickText    L-010372
+
