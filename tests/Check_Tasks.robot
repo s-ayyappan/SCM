@@ -23,3 +23,6 @@ Check Tasks tab
     ClickText    HTML Viewer
     #navigate to the Details tabs
     ClickText    Details    partial_match=False
+    VerifyText    Task Number
+    VerifyText    Task
+    Log           Task Tab and details successfully loaded
