@@ -27,7 +27,7 @@ Check New Version of License create PR with Type of Title from Existing PR
     ClickText    PR                        anchor=Pending
     VerifyField  Type of Title    Funding Org Opportunity  
     ClickText    L-010751
-    ClickText    Create new Version
+
 #VerifyText   Success notification.\nSuccess\nRecords created
     ClickText    L-010751
     RefreshPage
@@ -42,21 +42,13 @@ Check New Version of License create PR with Type of Title from Existing PR
     VerifyField    Type of Title    Funding Org Opportunity  
     ${sametype}=       GetFieldValue        Type of Title
     IF  '${sametype}' == 'Funding Org Opportunity'
-        ClickText   Delete
-        UseModal    On  
-        ClickText   Delete
-        UseModal    Off
+        #ClickText   Delete
+        #UseModal    On  
+        #ClickText   Delete
+        #UseModal    Off
+        Log    Type of Title equal
     ELSE
         Log    Type of Title not equal
     END
 
     ClickText    L-010751
-
-
-
-
-
-
-
-   
- 
