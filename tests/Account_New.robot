@@ -15,9 +15,6 @@ Check New Account Creation
     LaunchApp                 Accounts
 
 #create new account
-   
-    
-
     VerifyText    Accounts
     ClickText    Select a List View: Accounts
     ClickText    All Accounts
