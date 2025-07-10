@@ -13,8 +13,10 @@ Check New Account Creation
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
-        
-    ClickText    New
+
+#create new account
+    ClickText    All Accounts
+    ClickText    New    anchor=Import
     TypeText     Enter Keyword To Search For An Organisation...    Robot account
     ClickText    Search    partial_match=False
     ClickText    Create New Account
