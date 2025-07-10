@@ -8,7 +8,7 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check New Account Creation
+Check Duplicate Account Creation
     [tags]                    Accounts
     [Documentation]           Check user not allowed to create duplicate account with same ECR ID
     Appstate                  Home
