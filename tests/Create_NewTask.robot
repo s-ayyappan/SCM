@@ -18,12 +18,11 @@ Create New Task
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
 #create new task
-  
-    ClickText    Show more actions
-    ClickText    New Task
-    UseModal    On
+    ClickText    New Task    anchor=Assign Label
 #select the subject
-    ClickText   Send Letter    anchor=Subject
+    UseModal    On
+    ClickText   *Subject
+    ClickText   Send Letter    anchor=Due Date
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script
@@ -32,16 +31,16 @@ Create New Task
     ClickText   Save    partial_match=False
     UseModal    Off
 #search the new task in search bar
-    TypeText    Search this list...    CRT\n    anchor=4 items •
-    ClickText   Overdue Task
-    VerifyText  Task Created by CRT
-    VerifyText  Created by CRT script
-
-
-    ClickText   Show more actions    parent=DIV
-    ClickText   New Task
+    TypeText    Search this list...    CRT\n    anchor=Clear
+#clean up the new task, by deleting
+    ClickCheckbox    Send Letter    On
+    ClickText    Show Actions
+    ClickText    Send Letter
+    VerifyText    Created by CRT script
+    ClickText    Delete    anchor=Cancel and close
     UseModal    On
-    ClickText   Send Letter
-    HoverText   Press Delete to Remove
-
+    ClickText    Delete
+    UseModal    Off
+    VerifyText    Success notification.\nTask "Send Letter" was deleted. Undo
+  
 
