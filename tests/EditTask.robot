@@ -19,18 +19,18 @@ Edit Tasks
     ClickText    All Open Tasks
 #click the first task in the list
     ClickText    Edit Comments    anchor=Delete
-    UseModal    On
+    UseModal     On
 #add new line to the comments
-    TypeText    Comments    \nCRT added text
+    TypeText     Comments    \nCRT added text
     ClickText    Save    partial_match=False
-    UseModal    Off
+    UseModal     Off
     HoverText    Save
     ClickText    Edit Subject
     ClickText    Cancel
-    VerifyText    CRT added text
+    VerifyText   CRT added text
 #Delete the added comments
     ClickText    Edit Comments    anchor=Delete
-    UseModal    On
-    TypeText    Comments     \n
-    ClickText   Save         partial_match=False
-    UseModal    Off
+    UseModal     On
+    TypeText     Comments     \n
+    ClickText    Save         partial_match=False
+    UseModal     Off
