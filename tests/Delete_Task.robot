@@ -33,6 +33,8 @@ Delete existing task
     ClickText   Save    partial_match=False
     UseModal    Off
 #search the new task in search bar
+    RefreshPage
+    Sleep       2s
     TypeText    Search this list...    CRT\n    anchor=Clear
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
@@ -44,5 +46,3 @@ Delete existing task
     ClickText    Delete
     UseModal     Off
     VerifyText   Success notification.\nTask "Send Letter" was deleted. Undo
-  
-
