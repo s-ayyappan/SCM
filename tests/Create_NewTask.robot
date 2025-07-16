@@ -18,6 +18,8 @@ Create New Task
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
 #create new task
+    ClickText    Select list display
+    ClickText    Table
     ClickText    New Task    anchor=Assign Label
 #select the subject
     UseModal    On
@@ -31,6 +33,7 @@ Create New Task
     ClickText   Save    partial_match=False
     UseModal    Off
 #search the new task in search bar
+    RefreshPage
     TypeText    Search this list...    CRT\n    anchor=Clear
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
@@ -42,5 +45,4 @@ Create New Task
     ClickText    Delete
     UseModal    Off
     VerifyText    Success notification.\nTask "Send Letter" was deleted. Undo
-  
-
+    Log           End of the Script for Task Creation
