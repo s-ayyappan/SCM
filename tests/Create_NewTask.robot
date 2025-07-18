@@ -17,9 +17,11 @@ Create New Task
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
+    RefreshPage
 #create new task
     ClickText    Select list display
     ClickText    Table
+    RefreshPage
     ClickText    New Task    anchor=Assign Label
 #select the subject
     UseModal    On
