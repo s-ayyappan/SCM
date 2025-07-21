@@ -38,6 +38,7 @@ Create New Task
     UseModal    Off
 #search the new task in search bar
     RefreshPage
+    RefreshPage
     Sleep       2s
     TypeText    Search this list...    CRT\n    anchor=Clear
 #clean up the new task, by deleting
