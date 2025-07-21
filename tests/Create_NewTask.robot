@@ -50,5 +50,8 @@ Create New Task
     UseModal    On
     ClickText    Delete
     UseModal    Off
-    VerifyText    Success notification.\nTask "Send Letter" was deleted. Undo
+    VerifyText    Success notification.\nTask was deleted. Undo
     Log           End of the Script for Task Creation
+
+
+    
