@@ -23,8 +23,10 @@ Delete existing task
     ClickText    New Task    anchor=Assign Label
 #select the subject
     UseModal    On
-    ClickText   *Subject
-    ClickText   Send Letter    anchor=Due Date
+    ClickText   *Subject     
+    TypeText     Subject            Send Letter    anchor=Due Date
+    ClickText    Due Date    anchor=Previous Month
+    TypeText    Due Date    23/12/2025\n
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script for deletion
