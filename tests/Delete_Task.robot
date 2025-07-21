@@ -40,14 +40,21 @@ Delete existing task
     RefreshPage         
     Sleep       2s
     TypeText    Search this list...    CRT\n    anchor=Clear
+    ${error_msg}=     Set Variable           No Items to display
+ 
+   # VerifyText    No items to display.
+    IF   '${error_msg}' == 'No Items to display'
 #clean up the new task, by deleting
-    ClickCheckbox    Send Letter    On
-    ClickText    Show Actions
-    ClickText    Send Letter
-    VerifyText   Created by CRT script for deletion
-    ClickText    Delete    anchor=Cancel and close
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-#   VerifyText   Success notification.\nTask "Send Letter" was deleted. Undo
-    Log           End of the Script for Task Deletion
+        Log   >>>  No items found in the search
+    ELSE
+        ClickCheckbox    Send Letter    On
+        ClickText    Show Actions
+        ClickText    Send Letter
+        VerifyText   Created by CRT script for deletion
+        ClickText    Delete    anchor=Cancel and close
+        UseModal     On
+        ClickText    Delete
+        UseModal     Off
+        #   VerifyText   Success notification.\nTask "Send Letter" was deleted. Undo
+        Log    >>>       End of the Script for Task Deletion
+    END
