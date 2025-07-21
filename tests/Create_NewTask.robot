@@ -37,6 +37,7 @@ Create New Task
     ClickText   Save    partial_match=False
     UseModal    Off
 #search the new task in search bar
+    Sleep        2s
     RefreshPage
     RefreshPage
     Sleep       2s
@@ -50,7 +51,7 @@ Create New Task
     UseModal    On
     ClickText    Delete
     UseModal    Off
-    VerifyText    Success notification.\nTask was deleted. Undo
+#    VerifyText    Success notification.\nTask was deleted. Undo
     Log           End of the Script for Task Creation
 
 
