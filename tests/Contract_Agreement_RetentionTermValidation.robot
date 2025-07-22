@@ -3,6 +3,7 @@
 
 *** Settings ***
 Library    QForce
+Library    QWeb
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -35,18 +36,17 @@ Check Contract Agreement Retnetion Term validation
     
 #click the Rights and restrictions
     ClickText    RR-047411
-    VerifyText    Retention Term (Months)\nHelp Retention Term (Months)A value of 999 is expected when no retention restriction applies\n24
 #verify the rention month equal to the months entered in the contract agreement
-    TypeText    Retention Term (Months)    24
-    ClickText    Cancel
+    SwipeDown
+    VerifyText    24           anchor= Retention Term
+    SwipeUp
+    back
 
 #clean up the retention month back to original value
     ClickText    PR-00010177
-    HoverText    Related
     ClickText    Related
     VerifyText   Contract Agreements
     ClickText    CON-000023    partial_match=False
     ClickText    Edit Retention Term (Years)
-    ScrollText   Select a date for Notice Date
-    VerifyText   1
+    TypeText    Retention Term (Years)    1
     ClickText    Save
