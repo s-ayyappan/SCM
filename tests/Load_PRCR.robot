@@ -23,8 +23,8 @@ Check PRCR Loading
 #Click the PRCR and allow it to load and check the PR
 
     ClickText    Permission Request Contact Roles
-    ClickCheckbox    Select Item 5    on    partial_match=False
-    ClickText    PRCR                 anchor=Select Item 5
+    ClickCheckbox    Select Item 1    on    partial_match=False
+    ClickText    PRCR                 anchor=Select Item 1
     Sleep        2s
     VerifyText    Permission Request Contact Role
 
