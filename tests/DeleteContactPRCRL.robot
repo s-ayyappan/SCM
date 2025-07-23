@@ -54,8 +54,11 @@ Delete Contact and linked PRCR
     ClickText    Related
 
 #Create new PRCR 
+    VerifyText   Contract Agreements                    anchor=Change Owner
+    SwipeDown
+    VerifyText   Permission Request Contact Roles      anchor=New
     ClickText    Permission Request Contact Roles
-    ClickText    New
+    ClickText    New    parent=LIGHTNING-BUTTON
     UseModal     On
     ComboBox     Search Accounts...    Aalborg University
     ComboBox     Search Contacts...    Robotics PRCRcontact
@@ -70,7 +73,11 @@ Delete Contact and linked PRCR
 
 #delete the contact    
     LaunchApp    Contacts
-    TypeText     Search this list...    robotics PRCRcontact\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
+    RefreshPage
+    Sleep        2s 
+    HoverText    Left Employment?
+    TypeText    Search this list...    Robotics PRCRcontact\n
+#    TypeText     Search this list...    robotics PRCRcontact\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
     ClickText    Robotics PRCRcontact     
     UseModal     On
     ClickText    Delete
@@ -82,17 +89,20 @@ Delete Contact and linked PRCR
 
 #refresh the page to check PRCR is deleted
     RefreshPage
+    Sleep        2s 
     Appstate     Home
     Sleep        2s
     LaunchApp    Permission Requests
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    TypeText     Search this list...    PR-00024512\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
+    RefreshPage
+    Sleep        2s 
+    TypeText    Search this list...    PR-00024512\n
     Sleep        2s
     ClickText    PR-00024512
     VerifyText   PR-00024512
     ClickText    Related
-    ClickText    Permission Request Contact Roles(6) anchor=New
+    ClickText    Permission Request Contact Roles anchor=New
 
 # First verify that checkbox is not present using Is Text
     ${exists}=         Is Text          Select Item 6
