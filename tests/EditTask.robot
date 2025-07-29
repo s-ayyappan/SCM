@@ -14,6 +14,7 @@ Edit Tasks
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Tasks
+    [Documentation]           Editing tasks
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
