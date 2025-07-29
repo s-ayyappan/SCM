@@ -14,6 +14,7 @@ Delete existing task
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Tasks
+    [Documentation]           Delete a task
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
