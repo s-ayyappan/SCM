@@ -35,3 +35,4 @@ Edit Tasks
     TypeText     Comments     \n
     ClickText    Save         partial_match=False
     UseModal     Off
+    Log          Task successfully edited
