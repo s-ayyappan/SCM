@@ -47,5 +47,3 @@ New Note in Cases
     UseModal     On
     ClickText    Delete
     Log          Able to successfully delete a note in a case 
-
-
