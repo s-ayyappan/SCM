@@ -24,8 +24,22 @@ Check New Case Related fields
     PickList    *Case Origin    Email
     PickList    *Category    Content Delivery
     PickList    *Sub Category    Access set-up clarification
+    TypeText    Subject    CRT Case
     ClickText   Save    partial_match=False
     UseModal    Off
     VerifyText  created.
     VerifyText  Auto CRT
     Log         Able to successfully open a new case
+
+#clean up the newly crated case
+    TypeText     Search this list...    CRT Case\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
+    Sleep        2s
+    ClickText    CRT Case
+    Sleep        2s
+    VerifyText   CRT Case
+    ClickText    Delete
+    UseModal     On
+    ClickText    Delete
+    UseModal     Off
+    VerifyText   deleted
+    Log          Case successfully deleted
