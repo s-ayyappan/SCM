@@ -16,7 +16,8 @@ Check New Case Related fields
     LaunchApp                 Cases
     
 #create new Serial Content case
-    ClickText   New
+    ClickText    Serial Content
+    ClickText   New    anchor=Chage Owner, Assign Label
     UseModal    On
     ClickText   Serial Content
     ClickText   Next
@@ -32,6 +33,7 @@ Check New Case Related fields
     Log         Able to successfully open a new case
 
 #clean up the newly crated case
+    LaunchApp                 Cases
     TypeText     Search this list...    CRT Case\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
     ClickText    CRT Case
