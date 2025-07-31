@@ -16,6 +16,8 @@ Check Cases
     LaunchApp                 Cases
 
 #open Serial Content cases
+    ClickText    Select a List View: Cases
+    ClickText    All cases
     TypeText     Search this list...    Robotics Testing Case\n    anchor=Change Owner
     Sleep        1s
     ClickText    Robotics Testing Case
