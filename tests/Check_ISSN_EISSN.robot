@@ -16,10 +16,10 @@ Check ISSN Eissn
     ClickText    Select a List View
     ClickText    All Titles
     HoverText    All Titles
-    TypeText     Search this list...    T-00006\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    ClickText    T-00006
+    TypeText     Search this list...    T-55992\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    ClickText    T-55992
     HoverText    Title Details
-    ClickText    T-00006
+    ClickText    T-55992
     ScrollText   Audit Fields
     VerifyText   DOAJcheck(ISSN)
     IsText       text='complete'
