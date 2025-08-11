@@ -30,7 +30,7 @@ Create New Obligation in PR
     VerifyText    New                  
     ClickText     New    
     UseModal      On
-    ComboBox      Search Rights and Permissions...    RP-010181
+    ComboBox      Search Rights and Permissions...    RP-010166
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
@@ -44,7 +44,7 @@ Create New Obligation in PR
 #Navigate to the obligations thru the license->RP->obligations
     ClickText    L-010395
     ClickText    Rights and Permissions 
-    ClickText    RP-010181
+    ClickText    RP-010166
     ClickText    Obligations                        
 
 #Select the last created obligations using hotkeys and delete
