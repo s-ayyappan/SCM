@@ -23,14 +23,14 @@ Create New Obligation in PR
     ClickText    Related
     Sleep        2s
 
-#Create new Obligation for the PR
+#Create new Obligation for the RP
     SwipeDown
     VerifyText    Obligations
     ClickText     Obligations 
     VerifyText    New                  
     ClickText     New    
     UseModal      On
-    ComboBox      Search Rights and Permissions...    RP-010166
+    ComboBox      Search Rights and Permissions...    RP-010583
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
@@ -44,7 +44,7 @@ Create New Obligation in PR
 #Navigate to the obligations thru the license->RP->obligations
     ClickText    L-010395
     ClickText    Rights and Permissions 
-    ClickText    RP-010166
+    ClickText    RP-010583
     ClickText    Obligations                        
 
 #Select the last created obligations using hotkeys and delete
@@ -55,13 +55,14 @@ Create New Obligation in PR
         ClickCheckbox    Select Item 1    on    partial_match=False
         HotKey       Tab
         ClickText    O                  anchor=Select Item 1
+        #delete the created obligation
+        ClickText   Delete
+        UseModal    On
+        ClickText   Delete
+        UseModal    Off
+        VerifyText  was deleted. Undo
     ELSE            
         Log  Checkbox not found, skipping this step
     END
 
-#delete the created obligation
-    ClickText   Delete
-    UseModal    On
-    ClickText   Delete
-    UseModal    Off
-    VerifyText  was deleted. Undo
+
