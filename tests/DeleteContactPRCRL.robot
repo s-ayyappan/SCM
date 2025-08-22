@@ -102,7 +102,7 @@ Delete Contact and linked PRCR
     ClickText    PR-00024512
     VerifyText   PR-00024512
     ClickText    Related
-    ClickText    Permission Request Contact Roles anchor=New
+    ClickText    Permission Request Contact Roles           anchor=New
 
 # First verify that checkbox is not present using Is Text
     ${exists}=         Is Text          Select Item 6
