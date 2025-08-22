@@ -14,34 +14,30 @@ Check PR License change for PH
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Sources
-
     TypeText                  Search this list...    T-15425\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText                 T-15425
 
 #check the source link status
 
-    HoverText    Related
-    HoverText    Related
-    ClickText    Related
-    HoverText    (1)
+    ClickText     Related
     VerifyText    Source Links
-    ClickText    SL-000410
+    ClickText     SL-000410
     VerifyText    Pending
-    ClickText    T-15425    anchor=Related
-    HoverText    Title Details
-    ClickText    Department of Science and Aerospacial Technology
+    ClickText     T-15425    anchor=Related
+    HoverText     Title Details
+    ClickText     Department of Science and Aerospacial Technology
     VerifyText    PRM Account
-    ClickText    Edit PRM Account
+#    ClickCheckbox             PRM Account    on
+    ClickText     Edit PRM Account
     ScrollText    Billing Street
+    Scroll       
     ClickCheckbox    PRM Account    on
-    ClickText    Save
+    ClickText     Save
     ScrollText    /html[1]/head[1]/link[1]
-    ClickText    Related
-    ClickText    Related
-    ClickText    Details
-    ClickText    Department of Science and Aerospacial Technology    anchor=Departamento de Ciencia e Tecnologia Aeroespacial
-    ClickText    Department of Science and Aerospacial Technology    anchor=Departamento de Ciencia e Tecnologia Aeroespacial
-    ClickText    Edit PRM Account
+    ClickText     Related
+    ClickText     Details
+    ClickText     Department of Science and Aerospacial Technology    anchor=Departamento de Ciencia e Tecnologia Aeroespacial
+    ClickText     Edit PRM Account
     ScrollText    Recent Items
     VerifyText    PRM Account
     ClickCheckbox    PRM Account    off
