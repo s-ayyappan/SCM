@@ -14,7 +14,6 @@ Delete Contact and linked Source Link
     Sleep                     2s
     LaunchApp                 Contacts
 
-
 #create a new contact for robotics testing
     ClickText    New
     UseModal     On
@@ -41,3 +40,34 @@ Delete Contact and linked Source Link
     TypeText    Search this list...    Robotics PRCRcontact\n    anchor=Clear
     ClickText    Robotics PRCRcontact
     VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
+#check the source link
+    
+
+    ClickText    Related
+    ScrollText    Recent Items
+    ScrollText    /html[1]/head[1]/link[1]
+    ClickText    Details
+    ClickText    Sources
+    TypeText    Search this list...    funding test\n    anchor=Content Provider
+    ClickText    T-55992
+    VerifyText    Funding Test template 22
+    ClickText    Related
+    ScrollText    Recent Items
+    ScrollText    /html[1]/head[1]/link[1]
+    VerifyText    Source Links\n(1)
+    ClickText    Contacts
+    ScrollText    /html[1]/head[1]/link[1]
+    ClickText    Robotics PRCRcontact
+    ClickText    Delete
+    UseModal    On
+    ClickText    Delete
+    UseModal    Off
+    VerifyText    Contact "Robotics PRCRcontact" was deleted. Undo
+    ClickText    Sources
+    TypeText    Search this list...    funcding test\n    anchor=Content Provider
+    ClickText    Clear
+    TypeText    Search this list...    funding test\n    anchor=Content Provider
+    ClickText    T-55992
+    ClickText    Related
+    ScrollText    Recent Items
+    VerifyText    ource Links\n(1)
