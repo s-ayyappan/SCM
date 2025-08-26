@@ -28,12 +28,14 @@ Check PR License change for PH
     ClickText     Department of Science and Aerospacial Technology
     VerifyText    PRM Account
 #    ClickCheckbox             PRM Account    on
-    ClickText     Edit PRM Account
-    ScrollText    Billing Street
-    Scroll       
+    ClickText     Edit PRM Account  
+
+    VerifyText    Billing Street
+    VerifyText    Address Search
+    VerifyText    PRM Account
     ClickCheckbox    PRM Account    on
-    ClickText     Save
-    ScrollText    /html[1]/head[1]/link[1]
+    ClickText    Save
+
     ClickText     Related
     ClickText     Details
     ClickText     Department of Science and Aerospacial Technology    anchor=Departamento de Ciencia e Tecnologia Aeroespacial
@@ -42,9 +44,6 @@ Check PR License change for PH
     VerifyText    PRM Account
     ClickCheckbox    PRM Account    off
     ClickText    Save
-    ScrollText    /html[1]/head[1]/link[1]
     ClickText    Related
-    ClickText    Related
-    ClickText    (1)
     ClickText    SL-000410    partial_match=False
-    HoverText    Chatter
+
