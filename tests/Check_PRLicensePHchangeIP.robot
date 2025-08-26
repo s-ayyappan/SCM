@@ -27,7 +27,6 @@ Check PR License change for PH
     HoverText     Title Details
     ClickText     Department of Science and Aerospacial Technology
     VerifyText    PRM Account
-#    ClickCheckbox             PRM Account    on
     ClickText     Edit PRM Account  
 
     VerifyText    Billing Street
@@ -44,6 +43,5 @@ Check PR License change for PH
     VerifyText    PRM Account
     ClickCheckbox    PRM Account    off
     ClickText    Save
-    ClickText    Related
-    ClickText    SL-000410    partial_match=False
+
 
