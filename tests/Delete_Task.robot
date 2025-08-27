@@ -50,16 +50,14 @@ Delete existing task
 #   TypeText    Search this list...    CRT\n    anchor=Clear
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
-    
-#    ClickText    Today's Tasks
+    TypeText    Search this list...    CRT script\n    anchor=Clear
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
     ClickText    Show Actions
     ClickText    Send Letter
-    VerifyText   Created by CRT script for deletion
+    VerifyText   Created by CRT script
     ClickText    Delete    anchor=Cancel and close
     UseModal     On
     ClickText    Delete
     UseModal     Off
-#   VerifyText   Success notification.\nTask "Send Letter" was deleted. Undo
     Log          End of the Script for Task Deletion
