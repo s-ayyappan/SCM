@@ -9,7 +9,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Variables ***
-${DATE_FORMAT}    %Y-%m-%d
+${DATE_FORMAT}    %d/%m/%Y                  
 
 
 *** Test Cases ***
