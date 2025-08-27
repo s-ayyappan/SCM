@@ -8,6 +8,9 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 
+*** Variables ***
+${DATE_FORMAT}    %d/%m/%Y  
+
 *** Test Cases ***
 Delete existing task
     [tags]                    Tasks, Delete Task
@@ -27,7 +30,10 @@ Delete existing task
     ClickText   *Subject     
     TypeText     Subject            Send Letter    anchor=Due Date
     ClickText    Due Date    anchor=Previous Month
-    TypeText    Due Date    23/12/2025\n
+#create the task in today date
+    ${today}=    Get Current Date    result_format=${DATE_FORMAT}                 
+    Log    Today's date is: ${today}
+    TypeText    Due Date    ${today}\n
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script for deletion
