@@ -28,7 +28,12 @@ Create New Task
     ClickText   *Subject
     TypeText     Subject            Send Letter    anchor=Due Date
     ClickText    Due Date    anchor=Previous Month
-    TypeText    Due Date    23/12/2025\n
+    
+
+    ClickText    Due Date    anchor=Pick a Year
+#create the task in today date
+    ClickText    Today
+#    TypeText    Due Date    23/12/2025\n
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script
@@ -46,11 +51,11 @@ Create New Task
     ClickCheckbox    Send Letter    On
     ClickText    Show Actions
     ClickText    Send Letter
-    VerifyText    Created by CRT script
+    VerifyText   Created by CRT script
     ClickText    Delete    anchor=Cancel and close
-    UseModal    On
+    UseModal     On
     ClickText    Delete
-    UseModal    Off
+    UseModal     Off
 #    VerifyText    Success notification.\nTask was deleted. Undo
     Log           End of the Script for Task Creation
 
