@@ -15,6 +15,7 @@ ${DATE_FORMAT}    %d/%m/%Y
 *** Test Cases ***
 Create New Task
     [tags]                    Tasks, Create Task
+    [Documentation]           Create New Task
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Tasks
