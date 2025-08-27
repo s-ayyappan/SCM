@@ -8,7 +8,7 @@ Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
-***Variable***
+*** Variables ***
 ${DATE_FORMAT}    %Y-%m-%d
 
 
