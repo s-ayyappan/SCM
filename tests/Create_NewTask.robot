@@ -50,7 +50,7 @@ Create New Task
     RefreshPage
     RefreshPage
     Sleep       2s
-    TypeText    Search this list...    CRT\n    anchor=Clear
+    TypeText    Search this list...    CRT script\n    anchor=Clear
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
     ClickText    Show Actions
