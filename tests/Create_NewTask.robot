@@ -34,7 +34,6 @@ Create New Task
     ClickText    Due Date    anchor=Previous Month
     ClickText    Due Date    anchor=Pick a Year
 #create the task in today date
-    #ClickText    Today
     ${today}=    Get Current Date    result_format=${DATE_FORMAT}                 
     Log    Today's date is: ${today}
     TypeText    Due Date    ${today}\n
