@@ -8,6 +8,9 @@ Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
+***Variable***
+${DATE_FORMAT}    %Y-%m-%d
+
 
 *** Test Cases ***
 Create New Task
@@ -32,7 +35,7 @@ Create New Task
     ClickText    Due Date    anchor=Pick a Year
 #create the task in today date
     #ClickText    Today
-    ${today}=    Get Current Date
+    ${today}=    Get Current Date    result_format=${DATE_FORMAT}                 
     Log    Today's date is: ${today}
     TypeText    Due Date    ${today}\n
     PickList    Sub Category    Agreement Update
