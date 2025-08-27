@@ -77,6 +77,7 @@ Delete Contact and linked PRCR
     Sleep        2s 
     HoverText    Left Employment?
     TypeText    Search this list...    Robotics PRCRcontact\n
+    Sleep        2s
 #    TypeText     Search this list...    robotics PRCRcontact\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
     ClickText    Robotics PRCRcontact     
     UseModal     On
