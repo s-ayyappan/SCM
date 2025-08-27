@@ -3,6 +3,7 @@
 
 *** Settings ***
 Library    QForce
+Library    DateTime
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -28,12 +29,12 @@ Create New Task
     ClickText   *Subject
     TypeText     Subject            Send Letter    anchor=Due Date
     ClickText    Due Date    anchor=Previous Month
-    
-
     ClickText    Due Date    anchor=Pick a Year
 #create the task in today date
-    ClickText    Today
-#    TypeText    Due Date    23/12/2025\n
+    #ClickText    Today
+    ${today}=    Get Current Date
+    Log    Today's date is: ${today}
+    TypeText    Due Date    ${today}\n
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script
