@@ -46,10 +46,9 @@ Delete existing task
 #search the new task in search bar
     RefreshPage         
     Sleep       2s
-#   TypeText    Search this list...    CRT\n    anchor=Clear
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
-    TypeText    Search this list...    CRT script\n    anchor=Clear
+    TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
     Sleep       2s
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
