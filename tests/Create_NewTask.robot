@@ -47,11 +47,9 @@ Create New Task
     ClickText   Save    partial_match=False
     UseModal    Off
 #search the new task in search bar
-    Sleep        2s
-    RefreshPage
     RefreshPage
     Sleep       2s
-    TypeText    Search this list...    CRT script\n    anchor=Clear
+    TypeText    Search this list...    Created by CRT script\n    anchor=Clear
     Sleep       2s
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
