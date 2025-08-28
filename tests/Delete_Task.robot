@@ -32,9 +32,10 @@ Delete existing task
     TypeText     Subject            Send Letter    anchor=Due Date
     ClickText    Due Date    anchor=Previous Month
 #create the task in today date
-    ${today}=    Get Current Date    result_format=${DATE_FORMAT}                 
-    Log    Today's date is: ${today}
-    TypeText    Due Date    ${today}\n
+#commenting the today's date function as it produces pop up on these tasks 28/08/2025
+#    ${today}=    Get Current Date    result_format=${DATE_FORMAT}                 
+#    Log    Today's date is: ${today}
+#    TypeText    Due Date    ${today}\n
     PickList    Sub Category    Agreement Update
     PickList    Product Approval    Yes
     TypeText    Comments    Created by CRT script for deletion
