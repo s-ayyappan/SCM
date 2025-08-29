@@ -55,6 +55,16 @@ Create New Task
     TypeText    Search this list...    Created by CRT script\n    anchor=Assigned Alias
     Sleep       2s
 
+#clean up the new task, by deleting
+    ClickCheckbox    Send Letter    On
+    ClickText    Show Actions
+    ClickText    Delete
+    UseModal     On
+    ClickText    Delete
+    UseModal     Off
+
+#    VerifyText    Success notification.\nTask was deleted. Undo
+    Log           End of the Script for Task Creation
 
 # First verify that checkbox is not present using Is Text
     ${exists}=         Is Text          Select Item 1    timeout=2
