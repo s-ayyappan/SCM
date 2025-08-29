@@ -51,7 +51,7 @@ Create New Task
 #search the new task in search bar
     RefreshPage
     Sleep       2s
-    TypeText    Search this list...    Created by CRT script\n    anchor=Clear
+    TypeText    Search this list...    Created by CRT script\n    anchor=Assigned Alias
     Sleep       2s
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
