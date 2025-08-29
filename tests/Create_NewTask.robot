@@ -31,7 +31,9 @@ Create New Task
 #select the subject
     UseModal    On
     ClickText   *Subject
+    Sleep        1s
     TypeText     Subject            Send Letter    anchor=Due Date
+    Sleep        1s
     ClickText    Due Date    anchor=Previous Month
     ClickText    Due Date    anchor=Pick a Year
 #create the task in today date
