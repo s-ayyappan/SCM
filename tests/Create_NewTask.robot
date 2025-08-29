@@ -51,10 +51,11 @@ Create New Task
 #search the new task in search bar
     RefreshPage
     Sleep       2s
-    ClickText    List View Controls
-    TypeText    Search this list...    Created by CRT script\n    anchor=Assigned Alias
+    ClickText    Select a List View: Tasks
+    ClickText    All Open Tasks 
+#   TypeText    Search this list...    Send Letter\n
     Sleep       2s
-
+    
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
     ClickText    Show Actions
@@ -63,35 +64,5 @@ Create New Task
     ClickText    Delete
     UseModal     Off
 
-#    VerifyText    Success notification.\nTask was deleted. Undo
-    Log           End of the Script for Task Creation
-
-# First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 1    timeout=2
-    IF  ${exists}
-        ClickCheckbox    Select Item 1    on    partial_match=False
-        HotKey       Tab
-        ClickText    O                  anchor=Select Item 1
-        ClickCheckbox    Select Item 1   on    partial_match=False
-        ClickText    Show Actions    anchor=Sundar Ayyappan
-        Sleep        2s
-        ClickText    Delete
-        UseModal     On
-        ClickText    Delete
-        UseModal     Off
-    ELSE            
-        Log  Checkbox not found, skipping this step
-    END
-#end of script
-
-#clean up the new task, by deleting
-    ClickCheckbox    Send Letter    On
-    ClickText    Show Actions
-    ClickText    Send Letter
-    VerifyText   Created by CRT script
-    ClickText    Delete    anchor=Cancel and close
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
 #    VerifyText    Success notification.\nTask was deleted. Undo
     Log           End of the Script for Task Creation
