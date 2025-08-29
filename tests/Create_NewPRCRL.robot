@@ -32,7 +32,7 @@ Create New PRCR
 #    VerifyText   Permission Request Contact Roles
 #clean up the newly created PRCR
     RefreshPage
-    ClickText    Permission Request Contact Roles
+    ClickText    Permission Request Contact Roles     anchor=PR-00024934
     RefreshPage
 
 # First verify that checkbox is not present using Is Text
