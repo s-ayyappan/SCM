@@ -47,7 +47,7 @@ Delete existing task
 #search the new task in search bar
     RefreshPage         
     Sleep       2s
-    ClickText    Select a List View: Tasks
+#    ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
     RefreshPage
     Sleep       2s
