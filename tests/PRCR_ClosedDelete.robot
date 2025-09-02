@@ -5,9 +5,9 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Closed Delete PRCR Validation
+PRCR Closed Won Deletion
     [tags]                    Permission Request, PRCR
-    [Documentation]           Restrict users deleting Closed (Won) status PRCR
+    [Documentation]           Users able to delete Closed (Won) status PRCR
     Appstate                  Home 
     Sleep                     2s
     LaunchApp                 Permission Requests
