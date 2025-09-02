@@ -14,16 +14,38 @@ Check Refresh DOAJ/URL Tracker
     Appstate                  Home
     LaunchApp                 Sources
   
-    ClickText    Select a List View
-    ClickText    All Titles
-    TypeText     Search this list...    T-26289\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    ClickText    T-26289
-    HoverText    Title Details
-    ClickText    T-26289
-    ScrollText   Audit Fields
-    VerifyText   DOAJcheck(ISSN)
-    IsText       text='complete'
-    VerifyText   DOAJcheck(Eissn)
-    IsText       text='waiting for results(ISSN)'
-    VerifyText   URLcheck
-    IsText       text='complete'
+    TypeText                  Search this list...    T-14688\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    ClickText                 T-14688
+    VerifyText                GeroFam
+    VerifyText                GeroFam
+    VerifyField               Title Id    T-14688    partial_match=True
+    VerifyField               Publisher    GeroFam    tag=a    partial_match=True
+    VerifyField               ISSN    13096478    partial_match=True
+    VerifyField               E-ISSN    13098675    partial_match=True
+    VerifyField               OBII Id    277656999    partial_match=True
+    ScrollText                Recent Items           
+    ClickText                 Related
+    ClickText                 Details
+
+#capture the API called at timing and status
+    ScrollText    Last API call for DOAJ and URL Tracker
+    ScrollText    Recent Items
+    VerifyText    API Called at
+    VerifyText    02/04/2025, 15:32
+    VerifyText    API Status
+    VerifyText    Timeout
+#click the Refresh DOAJ button and checkt the API Status
+    ClickText    Refresh DOAJ/URL Tracker
+    VerifyText    API Called at
+    VerifyText    API Status
+    VerifyText    Requested
+
+# First verify that checkbox is not present using Is Text
+    ${exists}=         Is Text          VerifyText    Requested
+
+# Verify the checkbox does not exist (exists should be False)
+    IF  ${exists}
+        Log  DOAJ API call successfully made
+    ELSE            
+        Log  DOAJ API call not successfully made
+    END 
