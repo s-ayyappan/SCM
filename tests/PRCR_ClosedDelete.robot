@@ -5,10 +5,10 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-PRCR Closed Won Deletion
+PR Closed Won Deletion PRCR
     [tags]                    Permission Request, PRCR
-    [Documentation]           Users able to delete Closed (Won) status PRCR
-     Appstate                  Home 
+    [Documentation]           Users able to delete Closed (Won) status PR's releted PRCR
+    Appstate                  Home 
     Sleep                     2s
     LaunchApp                 Permission Requests
 
@@ -18,6 +18,11 @@ PRCR Closed Won Deletion
     Sleep        2s
     ClickText    PR-00024935
     VerifyText   PR-00024935
+
+#check the status of PR 
+    SwipeDown
+    VerifyText    Status
+    VerifyText    Closed (Won)
     ClickText    Related
 
 #Create new PRCR 
@@ -30,7 +35,7 @@ PRCR Closed Won Deletion
     UseModal     Off
     Sleep        2s
 #    VerifyText   Permission Request Contact Roles
-#clean up the newly created PRCR
+#Delete the newly created PRCR
     RefreshPage
     ClickText    Permission Request Contact Roles     anchor=PR-00024935
     RefreshPage
@@ -48,6 +53,7 @@ PRCR Closed Won Deletion
         UseModal     On
         ClickText    Delete
         UseModal     Off
+        Log   User able to deleted PRCR of Closed won status PR
     ELSE            
         Log  Checkbox not found, skipping this step
     END
