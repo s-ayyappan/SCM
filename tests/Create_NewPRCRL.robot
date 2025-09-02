@@ -53,12 +53,12 @@ Create New PRCR
     END
 
 # First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 2    timeout=2
+    ${exists}=         Is Text          Select Item     timeout=2
     IF  ${exists}
-        ClickCheckbox    Select Item 2    on    partial_match=False
+        ClickCheckbox    Select Item 1    on    partial_match=False
         HotKey       Tab
         ClickText    O                  anchor=Select Item 1
-        ClickCheckbox    Select Item 2   on    partial_match=False
+        ClickCheckbox    Select Item 1   on    partial_match=False
         ClickText    Show Actions    anchor=Sundar Ayyappan
         Sleep        2s
         ClickText    Delete
