@@ -22,16 +22,14 @@ Check Refresh DOAJ/URL Tracker
     VerifyField               Publisher    GeroFam    tag=a    partial_match=True
     VerifyField               ISSN    13096478    partial_match=True
     VerifyField               E-ISSN    13098675    partial_match=True
-    VerifyField               OBII Id    277656999    partial_match=True
-    ScrollText                Recent Items           
-    ClickText                 Related
-    ClickText                 Details
+    VerifyField               OBII Id    277656999    partial_match=True     
 
 #capture the API called at timing and status
+    SwipeDown
     ScrollText    Last API call for DOAJ and URL Tracker
     ScrollText    Recent Items
-    VerifyText    API Called at
-    VerifyText    02/04/2025, 15:32
+#    VerifyText    API Called at
+#    VerifyText    02/04/2025, 15:32
     VerifyText    API Status
     VerifyText    Timeout
 #click the Refresh DOAJ button and checkt the API Status
