@@ -22,9 +22,6 @@ Delete existing task
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
-    ClickText    Select list display
-    ClickText    Table
-    RefreshPage
 #create new task
     ClickText    New Task    anchor=Assign Label
 #select the subject
