@@ -22,6 +22,8 @@ Delete existing task 2nd part
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
+    ClickText    Select list display
+    ClickText    Table
     Sleep       2s
     TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
 #clean up the new task, by deleting
