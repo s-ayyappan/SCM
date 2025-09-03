@@ -28,22 +28,22 @@ Check Refresh DOAJ/URL Tracker
     SwipeDown
     ScrollText    Last API call for DOAJ and URL Tracker
     ScrollText    Recent Items
-#    VerifyText    API Called at
-#    VerifyText    02/04/2025, 15:32
     VerifyText    API Status
     VerifyText    Timeout
 #click the Refresh DOAJ button and checkt the API Status
-    ClickText    Refresh DOAJ/URL Tracker
+    ClickText     Refresh DOAJ/URL Tracker
     VerifyText    API Called at
     VerifyText    API Status
     VerifyText    Requested
+    ClickText     API Status
 
-# First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          VerifyText    Requested
+#Check the change of API Status
+    GetText       API Status
+    Log           CurrentStage:$Value
 
-# Verify the checkbox does not exist (exists should be False)
-    IF  ${exists}
-        Log  DOAJ API call successfully made
+    IF  "$Value" == "Requested"
+         Log  DOAJ API call successfully made
     ELSE            
         Log  DOAJ API call not successfully made
     END 
+
