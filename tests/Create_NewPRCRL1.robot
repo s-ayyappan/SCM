@@ -42,23 +42,4 @@ Create New PRCR Delete
         Log  Checkbox not found, skipping this step
         Log  No New PRCR found for deletion
     END
-
-# First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item     timeout=2
-    IF  ${exists}
-        ClickCheckbox    Select Item 1    on    partial_match=False
-        HotKey       Tab
-        ClickText    O                  anchor=Select Item 1
-        ClickCheckbox    Select Item 1   on    partial_match=False
-        ClickText    Show Actions    anchor=Sundar Ayyappan
-        Sleep        2s
-        ClickText    Delete
-        UseModal     On
-        ClickText    Delete
-        UseModal     Off
-        Log          New PRCR successfully deleted
-    ELSE            
-        Log  Checkbox not found, skipping this step
-        Log  No New PRCR found for deletion
-    END
 #end of script
