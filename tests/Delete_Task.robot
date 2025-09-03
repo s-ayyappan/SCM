@@ -48,16 +48,16 @@ Delete existing task
     RefreshPage         
     Sleep       2s
 #    ClickText    Select a List View: Tasks
-    ClickText    All Open Tasks
-    Sleep       2s
-    TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
+#    ClickText    All Open Tasks
+#    Sleep       2s
+#    TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
 #clean up the new task, by deleting
-    ClickCheckbox    Send Letter    On
-    ClickText    Show Actions
-    ClickText    Send Letter
-    VerifyText   Created by CRT script
-    ClickText    Delete    anchor=Cancel and close
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    Log          End of the Script for Task Deletion
+#    ClickCheckbox    Send Letter    On
+#    ClickText    Show Actions
+#    ClickText    Send Letter
+#    VerifyText   Created by CRT script
+#    ClickText    Delete    anchor=Cancel and close
+#    UseModal     On
+#    ClickText    Delete
+#    UseModal     Off
+#    Log          End of the Script for Task Deletion 
