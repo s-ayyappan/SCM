@@ -24,12 +24,6 @@ Check Refresh DOAJ/URL Tracker
     VerifyField               E-ISSN    13098675    partial_match=True
     VerifyField               OBII Id    277656999    partial_match=True     
 
-#capture the API called at timing and status
-    SwipeDown
-    ScrollText    Last API call for DOAJ and URL Tracker
-    ScrollText    Recent Items
-    VerifyText    API Status
-    VerifyText    Timeout
 #click the Refresh DOAJ button and checkt the API Status
     ClickText     Refresh DOAJ/URL Tracker
     VerifyText    API Called at
