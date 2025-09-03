@@ -7,7 +7,7 @@ Suite Teardown                End suite
 *** Test Cases ***
 Create New PRCR Delete
     [tags]                    Permission Request
-    [Documentation]           Test delete the PRCR created by CRT script
+    [Documentation]           Test to delete the PRCR created by CRT script Create_NewPRCRL
     Appstate                  Home 
     Sleep                     2s
     LaunchApp                 Permission Requests
