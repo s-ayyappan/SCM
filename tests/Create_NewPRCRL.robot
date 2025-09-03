@@ -29,6 +29,9 @@ Create New PRCR
     ClickText    Save    partial_match=False
     UseModal     Off
     Sleep        2s
+    ClickText    PR-00024934
+    ClickText    Related
+    ClickText    Permission Request Contact Roles
 
 #Check new PRCR is created
     ${exists}=         Is Text          Select Item 1    timeout=2
