@@ -7,7 +7,7 @@ Suite Teardown                End suite
 *** Test Cases ***
 Create New PRCR
     [tags]                    Permission Request
-    [Documentation]           Test to create PRCR under Permission Request 
+    [Documentation]           Test to create PRCR under Permission Request with two part CRT script for deletion
     Appstate                  Home 
     Sleep                     2s
     LaunchApp                 Permission Requests
