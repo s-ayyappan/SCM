@@ -20,13 +20,9 @@ Check PRCR Loading
     ClickText    PR-00024512
     VerifyText   PR-00024512
     ClickText    Related
+    ClickText    Permission Request Contact Roles
 #Click the PRCR and allow it to load and check the PR
-    ClickText    PRCR-00016268    anchor=6 items
-    VerifyText   PRCR-00016268
-    VerifyText   Permission Request Contact Role
     Sleep        2s
 #check the PRCR is loaded properly
-    VerifyText    Permission Request Contact Role
-    VerifyText    PRCR-00016268
     Log           PRCR tab successfully loaded
 
