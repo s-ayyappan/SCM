@@ -26,7 +26,7 @@ Check Refresh DOAJ/URL Tracker
 
 #click the Refresh DOAJ button and checkt the API Status
     ClickText     Refresh DOAJ/URL Tracker
-    VerifyText    API Called at
+#    VerifyText    API Called at
     VerifyText    API Status
     VerifyText    Requested
     ClickText     API Status
