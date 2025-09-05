@@ -24,6 +24,7 @@ Delete existing task
     ClickText    All Open Tasks
     ClickText    Select list display
     ClickText    Table
+    Sleep        2s
 #create new task
     ClickText    New Task    anchor=Assign Label
 #select the subject
