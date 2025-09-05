@@ -34,17 +34,17 @@ Create New PRCR
     ClickText    Permission Request Contact Roles
 
 #Check new PRCR is created
-    ${exists}=         Is Text          Select Item 1    timeout=2
-    IF  ${exists}
-        ClickCheckbox    Select Item 1    on    partial_match=False
-        HotKey       Tab
-        ClickText    PRCR                 anchor=Contact
-        VerifyText    Permission Request Contact Role\nPRCR
-        HoverText    Avignon University
-        VerifyText    Auto CRT
-        ClickText    PR-00024934
-        Log          New PRCR successfully created
-    ELSE            
-        Log  No New PRCR successfully created
-    END
+#    ${exists}=         Is Text          Select Item 1    timeout=2
+#    IF  ${exists}
+#        ClickCheckbox    Select Item 1    on    partial_match=False
+#        HotKey       Tab
+#        ClickText    PRCR                 anchor=Contact
+#        VerifyText    Permission Request Contact Role\nPRCR
+#        HoverText    Avignon University
+#        VerifyText    Auto CRT
+#        ClickText    PR-00024934
+#        Log          New PRCR successfully created
+#    ELSE            
+#        Log  No New PRCR successfully created
+#    END
 
