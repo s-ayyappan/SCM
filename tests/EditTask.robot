@@ -18,6 +18,11 @@ Edit Tasks
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
+#change to table view
+    ClickText    Select list display
+    ClickText    Table
+    ClickCheckbox    DOAJ - multiple template found    On
+    ClickText    DOAJ - multiple template found
 #click the first task in the list
     ClickText    Edit Comments    anchor=Delete
     UseModal     On
