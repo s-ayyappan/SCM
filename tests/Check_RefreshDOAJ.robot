@@ -13,9 +13,11 @@ Check Refresh DOAJ/URL Tracker
     [Documentation]           The script check whether the Refresh DOAJ/URL tracker API is triggered successfully
     Appstate                  Home
     LaunchApp                 Sources
+    Sleep                     2s
   
     TypeText                  Search this list...    T-14688\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText                 T-14688
+    Sleep                     2s
     VerifyText                GeroFam
     VerifyText                GeroFam
     VerifyField               Title Id    T-14688    partial_match=True
@@ -26,6 +28,8 @@ Check Refresh DOAJ/URL Tracker
 
 #click the Refresh DOAJ button and checkt the API Status
     ClickText     Refresh DOAJ/URL Tracker
+    RefreshPage
+    Sleep         2s
 #    VerifyText    API Called at
     VerifyText    API Status
     VerifyText    Requested
