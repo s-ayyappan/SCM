@@ -31,6 +31,7 @@ Check Refresh DOAJ/URL Tracker
     RefreshPage
     Sleep         2s
 #    VerifyText    API Called at
+    SwipeDown
     VerifyText    API Status
     VerifyText    Requested
     ClickText     API Status
