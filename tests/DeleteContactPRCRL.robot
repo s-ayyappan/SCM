@@ -67,6 +67,9 @@ Delete Contact and linked PRCR
     Sleep        2s
 
 #capture the new PRCR details
+    ClickText    PR-00024512
+    ClickText    Related
+    ClickText    Permission Request Contact Roles           anchor=New
     ClickCheckbox    Select Item 6    on    partial_match=False
     ClickText        PRCR             anchor=Select Item 6
     ${prcrValue}=    GetText            Permission Request Contact Role 
