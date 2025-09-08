@@ -8,9 +8,9 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check Cases
+Check Email Navigations
     [tags]                    Cases
-    [Documentation]           Check the Cases are able to open and view        
+    [Documentation]           Check the Email Navigation options are available for the user
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Cases
