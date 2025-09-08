@@ -29,7 +29,7 @@ Check Email Navigations
     ClickText    Emails
     VerifyText    Emails
     ClickText    Show Actions
-#    VerifyText    Delete
+#    VerifyText    Delete    commented on 08/09 based on SF winter release
     VerifyText    Reply               
     VerifyText    Reply All
     VerifyText    Forward
