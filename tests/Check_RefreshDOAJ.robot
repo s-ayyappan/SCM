@@ -27,6 +27,7 @@ Check Refresh DOAJ/URL Tracker
     VerifyField               OBII Id    277656999    partial_match=True     
 
 #click the Refresh DOAJ button and checkt the API Status
+
     ClickText     Refresh DOAJ/URL Tracker
     RefreshPage
     Sleep         2s
