@@ -29,8 +29,8 @@ Check Refresh DOAJ/URL Tracker
 #click the Refresh DOAJ button and checkt the API Status
 
     ClickText     Refresh DOAJ/URL Tracker
-    RefreshPage
-    Sleep         2s
+#    RefreshPage
+#    Sleep         2s
 #    VerifyText    API Called at
     SwipeDown
     VerifyText    API Status
