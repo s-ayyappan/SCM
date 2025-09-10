@@ -11,10 +11,10 @@ Suite Teardown                End suite
 *** Test Cases ***
 Edit Tasks
     [tags]                    Tasks Edit
+    [Documentation]           Editing tasks
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Tasks
-    [Documentation]           Editing tasks
 
     ClickText    Select a List View: Tasks
     ClickText    All Open Tasks
