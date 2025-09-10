@@ -34,6 +34,7 @@ Check New Case Related fields
 
 #clean up the newly crated case
     LaunchApp    Cases
+    ClickText    All cases
     TypeText     Search this list...    CRT Case\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
     Sleep        2s
     ClickText    CRT Case
