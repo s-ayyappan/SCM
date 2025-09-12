@@ -70,8 +70,8 @@ Delete Contact and linked PRCR
     ClickText    PR-00024512
     ClickText    Related
     ClickText    Permission Request Contact Roles           anchor=New
-    ClickCheckbox    Select Item 6    on    partial_match=False
-    ClickText        PRCR             anchor=Select Item 6
+    ClickCheckbox    Select Item 4    on    partial_match=False
+    ClickText        PRCR             anchor=Select Item 4
     ${prcrValue}=    GetText            Permission Request Contact Role 
 
 #delete the contact    
@@ -109,11 +109,11 @@ Delete Contact and linked PRCR
     ClickText    Permission Request Contact Roles           anchor=New
 
 # First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 6
+    ${exists}=         Is Text          Select Item 4
 
 # Verify the checkbox does not exist (exists should be False)
     IF  ${exists}
-        ClickCheckbox    Select Item 6    on    partial_match=False
+        ClickCheckbox    Select Item 4    on    partial_match=False
         Log  PRCR is not deleted when contact is deleted
     ELSE            
         Log  PRCR not found, skipping this step
