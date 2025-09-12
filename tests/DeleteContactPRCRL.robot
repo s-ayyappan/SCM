@@ -114,9 +114,9 @@ Delete Contact and linked PRCR
 # Verify the checkbox does not exist (exists should be False)
     IF  ${exists}
         ClickCheckbox    Select Item 6    on    partial_match=False
-        Log  Checkbox found and PRCR is not deleted when contact is deleted
+        Log  PRCR is not deleted when contact is deleted
     ELSE            
-        Log  Checkbox not found, skipping this step
+        Log  PRCR not found, skipping this step
     END    
 
 #    Should Not Be True    ${exists}    msg=Checkbox 'Select Item 6' was found but should not exist
