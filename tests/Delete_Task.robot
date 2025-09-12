@@ -21,7 +21,7 @@ Delete existing task
     Sleep                     2s
 
     ClickText    Select list display
-#    ClickText    Table
+    ClickText    Table
 #    ClickText    All Open Tasks
     Sleep        2s
 #create new task
@@ -42,10 +42,10 @@ Delete existing task
     PickList    Priority    Normal
     PickList    Status    Open
     ClickText   Save    partial_match=False
-    UseModal    Off
+    UseModal    Off     anchor=New Task
 #search the new task in search bar
-    RefreshPage         
-    Sleep       2s
+#    RefreshPage         
+#    Sleep       2s
 #    ClickText    Select a List View: Tasks
 #    ClickText    All Open Tasks
 #    Sleep       2s
