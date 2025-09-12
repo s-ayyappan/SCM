@@ -20,11 +20,9 @@ Delete existing task 2nd part
     Sleep                     2s
     LaunchApp                 Tasks
 
-    ClickText    Select a List View: Tasks
-    ClickText    All Open Tasks
     ClickText    Select list display
     ClickText    Table
-    Sleep       2s
+    Sleep        2s
     TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
