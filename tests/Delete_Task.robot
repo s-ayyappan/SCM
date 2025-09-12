@@ -17,13 +17,12 @@ Delete existing task
     [tags]                    Tasks, Delete Task
     [Documentation]           Delete a task
     Appstate                  Home
-    Sleep                     2s
     LaunchApp                 Tasks
+    Sleep                     2s
 
-    ClickText    Select a List View: Tasks
-    ClickText    All Open Tasks
     ClickText    Select list display
-    ClickText    Table
+#    ClickText    Table
+#    ClickText    All Open Tasks
     Sleep        2s
 #create new task
     ClickText    New Task    anchor=Assign Label
