@@ -16,11 +16,10 @@ Edit Tasks
     Sleep                     2s
     LaunchApp                 Tasks
 
-    ClickText    Select a List View: Tasks
-    ClickText    All Open Tasks
 #change to table view
     ClickText    Select list display
     ClickText    Table
+    Sleep        2s
     ClickCheckbox    DOAJ - multiple template found    On
     ClickText    DOAJ - multiple template found
 #click the first task in the list
