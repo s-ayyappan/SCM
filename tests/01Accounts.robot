@@ -6,7 +6,7 @@ Suite Teardown                End suite
 
 
 *** Test Cases ***
-Accounts Tab  UI
+Accounts Tab UI Checks
     [tags]                    Accounts
     [Documentation]           Accounts tab UI check
     Appstate                  Home
