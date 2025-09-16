@@ -24,6 +24,8 @@ Sources Tab UI Checks
     VerifyText    New Source: Full
     VerifyText    Title Details
     VerifyText    Title Id
+    VerifyText    Page Source
+    VerifyText    Content Provider
     VerifyText    Publisher
     VerifyText    *Title Nam
     VerifyText    Owner
@@ -68,8 +70,8 @@ Sources Tab UI Checks
     VerifyText    Auto License Triggered
     VerifyText     Cancel    partial_match=False
     VerifyText     Save & New
-    VerifyTest     Save
-    Modal          Off
+    VerifyText     Save
+    UseModal        Off
     
 
 
