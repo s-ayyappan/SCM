@@ -24,7 +24,7 @@ Contacts Tab UI Checks
     VerifyText    First Name
     VerifyText    Name
     VerifyText    First Name
-    VerifyPickList    Salutation    Salutation
+    VerifyPickList    Salutation    
     VerifyText    Middle Name
     VerifyText    *Last Name
     VerifyText    Suffix
@@ -32,6 +32,7 @@ Contacts Tab UI Checks
     VerifyText    Contact Owner
     VerifyText    *Account Name
     VerifyText    Phone
+    VerifyText    Mobile
     VerifyText    Title
     VerifyText    Email
     VerifyText    Fax
@@ -47,4 +48,5 @@ Contacts Tab UI Checks
     VerifyText   Save & New
     VerifyText   Cancel and close
     VerifyText   Save
+    ClickText    Cancel and close
     UseModal    Off
