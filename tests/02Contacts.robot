@@ -13,8 +13,7 @@ Contacts Tab UI Checks
     LaunchApp                 Contacts
     Sleep                     2s
 
-#capture the UI objects
-
+#capture the UI objects in New contact Modal
     ClickText    New
     UseModal    On
     VerifyText    New Contact
