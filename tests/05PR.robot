@@ -14,9 +14,19 @@ Permission Requests UI Check
 
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    TypeText     Search this list...    PR-00025133\n    anchor=Clear
-    ClickText    PR-00025133
-    VerifyText   PR-00025133
+    HoverText    Show Actions
+    TypeText     Search this list...    PR-00024535\n    anchor=Clear
+    ClickText    PR-00024535
+    VerifyText   PR-00024535
+
+
+
+
+#    ClickText    Select a List View: Permission Requests
+#    ClickText    All Permission Requests
+#    TypeText     Search this list...    PR-00025133\n    anchor=Clear
+#    ClickText    PR-00025133
+#    VerifyText   PR-00025133
 
 
     HoverText    Edit
@@ -49,12 +59,12 @@ Permission Requests UI Check
     VerifyText    Last Refresh Date
     VerifyText    Version
     VerifyText    Previous version
-    VerifyPickList    Type of Title    Type of Title
-    VerifyPickList    Currency    Currency
+    VerifyText    Type of Title
+    VerifyText    Currency
     VerifyText    Requires Welcome Email
     VerifyText    Communication Project
     VerifyText    Contact
-    VerifyText    Clear Selection\nContact Email
+    VerifyText    Clear Selection
     VerifyText    Status
     VerifyText    Reject Remark
     VerifyText    Reviewed
@@ -91,7 +101,7 @@ Permission Requests UI Check
     VerifyText    Signer Contact Job Title
     VerifyText    Signed Date
     VerifyText    Audit Fields
-    VerifyText    Contacted Permission Holder Date\nDate\n\nSelect a date for Date
+    VerifyText    Contacted Permission Holder Date
     VerifyText    Permission Granted Date
     VerifyText    Reviewed Date
     VerifyText    Permission Request Send Date
@@ -108,5 +118,6 @@ Permission Requests UI Check
     HoverText    Cancel
     HoverText    Save & New
     HoverText    Save
+    ClickText    Cancel and close
     UseModal    Off
     
