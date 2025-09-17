@@ -13,6 +13,11 @@ Sources Tab UI Checks
     Sleep                     2s    
 
 #capture the UI objects in New Sources Modal
+
+
+    ClickText    Sources List
+    ClickText    New Source
+    UseModal    On
     ClickText    New
     UseModal    On
     VerifyText    New Source
@@ -24,7 +29,7 @@ Sources Tab UI Checks
     VerifyText    New Source: Full
     VerifyText    Title Details
     VerifyText    Title Id
-    VerifyText    Page Source
+    VerifyText    Paid Source
     VerifyText    Content Provider
     VerifyText    Publisher
     VerifyText    *Title Nam
