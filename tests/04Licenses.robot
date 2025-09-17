@@ -1,5 +1,6 @@
 *** Settings ***
 Library    QForce
+Library    QWeb
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -14,10 +15,9 @@ Licenses Tab UI Checks
 
 #capture the UI objects in New License Modal
 
-    VerifyText   Import
-    VerifyText   Assign Label
-    VerifyText    New
-    ClickText    New
+
+    ClickText    Licenses List
+    ClickText    New License
     UseModal    On
     VerifyText    New License
     VerifyText    Information
