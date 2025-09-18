@@ -46,8 +46,7 @@ Create New Task
     TypeText    Comments    Created by CRT script
     PickList    Priority    Normal
     PickList    Status    Open
-    ClickText   Save    partial_match=False
-    UseModal    Off
+    ClickText    Save    partial_match=False
 #search the new task in search bar
     RefreshPage
     Sleep       2s
