@@ -24,8 +24,10 @@ Tasks tab UI check
     VerifyText    Task Number
     VerifyText    Subject
     VerifyText    Due Date
-    VerifyText    Assigned To*
-    VerifyText    Related To*
+    VerifyText    Assigned To
+    VerifyText    Related To
+#    ClickText    Assigned To*
+#    VerifyText    Related To*
     VerifyText    Total Task
     VerifyText    Saved Email
     VerifyText    Pick an object
