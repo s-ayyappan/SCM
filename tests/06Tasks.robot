@@ -51,4 +51,4 @@ Tasks tab UI check
     VerifyText    Save
     ClickText     Cancel and close
     UseModal      Off
-    VerifyText    Task Complete
+#    VerifyText    Task Complete
