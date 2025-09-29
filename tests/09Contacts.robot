@@ -6,7 +6,7 @@ Suite Teardown                End suite
 
 
 *** Test Cases ***
-Contracts Tab UI Checks
+Contacts Tab UI Checks
     [tags]                    Contacts
     [Documentation]           Contacts tab UI check
     Appstate                  Home
