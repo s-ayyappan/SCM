@@ -25,6 +25,7 @@ Delete existing task 2nd part
     Sleep        2s
 #    TypeText    Search this list...    CRT script for deletion\n    anchor=Clear
     TypeText    Search this list...    CRT script\n    anchor=Assigned Alias, Due Date, Name, and Related To aren't searchable. Use filters or sort on these fields instead.
+    Sleep        1s
 #clean up the new task, by deleting
     ClickCheckbox    Send Letter    On
     ClickText    Show Actions
