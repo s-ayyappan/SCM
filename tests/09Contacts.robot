@@ -17,7 +17,6 @@ Contracts Tab UI Checks
 
     VerifyText    Contacts
     VerifyText    New
-    VerifyText    New
     VerifyText    Import
     VerifyText    Account Name
     VerifyText    Name
