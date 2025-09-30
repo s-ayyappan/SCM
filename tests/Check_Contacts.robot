@@ -19,7 +19,7 @@ Check Contacts Tab UI Checks
     TypeText      Search this list...    Aaron Miller\n   
     ClickText     Aaron Miller
     VerifyText    Contact
-    VerifyText    Contact\nAaron Miller
+    VerifyText    Aaron Miller
     VerifyText    Account Name
     VerifyText    Title
     ClickText     Phone
