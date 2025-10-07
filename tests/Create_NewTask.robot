@@ -47,8 +47,8 @@ Create New Task
     PickList    Priority    Normal
     PickList    Status    Open
     ClickText    Save    partial_match=False
-    ClickText    Cancel and close
-    UseModal    Off
+#    ClickText    Cancel and close
+#    UseModal    Off
 #search the new task in search bar
     RefreshPage
     Sleep       2s
