@@ -42,9 +42,9 @@ Check Two Primary Account Team Member error
     VerifyField   Publisher Display Name    Robot Account    partial_match=True
     Log           New Account successfully created  
 
-    Appstate                  Home
-    Sleep                     1s
-    LaunchApp                 Accounts
+    Appstate      Home
+    Sleep         1s
+    LaunchApp     Accounts
 
 #ClickText    Search    partial_match=False
     TypeText     Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
