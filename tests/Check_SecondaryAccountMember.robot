@@ -15,6 +15,34 @@ Check Two Primary Account Team Member error
     Sleep                     1s
     LaunchApp                 Accounts
 
+#create new account
+    VerifyText    Accounts
+    ClickText    Select a List View: Accounts
+    ClickText    All Accounts
+    ClickText    New    anchor=Import
+    TypeText     Enter Keyword To Search For An Organisation...    Robot account
+    ClickText    Search    partial_match=False
+    ClickText    Create New Account
+    UseModal     On
+    TypeText     *Account Name    Robot Account
+    TypeText     Publisher Display Name    Robot Account
+#input the Country and City 
+    TypeText    ECH Country                United Kingdom
+    TypeText    ECH City                   Oxford    
+#input the billing address         
+    ComboBox     Search Address    Oxford
+    TypeText     Billing Zip/Postal Code    ox4 2wb
+    SwipeDown    1
+    ClickText    Save    partial_match=False
+    Sleep        2s
+    UseModal     Off
+#Check the successfull creation of account 
+    VerifyText    Robot Account             anchor=Account
+    VerifyField   Account Name    Robot Account    partial_match=True
+    VerifyField   Publisher Display Name    Robot Account    partial_match=True
+    Log           New Account successfully created  
+
+
 #ClickText    Search    partial_match=False
     TypeText     Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText    Robot Account
