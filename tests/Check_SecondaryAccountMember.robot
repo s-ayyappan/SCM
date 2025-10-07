@@ -42,6 +42,9 @@ Check Two Primary Account Team Member error
     VerifyField   Publisher Display Name    Robot Account    partial_match=True
     Log           New Account successfully created  
 
+    Appstate                  Home
+    Sleep                     1s
+    LaunchApp                 Accounts
 
 #ClickText    Search    partial_match=False
     TypeText     Search this list...    Robot Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
@@ -79,9 +82,23 @@ Check Two Primary Account Team Member error
     ClickCheckbox    Edit Primary    on
     VerifyText    Primary
 
-   
-
-
+    LaunchApp                 Accounts
+    Sleep                     2s
+#search the account selected for deletion
+    TypeText                  Search this list...    Robot Account\n    anchor=Created Date, Owner Last Name, and PRM Account aren't searchable. Use filters or sort on these fields instead.
+    Sleep                     2s
+    VerifyText                Robot Account
+    ClickText                 Show Actions
+    HoverText                 Show more actions
+    HoverText                 Delete
+#select the 
+    ClickText                 Delete
+    Sleep                     5s
+    UseModal                  On
+    VerifyText                Are you sure you want to delete this account?
+    ClickText                 Delete
+    UseModal                  Off
+    Sleep                     5s
 
 
     
