@@ -17,9 +17,10 @@ Check Email in Cases
 #list all cases
     ClickText    All cases
 #search for specific case
-    TypeText    Search this list...    0000209
+    TypeText    Search this list...    00002094\n
     ClickText    00002094
     ClickText    Related
+    ClickText    Emails
     ClickText    Robotics Testing Case 
     HoverText    Reply
     HoverText    Forward
@@ -34,4 +35,3 @@ Check Email in Cases
     HoverText    Close
     ClickText    Close    partial_match=False
     Log          Email function objects present as expected 
-    
