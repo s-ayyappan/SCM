@@ -33,5 +33,5 @@ Check Email in Cases
     HoverText    Send
     HoverText    Close
     ClickText    Close    partial_match=False
-    Log          Email function objects present as expected
+    Log          Email function objects present as expected 
     
