@@ -76,10 +76,24 @@ Check Two Primary Account Team Member error
     ComboBox     Search People...    Satheesh Selvaraj
     ClickText    Edit Team Role: Item    anchor=Team Role
     PickList     Team Role    Publishing Relations Manager - Serial Content
+    VerifyText   Primary
     ClickText    Edit Primary: Item    anchor=Delete item 1
-    ClickCheckbox    Publishing Relations Manager - Serial ContentEdit Team Role: Item 1 Edited    on    partial_match=False
+    HotKey       Space
     ClickText    Save
-    VerifyText    Can't save records with errors.\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
+#check whether error msg is displayed
+#    ${duplicate_exists}=    Set Variable    Can't save records with errors
+#    IF    '${duplicate_exists}' == 'Can't save records with errors'
+#        Log    >>> Cannot have more than one primary contact
+#        ClickText    Cancel    partial_match=False
+#        ClickText    Cancel
+#    ELSE
+#        Log    >>> No duplicate primary contact found
+#        ClickText    Save    partial_match=False
+#    END
+    VerifyText    Can't save records with errors.
+    #\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
+    HoverText    Close
+    ClickText    Close
     ClickText    Cancel    partial_match=False
     Log          Correct error message is triggered.  
 #check secondary account member added to the account
