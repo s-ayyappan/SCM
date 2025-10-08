@@ -76,7 +76,12 @@ Check Two Primary Account Team Member error
     ComboBox     Search People...    Satheesh Selvaraj
     ClickText    Edit Team Role: Item    anchor=Team Role
     PickList     Team Role    Publishing Relations Manager - Serial Content
+    ClickText    Edit Primary: Item    anchor=Delete item 1
+    ClickCheckbox    Publishing Relations Manager - Serial ContentEdit Team Role: Item 1 Edited    on    partial_match=False
     ClickText    Save
+    VerifyText    Can't save records with errors.\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
+    ClickText    Cancel    partial_match=False
+    Log          Correct error message is triggered.  
 #check secondary account member added to the account
     ClickText    Satheesh Selvaraj Team Member Record
     ClickCheckbox    Edit Primary    on
