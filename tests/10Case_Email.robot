@@ -6,7 +6,8 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check Email in Cases
-    [tags]                    Cases
+    [tags]                    Cases, Emails
+    [Documentation]           Check the case email functionality objects are displaying as expected in UI
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Cases
