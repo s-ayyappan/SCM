@@ -97,10 +97,8 @@ Check Two Primary Account Team Member error
     ClickText    Cancel    partial_match=False
     Log          Correct error message is triggered.  
 #check secondary account member added to the account
-    ClickText    Satheesh Selvaraj Team Member Record
-    ClickCheckbox    Edit Primary    on
+    ClickText    Sundar Ayyappan Team Member Record
     VerifyText    Primary
-
     LaunchApp                 Accounts
     Sleep                     2s
 #search the account selected for deletion
