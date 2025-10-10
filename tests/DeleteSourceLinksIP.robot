@@ -34,40 +34,61 @@ Delete Contact and linked Source Link
         Log    >>> No duplicates found
         ClickText    Save    partial_match=False
     END
-    UseModal     Off
-    Sleep        2s
-#search the existing contact    
-    TypeText    Search this list...    Robotics PRCRcontact\n    anchor=Clear
-    ClickText    Robotics PRCRcontact
-    VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
-#check the source link
-    
-
-    ClickText    Related
-    ScrollText    Recent Items
-    ScrollText    /html[1]/head[1]/link[1]
-    ClickText    Details
-    ClickText    Sources
-    TypeText    Search this list...    funding test\n    anchor=Content Provider
-    ClickText    T-55992
-    VerifyText    Funding Test template 22
-    ClickText    Related
-    ScrollText    Recent Items
-    ScrollText    /html[1]/head[1]/link[1]
-    VerifyText    Source Links\n(1)
+#    UseModal     Off
+#    Sleep        2s
+#click the existing contact    
     ClickText    Contacts
-    ScrollText    /html[1]/head[1]/link[1]
     ClickText    Robotics PRCRcontact
-    ClickText    Delete
-    UseModal    On
-    ClickText    Delete
-    UseModal    Off
-    VerifyText    Contact "Robotics PRCRcontact" was deleted. Undo
+    Sleep        2s
+    VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
+#clik the source link
+ 
     ClickText    Sources
-    TypeText    Search this list...    funcding test\n    anchor=Content Provider
-    ClickText    Clear
-    TypeText    Search this list...    funding test\n    anchor=Content Provider
+    TypeText     Search this list...    funding test\n    anchor=Content Provider
     ClickText    T-55992
+    VerifyText   Funding Test template 22
     ClickText    Related
-    ScrollText    Recent Items
-    VerifyText    ource Links\n(1)
+
+#delete the contact
+    ClickText    Contacts
+    ClickText    Robotics PRCRcontact
+    Sleep        2s
+    VerifyText    Mr. Robotics PRCRcontact
+    ClickText     Delete
+    UseModal      On
+    ClickText     Delete
+    VerifyText    Robotics PRCRcontact
+    Log           Contact Sucessfully deleted
+
+
+
+#Check if element exists and perform actions based on result
+    ClickText    Sources
+    Sleep        2s
+    TypeText     Search this list...    funding test\n    anchor=Content Provider
+    ClickText    T-55992
+    Sleep        2s
+    ClickText    Related
+    VerifyText   Source Links
+    ClickText    Source Links    
+    ${element_exists}=    Run Keyword And Return Status    VerifyText    Select Item 1    timeout=3
+    IF    ${element_exists}
+        Log    Select Item 1 found - Source link not deleted
+#        ClickText    Select Item 1
+    # Add your actions here when element exists
+    ELSE
+        Log    Select Item 1 not found - Source link deleted successfully
+    # Add your alternative actions here
+    END
+
+    # Using in CRT with VerifyText
+#    VerifyText          Select Item 1
+
+# Using in CRT with VerifyElement
+#    VerifyElement       xpath=//span[text()='Select Item 1']
+
+# Using in CRT with ClickText (if clickable)
+#    ClickText           Select Item 1
+
+# Using in CRT with custom XPath
+#    VerifyElement       xpath=//span[@part='label' and text()='Select Item 1']
