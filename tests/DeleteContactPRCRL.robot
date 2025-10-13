@@ -33,8 +33,9 @@ Delete Contact and linked PRCR
     ELSE
         Log    >>> No duplicates found
         ClickText    Save    partial_match=False
+        UseModal     Off
     END
-    UseModal     Off
+#    UseModal     Off
     Sleep        2s
 #search the existing contact    
     TypeText    Search this list...    Robotics PRCRcontact\n    anchor=Clear
