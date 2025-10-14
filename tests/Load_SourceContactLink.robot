@@ -10,7 +10,8 @@ Load Source Contact Link Loading
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Sources
-    
+
+#search the title
     TypeText                  Search this list...    T-56194\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText                 T-56194
 
