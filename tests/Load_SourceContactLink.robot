@@ -5,7 +5,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Check Sources
+Load Source Contact Link Loading
     [tags]                    Sources
     Appstate                  Home
     Sleep                     2s
