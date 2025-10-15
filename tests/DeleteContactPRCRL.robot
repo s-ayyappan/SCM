@@ -25,6 +25,7 @@ Delete Contact and linked PRCR
     ComboBox     Search Accounts...    Aalborg University
     TypeText     Email    test@elsevier.invalid.com    
     ClickText    Save    partial_match=False
+    Sleep        2s
 #check whether duplicate or similar contact already exists
     ${duplicate_exists}=    Set Variable    Similar Records Exist
     IF    '${duplicate_exists}' == 'Similar Records Exist'
