@@ -23,14 +23,15 @@ Delete Contact and linked PRCR
     TypeText     OBII Id    222343\n
     PickList     Contact Role    All-round
     ComboBox     Search Accounts...    Aalborg University
-    TypeText     Email    test@elsevier.invalid.com    
-    ClickText    Save    partial_match=False
-    Sleep        2s
+    TypeText     Email    test@elsevier.invalid.com   
+    HotKey       Tab 
+
+    
 #check whether duplicate or similar contact already exists
     ${duplicate_exists}=    Set Variable    Similar Records Exist
     IF    '${duplicate_exists}' == 'Similar Records Exist'
         Log    >>> Duplicates were found
-        UseModal     Off
+        ClickText    Close error dialog
         ClickText    Cancel    partial_match=False
     ELSE
         Log    >>> No duplicates found
