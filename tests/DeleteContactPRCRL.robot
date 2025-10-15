@@ -14,37 +14,33 @@ Delete Contact and linked PRCR
     Sleep                     2s
     LaunchApp                 Contacts
 
-#create a new contact for robotics testing
-    ClickText    New
-    UseModal     On
-    PickList     Salutation    Mr.
-    TypeText     First Name    Robotics
-    TypeText     Last Name    PRCRcontact
-    TypeText     OBII Id    222343\n
-    PickList     Contact Role    All-round
-    ComboBox     Search Accounts...    Aalborg University
-    TypeText     Email    test@elsevier.invalid.com   
-    HotKey       Tab 
-
-    
+#create a new contact for this session
+    ClickText   Contacts
+    ClickText   New
+    UseModal    On
+    PickList    Salutation    --None--
+    TypeText    First Name    Automation
+    TypeText    Last Name    CRTPRCR
+    ComboBox    Search Accounts...    Aalborg University
+    TypeText    Email    crtPRCR@elsevier.invalid.com
+    ClickText         Save
 #check whether duplicate or similar contact already exists
     ${duplicate_exists}=    Set Variable    Similar Records Exist
     IF    '${duplicate_exists}' == 'Similar Records Exist'
         Log    >>> Duplicates were found
-        ClickText    Close error dialog
         ClickText    Cancel    partial_match=False
     ELSE
         Log    >>> No duplicates found
         ClickText    Save    partial_match=False
-        Sleep        2s
-        UseModal     Off
     END
-#    UseModal     Off
-    Sleep        2s
+
 #search the existing contact    
-    TypeText    Search this list...    Robotics PRCRcontact\n    anchor=Clear
-    ClickText    Robotics PRCRcontact
-    VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
+    ClickText   Contacts
+    ClickText    Select a List View: Contacts
+    ClickText    All Contacts
+    TypeText    Search this list...    Automation CRTPRCR\n    anchor=Clear
+    ClickText    Automation CRTPRCR
+    VerifyField  Name    Automation CRTPRCR    partial_match=True
 
 #navigate to existing PR
     LaunchApp    Permission Requests
@@ -65,7 +61,7 @@ Delete Contact and linked PRCR
     ClickText    New    parent=LIGHTNING-BUTTON
     UseModal     On
     ComboBox     Search Accounts...    Aalborg University
-    ComboBox     Search Contacts...    Robotics PRCRcontact
+    ComboBox     Search Contacts...    Automation CRTPRCR
     ClickText    Save    partial_match=False
     UseModal     Off
     Sleep        2s
@@ -83,10 +79,10 @@ Delete Contact and linked PRCR
     RefreshPage
     Sleep        2s 
     HoverText    Left Employment?
-    TypeText    Search this list...    Robotics PRCRcontact\n
+    TypeText    Search this list...    Automation CRTPRCR\n
     Sleep        2s
-#    TypeText     Search this list...    robotics PRCRcontact\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
-    ClickText    Robotics PRCRcontact     
+#    TypeText     Search this list...    robotics CRTPRCR\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
+    ClickText    Automation CRTPRCR     
     UseModal     On
     ClickText    Delete
     Sleep        1s
@@ -123,7 +119,6 @@ Delete Contact and linked PRCR
         Log  PRCR not found, skipping this step
     END    
 
-#    Should Not Be True    ${exists}    msg=Checkbox 'Select Item 6' was found but should not exist
-#    Log                   PRCR successfully deleted
+
 
 
