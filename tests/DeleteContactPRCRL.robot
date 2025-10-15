@@ -43,9 +43,8 @@ Delete Contact and linked PRCR
     VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
 
 #navigate to existing PR
-    Appstate     Home
-    Sleep        2s
     LaunchApp    Permission Requests
+    Sleep        2s
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     TypeText    Search this list...    PR-00024512\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
