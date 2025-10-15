@@ -30,10 +30,12 @@ Delete Contact and linked PRCR
     ${duplicate_exists}=    Set Variable    Similar Records Exist
     IF    '${duplicate_exists}' == 'Similar Records Exist'
         Log    >>> Duplicates were found
+        UseModal     Off
         ClickText    Cancel    partial_match=False
     ELSE
         Log    >>> No duplicates found
         ClickText    Save    partial_match=False
+        Sleep        2s
         UseModal     Off
     END
 #    UseModal     Off
