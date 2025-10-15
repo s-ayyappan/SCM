@@ -12,29 +12,27 @@ Permission Requests UI Check
     Sleep                     2s
     LaunchApp                 Permission Requests
 
+#check the UI objects in the screen
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
     TypeText     Search this list...    PR-00024535\n    anchor=Clear
     ClickText    PR-00024535
     VerifyText   PR-00024535
-
-
-
-
 #    ClickText    Select a List View: Permission Requests
 #    ClickText    All Permission Requests
 #    TypeText     Search this list...    PR-00025133\n    anchor=Clear
 #    ClickText    PR-00025133
 #    VerifyText   PR-00025133
-
-
     HoverText    Edit
     HoverText    Cancel Permission Request
     HoverText    Create Contract Amendment
     HoverText    Create Contract Agreement
     HoverText    Send with DS.
     HoverText    Delete
+    ClickText    Show more actions
+    HoverText    Clone
+    SwitchWindow    NEW
     HoverText    Clone
     ClickText    Edit    partial_match=False
     UseModal     On
@@ -120,4 +118,3 @@ Permission Requests UI Check
     HoverText    Save
     ClickText    Cancel and close
     UseModal    Off
-    
