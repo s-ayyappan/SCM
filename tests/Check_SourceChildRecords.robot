@@ -1,6 +1,7 @@
 *** Settings ***
 Library    QForce
 Library    String
+Library    QWeb
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -22,6 +23,9 @@ Create New Source Child Records
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
 #   ClickText                     Move selection to Chosen
+
+    ComboBox    Search Accounts...    Avignon University
+    ComboBox    Search Accounts...    Avignon University
     ClickText                     Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
     MultiPickList                 Content Type    Funding & Grants
@@ -34,13 +38,62 @@ Create New Source Child Records
     TypeText                      Funding Body ID    11223344
 
 #select a new license
-
-
     ClickCheckbox    Select Item 2    on    partial_match=False
     VerifyText    Elsevier License Template
     ClickText    Confirm
 #Save the source
-    ClickText                     Save    partial_match=False
+#    ClickText                     Save    partial_match=False
     Sleep                         2s
     UseModal                      Off
-    VerifyText                    New Robot Title
+    VerifyText                    Source Child CRT
+
+#Check new PR is created
+    ClickText    Related
+    VerifyText    Permission Requests
+    ClickText     Permission Requests
+    ClickCheckbox    Select Item 1    on    partial_match=False
+    ClickText    PR-                  partial_match=Permission Request Name  
+    ClickText                     PR                 
+    HotKey         Tab        
+    Sleep          1s
+    HotKey         Enter        
+
+
+
+    VerifyField    Permission Request Name    PR    partial_match=True
+    VerifyField    Title Name    Source Child CRT    partial_match=True
+    ClickText    Related
+
+
+    VerifyText     Source Links             partial_match=True
+    ClickText    Source Links
+#click the source link
+    ClickCheckbox                 Select Item 1      on       partial_match=Name
+    ClickText                     SL                 
+    VerifyText                    Source Link
+    Log                        Source Link present
+#click the right and permission
+    ClickText                     RP
+    Log                        Right and Permission present
+    ClickText    Rights and Restrictions (6)
+    VerifyText    Rights and Restrictions
+    ExecuteJavaScript    window.history.back();
+    Sleep                2s
+    ClickText    Right and Permission History (5)
+    ExecuteJavaScript    window.history.back();
+    Sleep                2s
+#navigate back to the source
+    ClickText    T-56220    anchor=Related
+
+#clean up - delete the created source
+    ClickFieldValue    Title Id
+    ClickText    Show more actions    anchor=Change Permission Holder
+    ClickText    Delete
+    UseModal    On
+    ClickText    Delete
+    VerifyText    was deleted.
+    Log           Source delete successfully
+#delete the source link
+    ClickText    Delete
+    ClickText    Delete
+    Log          Source Link delete successfully
