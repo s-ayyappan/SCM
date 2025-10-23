@@ -49,11 +49,16 @@ Create New Source Child Records
 
 #Check new PR is created
     ClickText    Related
-    VerifyText    Permission Requests
-    ClickText     Permission Requests
-    ClickCheckbox    Select Item 1    on    partial_match=False
-    ClickElement    xpath=//*[@id="window"]/span/slot/span/slot/span    timeout=10s
 
+
+
+    ClickText    Permission Requests(1)     partial_match=True
+    VerifyText    Permission Requests
+    ClickCheckbox    Select Item 1    on    partial_match=True
+    ${Sources}=               Set Variable   PR-
+    #ClickElement              //a[contains(@title,'${Sources}')]
+    ClickElement              //a[contains(@id,'window')]/span/slot/span/slot/span    timeout=10s
+    ClickElement              //*[contains(@id,"window")]/span/slot/span/slot/span    timeout=5s
 
 
 
