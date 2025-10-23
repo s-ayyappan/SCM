@@ -52,11 +52,8 @@ Create New Source Child Records
     VerifyText    Permission Requests
     ClickText     Permission Requests
     ClickCheckbox    Select Item 1    on    partial_match=False
-    ClickText    PR-                  partial_match=Permission Request Name  
-    ClickText                     PR                 
-    HotKey         Tab        
-    Sleep          1s
-    HotKey         Enter        
+    ClickElement    xpath=//*[@id="window"]/span/slot/span/slot/span    timeout=10s
+
 
 
 
