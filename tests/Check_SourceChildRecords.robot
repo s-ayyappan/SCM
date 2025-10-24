@@ -2,6 +2,7 @@
 Library    QForce
 Library    String
 Library    QWeb
+Library    QVision
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -55,6 +56,7 @@ Create New Source Child Records
     ClickText    Permission Requests(1)     partial_match=True
     VerifyText    Permission Requests
     ClickCheckbox    Select Item 1    on    partial_match=True
+    Hotkey           Tab              
     ${Sources}=               Set Variable   PR-
     #ClickElement              //a[contains(@title,'${Sources}')]
     ClickElement              //a[contains(@id,'window')]/span/slot/span/slot/span    timeout=10s
