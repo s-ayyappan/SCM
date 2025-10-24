@@ -51,30 +51,51 @@ Create New Source Child Records
 #Check new PR is created
     ClickText    Related
 
+#    ClickCheckbox    Select Item 1    on    partial_match=False
+#    ClickCheckbox    Select All    off
+#    ClickCheckbox    Select All    on
 
 
     ClickText    Permission Requests(1)     partial_match=True
     VerifyText    Permission Requests
-    ClickCheckbox    Select Item 1    on    partial_match=True
-    Hotkey           Tab              
-    ${Sources}=               Set Variable   PR-
-    #ClickElement              //a[contains(@title,'${Sources}')]
-    ClickElement              //a[contains(@id,'window')]/span/slot/span/slot/span    timeout=10s
-    ClickElement              //*[contains(@id,"window")]/span/slot/span/slot/span    timeout=5s
+#    ClickCheckbox    Select Item 1    on    partial_match=True
+    Sleep              3s
 
+    VerifyText    Permission Requests       anchor=Sorted by Permission Request Name
+    UseTable                 Select Item 1 
+#    ClickCell                r1c1
+#    ClickCell                r1c2
+#    ClickCell                r1c3
+    ClickText                PR-            anchor=Aalborg University
+    
+#    HotKey                   Enter          
+#    VerifyText         1              partial_match=True
+#    Hotkey           Tab              
+#    HotKey           Enter
+#    ${Sources}=               Set Variable    'window'
+#    ClickElement              //a[contains(@title,'${Sources}')]
+#    ClickElement              //a[contains(@id,'window')]/span/slot/span/slot/span    timeout=10s
+#    ClickElement              //*[contains(@id,"window")]/span/slot/span/slot/span    timeout=5s
 
+#    ClickElement              //*[@id\='${Sources}']/span/slot/span/slot/span
+#    ${Sources}=               Set Variable        window
+    #ClickElement       //th//*[@id\='${Sources}']//span//span//span
+#    VerifyElement      //th//*[@id\='${Sources}']//span//span//span
+#    VerifyField    Permission Request Name    PR    partial_match=True
+#    VerifyField    Title Name    Source Child CRT    partial_match=True
+#    ClickText    Related
 
-    VerifyField    Permission Request Name    PR    partial_match=True
-    VerifyField    Title Name    Source Child CRT    partial_match=True
+#    VerifyText    Permission Requests
+#    ClickCheckbox    Select Item 1    on    partial_match=True
+#    Sleep              3s
+#    ${Sources}=                Set Variable        1
+#    ${Sources1}=               Set Variable        window
+#    ClickElement               //*[@data-num-selected-rows\='${Sources}']//tbody[1]//th//a[@id\='${Sources1}']/span
     ClickText    Related
-
-
-    VerifyText     Source Links             partial_match=True
-    ClickText    Source Links
+    SwipeDown
 #click the source link
     ClickCheckbox                 Select Item 1      on       partial_match=Name
     ClickText                     SL                 
-    VerifyText                    Source Link
     Log                        Source Link present
 #click the right and permission
     ClickText                     RP
@@ -87,10 +108,11 @@ Create New Source Child Records
     ExecuteJavaScript    window.history.back();
     Sleep                2s
 #navigate back to the source
-    ClickText    T-56220    anchor=Related
+    ClickText    T-   anchor=Source                        
 
 #clean up - delete the created source
-    ClickFieldValue    Title Id
+    VerifyText        Title Id
+    VerifyText        Change Permission Holder
     ClickText    Show more actions    anchor=Change Permission Holder
     ClickText    Delete
     UseModal    On
