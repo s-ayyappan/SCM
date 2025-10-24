@@ -122,13 +122,18 @@ Create New Source Child Records
     ClickText    Delete               anchor=Log a Call
     UseModal    On
     ClickText    Delete
+
+    ClickText    Show more actions    anchor=Change Permission Holder partial_match=True
+    ClickText    Delete               
+    UseModal    On
+    ClickText    Delete
    
 #    VerifyText    was deleted.
     Log           Source delete successfully
 #delete the source link
     ClickText    Related
     SwipeDown
-    ClickText    Source Links (1)
+    ClickText    Source Links
     ClickText    SL-
     ClickText    Delete
     UseModal    On
