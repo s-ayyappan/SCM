@@ -112,8 +112,8 @@ Create New Source Child Records
 
 #clean up - delete the created source
     VerifyText        Title Id
-    VerifyText        Change Permission Holder
     Sleep             2s
+    VerifyText        Change Permission Holder
     ClickText    Show more actions    anchor=Change Permission Holder
     ClickText    Delete
     UseModal    On
@@ -124,6 +124,8 @@ Create New Source Child Records
     ClickText    Related
     SwipeDown
     ClickText    Source Links (1)
+    ClickText    SL-
     ClickText    Delete
+    UseModal    On
     ClickText    Delete
     Log          Source Link delete successfully
