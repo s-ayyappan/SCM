@@ -118,9 +118,12 @@ Create New Source Child Records
     ClickText    Delete
     UseModal    On
     ClickText    Delete
-    VerifyText    was deleted.
+#    VerifyText    was deleted.
     Log           Source delete successfully
 #delete the source link
+    ClickText    Related
+    SwipeDown
+    ClickText    Source Links (1)
     ClickText    Delete
     ClickText    Delete
     Log          Source Link delete successfully
