@@ -114,10 +114,15 @@ Create New Source Child Records
     VerifyText        Title Id
     Sleep             2s
     VerifyText        Change Permission Holder
-    ClickText    Show more actions    anchor=Change Permission Holder
-    ClickText    Delete
+    
+
+    HoverText    Refresh DOAJ/URL Tracker
+    HoverText    Change Permission Holder
+    ClickText    Show more actions    anchor=Change Permission Holder partial_match=True
+    ClickText    Delete               anchor=Log a Call
     UseModal    On
     ClickText    Delete
+   
 #    VerifyText    was deleted.
     Log           Source delete successfully
 #delete the source link
