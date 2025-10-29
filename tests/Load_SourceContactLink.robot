@@ -12,26 +12,32 @@ Load Source Contact Link Loading
     LaunchApp                 Sources
 
 #search the title
-    TypeText                  Search this list...    T-56243\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    ClickText                 T-56243
+    TypeText                  Search this list...    T-56249\n    anchor=Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
+    ClickText                 T-56249
 
 #navigate to the Releated tab
-
-    VerifyField    Title Id    T-56243    partial_match=True
+    VerifyField    Title Id    T-56249    partial_match=True
     ClickText      Related
-    ClickText      PR-00025180
-    ClickText      PR-00025180
-    VerifyField    Permission Request Name    PR-00025180    partial_match=True
+    ClickText      PR-00025184
+    ClickText      PR-00025184
+    VerifyField    Permission Request Name    PR-00025184    partial_match=True
     HoverText      Fields
-    VerifyField    Title Name    Indian Journal of Social Psychiatry   partial_match=True
+    VerifyField    Title Name    CRT Source Link Source   partial_match=True
     HoverText      Conversations
     ClickText      Related
-    ClickText      RCR-00016798
+    ClickText      PRCR-00016808
+    Sleep          2s
     ClickFieldValue    Permission Request
+    Sleep          2s
     ClickFieldValue    Title Id
+    Sleep          2s
     ClickText      Related
     SwipeDown    
+#navigate to Source Contact link
     VerifyText    Source Contact links
     VerifyText    Source Link
-    VerifyField   Right and Permission    RP-008756    tag=a    partial_match=True
+    ClickText    SCL-00000024
+    VerifyText    Source Contact link
+    VerifyField    Source Contact link Name    SCL-00000024    partial_match=True
+    VerifyField    Source    T-56249    tag=a    partial_match=True
     Log           Source Contact link successfully loaded
