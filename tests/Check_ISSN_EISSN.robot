@@ -6,7 +6,7 @@ Suite Teardown                End suite
 
 *** Test Cases ***
 Check ISSN Eissn
-    [tags]                    Sources
+    [tags]                    Sources, ISSN, EISSN
     Appstate                  Home
     LaunchApp                 Sources
   
