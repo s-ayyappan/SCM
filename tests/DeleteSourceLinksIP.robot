@@ -44,9 +44,9 @@ Delete Contact and linked Source Link
 #clik the source link
  
     ClickText    Sources
-    TypeText     Search this list...    funding test\n    anchor=Content Provider
-    ClickText    T-55992
-    VerifyText   Funding Test template 22
+    TypeText     Search this list...    CRT Test Source\n    anchor=Content Provider
+    ClickText    T-56248
+    VerifyText   CRT Test Source
     ClickText    Related
 
 #delete the contact
@@ -65,8 +65,8 @@ Delete Contact and linked Source Link
 #Check if element exists and perform actions based on result
     ClickText    Sources
     Sleep        2s
-    TypeText     Search this list...    funding test\n    anchor=Content Provider
-    ClickText    T-55992
+    TypeText     Search this list...    CRT Test Source\n    anchor=Content Provider
+    ClickText    T-56248
     Sleep        2s
     ClickText    Related
     VerifyText   Source Links
