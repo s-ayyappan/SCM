@@ -34,7 +34,7 @@ Check Source to License Child records
     VerifyText                RP-010641
     VerifyField               License    L-010852    tag=a    partial_match=True
     ClickFieldValue           License
-    VerifyField               License Template    Elsevier License Template    tag=a    partial_match=True
+    VerifyField               License Template   Elsevier Permission Form Template    tag=a    partial_match=True
     VerifyText                License
     VerifyText                L-010852
     VerifyField               Account Name    Avignon University    partial_match=True
