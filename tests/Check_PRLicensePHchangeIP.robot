@@ -22,7 +22,7 @@ Check PR License change for PH
     ClickText     Related
     VerifyText    Source Links
     ClickText     SL-000410
-    VerifyText    Pending
+    VerifyText    Inactive
     ClickText     T-15425    anchor=Related
     HoverText     Title Details
     ClickText     Department of Science and Aerospacial Technology
