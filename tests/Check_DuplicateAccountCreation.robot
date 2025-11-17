@@ -8,14 +8,18 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check New Account Creation
+Check Duplicate Account Creation
     [tags]                    Accounts
     [Documentation]           Check user not allowed to create duplicate account with same ECR ID
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Accounts
-        
-    ClickText    New
+
+#create a duplicate account        
+    VerifyText    Accounts
+    ClickText    Select a List View: Accounts
+    ClickText    All Accounts
+    ClickText    New    anchor=Import
     TypeText     Enter Keyword To Search For An Organisation...    Robot Duplicate account
     ClickText    Search    partial_match=False
     ClickText    Create New Account

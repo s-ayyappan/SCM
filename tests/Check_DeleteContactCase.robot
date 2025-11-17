@@ -51,7 +51,7 @@ Delete Contact and Case
     ClickText    Delete
     Sleep        2s
     ${result}    Run Keyword And Ignore Error  VerifyText   Nothing to see here
-    log          Verification Result: ${result}
+    Log          Verification Result: ${result}
 
 #chech the case does not have deleted contact reference
     LaunchApp    Cases

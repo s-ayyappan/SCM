@@ -21,7 +21,8 @@ Create New Source
     ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
-    ClickText                     Move selection to Chosen
+#   ClickText                     Move selection to Chosen
+    ClickText    Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
 #enter valid format ISSN and EISSN
     TypeText                      ISSN    1122334X

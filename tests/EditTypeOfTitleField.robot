@@ -7,6 +7,7 @@ Suite Teardown                End suite
 *** Test Cases ***
 Edit type of Title
     [tags]                    Sources
+    [Documentation]           Type of Title can be edit if no value exist
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Sources

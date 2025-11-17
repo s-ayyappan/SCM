@@ -16,11 +16,11 @@ Check Permission Holder
   
     ClickText    Select a List View
     ClickText    All Titles
-    ClickText    Search this list...         T-54421
+    RefreshPage
+    Sleep        2s
+    TypeText    Search this list...    T-54421\n
     ClickText    T-54421
     VerifyText   Title Id
-    VerifyText   Permission Holder
-    ClickText    Permission Holder
+    VerifyText    Permission Holder
+    VerifyText    American Association of Colleges of Pharmacy
     IsText       text='American Association of Colleges of Pharmacy'
-
-    

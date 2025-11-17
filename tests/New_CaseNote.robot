@@ -8,9 +8,9 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Check Cases
+New Note in Cases
     [tags]                    Cases
-    [Documentation]           Check the Cases are able to open and view        
+    [Documentation]           Check the New Note can be added to Cases
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Cases
@@ -29,3 +29,23 @@ Check Cases
     ClickText    Details
     ClickText    Related
     Log          Able to successfully open a existing case
+
+#add a new note to the case
+    ClickText    New Note
+    TypeText    Untitled Note    Robotics note
+    TypeText    Compose text    This note is added by CRT script
+    ClickText    Done
+    ClickText    Related
+    ClickText    Notes          anchor=New
+    ClickText    Robotics note
+    VerifyText    This note is added by CRT script
+    UseModal    Off
+    ClickText    Close    partial_match=False
+    Log          Able to successfully create a note to a case 
+    
+#delete the newly created note
+    ClickText    Show Actions
+    ClickText    Delete    anchor=Delete File?
+    UseModal     On
+    ClickText    Delete
+    Log          Able to successfully delete a note in a case 

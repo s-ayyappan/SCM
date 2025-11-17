@@ -1,0 +1,43 @@
+# NOTE: readme.txt contains important information you need to take into account
+# before running this suite.
+
+*** Settings ***
+Library    QForce
+Library    DateTime
+Resource                      ../resources/common.robot
+Suite Setup                   Setup Browser
+Suite Teardown                End suite
+
+
+*** Variables ***
+${DATE_FORMAT}    %d/%m/%Y  
+
+*** Test Cases ***
+Delete existing task 2nd part
+    [tags]                    Tasks, Delete Task
+    [Documentation]           Delete a task 2nd Part
+    Appstate                  Home
+    Sleep                     2s
+    LaunchApp                 Tasks
+    Sleep                     2s
+
+    ClickText    Select list display
+    ClickText    Table
+    TypeText     Search this list...    CRT script\n    anchor=Assigned Alias, Due Date, Name, and Related To aren't searchable. Use filters or sort on these fields instead.
+    Sleep        1s
+
+#clean up the new task, by deleting
+    ClickText    Send Letter
+    ClickText    Delete    anchor=Cancel and close
+    UseModal     On
+    ClickText    Delete
+    VerifyText   Task "Send Letter" was deleted. Undo
+#    ClickCheckbox    Send Letter    On
+#    ClickText    Show Actions
+#    ClickText    Send Letter
+#    VerifyText   Created by CRT script
+#    ClickText    Delete    anchor=Cancel and close
+#    UseModal     On
+#    ClickText    Delete
+#    UseModal     Off
+    Log          End of the Script for Task Deletion
