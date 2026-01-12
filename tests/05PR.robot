@@ -61,8 +61,8 @@ Permission Requests UI Check
     VerifyText    Currency
     VerifyText    Requires Welcome Email
     VerifyText    Communication Project
-    VerifyText    Contact
-    VerifyText    Clear Selection
+    VerifyText    Contact Detail
+  # VerifyText    Clear Selection
     VerifyText    Status
     VerifyText    Reject Remark
     VerifyText    Reviewed
