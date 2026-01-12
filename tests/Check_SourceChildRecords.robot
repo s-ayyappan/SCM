@@ -52,12 +52,6 @@ Create New Source Child Records
 
 #Check new PR is created
     ClickText    Related
-
-#    ClickCheckbox    Select Item 1    on    partial_match=False
-#    ClickCheckbox    Select All    off
-#    ClickCheckbox    Select All    on
-
-
     ClickText    Permission Requests(1)     partial_match=True
     VerifyText    Permission Requests
 #    ClickCheckbox    Select Item 1    on    partial_match=True
@@ -66,8 +60,7 @@ Create New Source Child Records
     VerifyText    Permission Requests       anchor=Sorted by Permission Request Name
     UseTable                 Select Item 1 
 #    ClickCell                r1c1
-#    ClickCell                r1c2
-#    ClickCell                r1c3
+
     ClickText                PR-            anchor=Aalborg University
     
 #    HotKey                   Enter          
@@ -102,11 +95,11 @@ Create New Source Child Records
 #click the right and permission
     ClickText                     RP
     Log                        Right and Permission present
-    ClickText    Rights and Restrictions (6)
-    VerifyText    Rights and Restrictions
+    ClickText                  Rights and Restrictions (6)
+    VerifyText                  Rights and Restrictions
     ExecuteJavaScript    window.history.back();
     Sleep                2s
-    ClickText    Right and Permission History (5)
+    ClickText             Right and Permission History (5)
     ExecuteJavaScript    window.history.back();
     Sleep                2s
 #navigate back to the source
