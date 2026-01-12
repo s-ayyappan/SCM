@@ -17,14 +17,15 @@ Check License Template Edit Restrictions
     ClickText    Select a List View: Licenses
     ClickText    All
 #    HoverText    L-010698
-    TypeText     Search this list...    Elsevier b.v\n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
-    VerifyText   BioOne
-    ClickText    L-009111
+    TypeText     Search this list...    Elsevier \n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
+    VerifyText   Springer Nature Group
+    ClickText    L-009187
     VerifyField    License Template    Elsevier License Template    tag=a    partial_match=True
     ClickText      Edit License Template
     VerifyText     License Template     anchor=License Template
-    ClickText      Clear Selection       anchor=License Template
+    ClickText      Clear License Template Selection
     ClickText      Save
     VerifyText     You can't change License Template field value
     ClickText      You can't change License Template field value
-    Log            User unable to amend the License template field as expected            
+    Log            User unable to amend the License template field as expected
+    ClickText    Cancel
