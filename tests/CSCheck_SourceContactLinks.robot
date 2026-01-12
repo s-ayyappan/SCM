@@ -24,9 +24,9 @@ Check Source Contact List
     ClickText                 Related
     SwipeDown
     VerifyText                Source Contact links
-    ClickText     Related
-    Sleep         2s
-    ScrollText    Source Contact links       anchor=Cases
-    Sleep         2s
-    ClickText     Source Contact links       anchor=Cases
+    ClickText                 Related
+    Sleep                     2s
+    ScrollText                Source Contact links       anchor=Cases
+    Sleep                     2s
+    ClickText                 Source Contact links       anchor=Cases
   #  //h2//a//*[text()='Source Contact links']
