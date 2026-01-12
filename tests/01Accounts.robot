@@ -64,7 +64,8 @@ Accounts Tab UI Checks
     VerifyText    ECH City
     VerifyText    ECR Id
     VerifyText    ECH Region
-    VerifyPickList    ECH Registration State   
+    VerifyText   ECH Registration State   
+    PickList    ECH Registration State    NOT_REGISTERED
     VerifyText    ECH Country
     VerifyText    ECH Send Date
     VerifyText    ECH Postcode
