@@ -19,7 +19,8 @@ Create New Source
     ClickText                     Next
     VerifyText                    New Source: Full
 #Generate random text (12 characters)
-    ${rand_name}=                 Generate Radom String 12    [LETTERS]
+    Evaluate                      random.seed()    random
+    ${rand_name}=                 Generate Random String  12    [LETTERS]
     TypeText                      *Title Name    ${rand_name}
 
     ComboBox                      Search Accounts...    Aalborg University    index=1
