@@ -59,7 +59,6 @@ Accounts Tab UI Checks
     VerifyText    Billing Address
     VerifyText    Billing Street
     VerifyText    Billing City
-    VerifyText    Billing City
     VerifyPickList    Billing State/Province
     VerifyText    Billing State
     VerifyText    ECH City
