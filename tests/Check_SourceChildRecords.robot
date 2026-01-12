@@ -24,13 +24,15 @@ Create New Source Child Records
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
 #   ClickText                     Move selection to Chosen
-
-    ComboBox    Search Accounts...    Avignon University
-    ComboBox    Search Accounts...    Avignon University
-    ClickText                     Move to Chosen    anchor=Manual
+    ComboBox                       Search Accounts...    Avignon University
+    VerifyText    License/SourceLink creation Process
+    VerifyText    Frequency (nr. of issues per year)
+#    MultiPickList                  License/SourceLink creation Process    Auto
+#    ClickText                      Move selection to Chosen    anchor=Auto
+#    ClickText                     Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
     MultiPickList                 Content Type    Funding & Grants
-    ClickText                     Move to Chosen    anchor=Funding & Grants
+#    ClickText                     Move to Chosen    anchor=Funding & Grants
 #    TypeText                      Funding Body ID    7987979
     ClickText                     Save    partial_match=False
 #enter valid format ISSN and EISSN
@@ -115,19 +117,15 @@ Create New Source Child Records
     Sleep             2s
     VerifyText        Change Permission Holder
     
-
     HoverText    Refresh DOAJ/URL Tracker
     HoverText    Change Permission Holder
-    ClickText    Show more actions    anchor=Change Permission Holder partial_match=True
-    ClickText    Delete               anchor=Log a Call
+
+    ClickText    Show more actions
+    HoverText    Log a Call
+    ClickText    Delete
     UseModal    On
     ClickText    Delete
 
-    ClickText    Show more actions    anchor=Change Permission Holder partial_match=True
-    ClickText    Delete               
-    UseModal    On
-    ClickText    Delete
-   
 #    VerifyText    was deleted.
     Log           Source delete successfully
 #delete the source link
