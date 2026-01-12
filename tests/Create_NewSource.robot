@@ -22,7 +22,8 @@ Create New Source
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
 #   ClickText                     Move selection to Chosen
-    ClickText    Move to Chosen    anchor=Manual
+
+#    ClickText    Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
 #enter valid format ISSN and EISSN
     TypeText                      ISSN    1122334X
