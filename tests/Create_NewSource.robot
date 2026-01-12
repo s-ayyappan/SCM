@@ -1,6 +1,7 @@
 *** Settings ***
 Library    QForce
 Library    String
+Library    QWeb
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
@@ -17,7 +18,10 @@ Create New Source
     UseModal                      On
     ClickText                     Next
     VerifyText                    New Source: Full
-    TypeText                      *Title Name    New Robot Title
+#Generate random text (12 characters)
+    ${rand_name}=                 Generate Random String 12    [LETTERS]
+    TypeText                      *Title Name    ${rand_name}
+
     ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
