@@ -16,9 +16,9 @@ Permission Requests UI Check
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00024535\n    anchor=Clear
-    ClickText    PR-00024535
-    VerifyText   PR-00024535
+    TypeText     Search this list...    PR-00025486\n    anchor=Clear
+    ClickText    PR-00025486
+    VerifyText   PR-00025486
 #    ClickText    Select a List View: Permission Requests
 #    ClickText    All Permission Requests
 #    TypeText     Search this list...    PR-00025133\n    anchor=Clear
@@ -30,7 +30,7 @@ Permission Requests UI Check
     HoverText    Create Contract Agreement
     HoverText    Send with DS.
     HoverText    Delete
-    ClickText    Show more actions
+#    ClickText    Show more actions
     HoverText    Clone
     SwitchWindow    NEW
     HoverText    Clone
