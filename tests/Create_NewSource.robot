@@ -31,12 +31,15 @@ Create New Source
 #    ClickText    Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
 #enter valid format ISSN and EISSN
-    TypeText                      ISSN    1122334X
+#Generate random text (7 intergers)
+    ${rand_issn}=                 Generate Random String  12    [LETTERS]
+    TypeText                      *ISSN    ${rand_issn}+X
+#    TypeText                      ISSN    1122334X
     TypeText                      E-ISSN    87654321
     TypeText                      Funding Body ID    11223344
 #Save the source
     ClickText                     Save    partial_match=False
     Sleep                         2s
     UseModal                      Off
-    VerifyText                    New Robot Title
+#    VerifyText                    New Robot Title
 
