@@ -32,14 +32,15 @@ Create New Source
     PickList                      Content Set    Complete Collection
 #enter valid format ISSN and EISSN
 #Generate random text (7 intergers)
-    ${rand_issn}=                 Generate Random String  12    [LETTERS]
-    TypeText                      *ISSN    ${rand_issn}+X
+    ${rand_issn}=                 Generate Random String  7    [NUMBERS]
+    ${number_with_x}=    Catenate    SEPARATOR=    ${rand_issn}    X
+  #  TypeText                      ISSN     ${number_with_x}
 #    TypeText                      ISSN    1122334X
-    TypeText                      E-ISSN    87654321
-    TypeText                      Funding Body ID    11223344
+  #  TypeText                      E-ISSN    87654321
+  #  TypeText                      Funding Body ID    11223344
 #Save the source
     ClickText                     Save    partial_match=False
     Sleep                         2s
     UseModal                      Off
-#    VerifyText                    New Robot Title
+    VerifyText                    ${rand_name}
 
