@@ -14,9 +14,9 @@ Funding Body Validations
     LaunchApp                 Sources
 
 #Search for the source
-    TypeText      Search this list...    New Robot Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
+    TypeText      Search this list...    New CRT Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     RefreshPage
-    VerifyText    New Robot Title        
+    VerifyText    New CRT Title        
     ${Sources}=      Set Variable   T-
     ClickElement     //a[contains(@title,'${Sources}')]
 #edit the funding body id
