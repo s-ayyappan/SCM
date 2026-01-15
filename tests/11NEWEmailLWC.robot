@@ -7,7 +7,7 @@ Suite Teardown                End suite
 *** Test Cases ***
 Check LWC Email in PR
     [tags]                    PR, Emails
-    [Documentation]           Check the case email LWC functionality objects are displaying as expected in UI
+    [Documentation]           Check the PR email LWC functionality objects are displaying as expected in UI
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Permission Requests
