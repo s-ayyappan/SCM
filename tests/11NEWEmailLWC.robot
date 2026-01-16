@@ -39,8 +39,9 @@ Check LWC Email in PR
     ClickText    Email    anchor=Related
     ClickText    Related
     SwipeUp
+    Sleep        5s
     RefreshPage
-    Sleep        2s
+    Sleep        5s
 #check email sent today is present
     VerifyText   Today
     VerifyText   Elsevier Permissions: Renewing your licence : {{{Permission_Contact_Role__c.PR_Name__c}}} Sent To 1 Recipients
