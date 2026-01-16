@@ -44,6 +44,7 @@ Check LWC Email in PR
     Sleep        5s
 #check email sent today is present
     VerifyText   Today
+    Log          Email successfully sent
     VerifyText   Elsevier Permissions: Renewing your licence : {{{Permission_Contact_Role__c.PR_Name__c}}} Sent To 1 Recipients
     ClickText    Permission Requests
     Log          Email function objects present as expected
