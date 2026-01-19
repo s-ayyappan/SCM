@@ -14,13 +14,27 @@ Delete Source
     Sleep                     2s
     LaunchApp                 Sources
 
+#create new source for this script
+    ClickText    New
+    UseModal     On
+    ClickText    Next
+    VerifyText   New Source: Full
+    TypeText     *Title Name    New CRT Title
+    ComboBox     Search Accounts...    Codogno Hospital
+    MultiPickList    License/SourceLink creation Process    Auto
+    ClickText    Move selection to Chosen    anchor=Auto
+    ClickText    Save    partial_match=False
+    UseModal     Off
+    RefreshPage
+    Sleep        3s
 #Search for the source
+    ClickText     Sources
     TypeText      Search this list...    New CRT Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     VerifyText    New CRT Title        
- #   ClickText    (//div[@class='slds-truncate']//div) timeout=10
+#   ClickText    (//div[@class='slds-truncate']//div) timeout=10
 #    ClickText  class='slds-truncate'                  
-    ClickText    Show Actions
-    ClickText    Delete
+    ClickText     Show Actions
+    ClickText     Delete
     UseModal      On
     ClickText     Delete
     UseModal      Off
