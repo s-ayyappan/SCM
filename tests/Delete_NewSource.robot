@@ -38,11 +38,12 @@ Delete Source
     UseModal      On
     ClickText     Delete
     UseModal      Off
+    Log   Source Successfully deleted
 #Search again to see the source is deleted successfully
     TypeText      Search this list...    New CRT Title\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     ${check_text1}=                       IsText             Nothing to see here    2
     ${check_text2}=                       IsText             New CRT Title    2
-    IF ${check_text1}
+    IF  ${check_text1}
         Log   Source Successfully deleted
         ClickText     Sources
     ELSE
