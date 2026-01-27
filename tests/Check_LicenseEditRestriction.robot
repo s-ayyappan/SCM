@@ -15,7 +15,9 @@ Check License Template Edit Restrictions
 
 #navigate to a license
     ClickText    Select a List View: Licenses
-    ClickText    All
+#    ClickText    All
+    ClickText    Recently Viewed (Pinned list)
+    TypeText    Search this list...    Elsevier\n    anchor=Account, Effective Date, Version, and License Template aren't searchable. Use filters or sort on these fields instead.
 #    HoverText    L-010698
     TypeText     Search this list...    Elsevier \n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
     VerifyText   Springer Nature Group
