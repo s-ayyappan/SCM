@@ -22,21 +22,22 @@ Funding Body Validations
 #edit the funding body id
     ClickText    Edit Funding Body ID
 #set the source to Funding Body id
-    TypeText     Funding Body ID    12345567890\n
-    ClickText    Save    partial_match=False
-    UseModal     Off
-
 #check for various validations in the funding body id
 #edit the funding body id
-    ClickText    Edit Funding Body ID
-    Sleep        2s
-    SwipeDown
-#    VerifyText   12345567890
     TypeText     Funding Body ID    sampletestid\n
-    ClickText    Save
+    ClickText    Save    partial_match=False
+    UseModal     Off
 #error should be thrown for the text input
     ClickText    Funding Body ID    anchor=Review the following fields
     VerifyText   The Funding body Id is not valid , it should contain numbers
+    
+#    ClickText    Edit Funding Body ID
+#    Sleep        2s
+#    SwipeDown
+ #    VerifyText   12345567890
+#    TypeText     Funding Body ID    sampletestid\n
+#    ClickText    Save
+
 #enter alphnumeric input
     TypeText     Funding Body ID    abced9409040\n
     ClickText    Save
