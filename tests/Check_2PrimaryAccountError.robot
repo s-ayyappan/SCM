@@ -50,7 +50,11 @@ Check Two Primary Account Team Member error
     HotKey       Space
     ClickText    Save
 #eror thrown, already a primary account member is present.
-    VerifyText   Item 1 has an error: there is already primary/secondary Account Team Member for this account
+
+
+    ClickText    Save
+    VerifyText    Add Row\nError\n\nCancel\n\nSave\nClose\nCan't save records with errors.\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
+#    VerifyText   Item 1 has an error: there is already primary/secondary Account Team Member for this account
     HoverText    Cancel
     ClickText    Cancel    partial_match=False
     ClickText    Cancel and close
