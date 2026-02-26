@@ -38,6 +38,10 @@ Delete Contact and linked Source Link
 #    Sleep        2s
 #click the existing contact    
     ClickText    Contacts
+    TypeText    Search this list...    Robotics PRCRcontact\n
+    ClickText    Robotics PRCRcontact
+    VerifyField    Name    Mr. Robotics PRCRcontact    partial_match=True
+
     ClickText    Robotics PRCRcontact
     Sleep        2s
     VerifyField  Name    Mr. Robotics PRCRcontact    partial_match=True
@@ -46,11 +50,12 @@ Delete Contact and linked Source Link
     ClickText    Sources
     TypeText     Search this list...    CRT Test Source\n    anchor=Content Provider
     ClickText    T-56248
-    VerifyText   CRT Test Source
-    ClickText    Related
-
+    VerifyText   CRT Test               anchor=Title Name
+#    ClickText    Related
+    Appstate                  Home
 #delete the contact
     ClickText    Contacts
+    Sleep        2s
     ClickText    Robotics PRCRcontact
     Sleep        2s
     VerifyText    Mr. Robotics PRCRcontact
