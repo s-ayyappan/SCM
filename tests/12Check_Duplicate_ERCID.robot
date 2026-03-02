@@ -18,77 +18,30 @@ Duplicate Account Creation Error
     VerifyText    Import
     HoverText     New
     VerifyText    New
-    TypeText      Search this list...    xyz\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
+#    TypeText      Search this list...    SCM CRT Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
     ClickText     New
     ClickText     New    anchor=Search this list...
     VerifyText    *Search Keyword
     ClickText     *Search Keyword
     VerifyText    New Account:
     VerifyText    Search
-    TypeText      Enter Keyword To Search For An Organisation...    sample
+    TypeText      Enter Keyword To Search For An Organisation...    SCM CRT Account
     ClickText     Search    partial_match=False
     VerifyText    Create New Account
     VerifyText    Cancel
     ClickText     Create New Account
-    UseModal      On
-    VerifyText    New Account: SCM Account
-    VerifyText    Account Information
-    VerifyPickList    *Account Currency
-    VerifyText    Parent Account
-    VerifyText    Account Owner
-    VerifyText    Phone
-    VerifyText    *Account Name
-    VerifyText    PRM Account
-    VerifyText    Publisher Display Name
-    VerifyText    PRM Member Updated
-    VerifyPickList    Preferred CAR Supplier
-    VerifyText    CM Member Updated
-    VerifyText    Website
-    VerifyText    Is Sensitive
-    VerifyText    OBII Id
-    VerifyText    Imprint Publisher Account
-    VerifyText    Account Incomplete   
-    VerifyText    Requires Welcome Ema
-    VerifyPickList    Type of Content Provider
-    VerifyPickList    Disciplines
-    VerifyText    Description
-    VerifyText    Select a date for Date
-    VerifyText    Billing Address
-    VerifyText    Address Search
-    VerifyPickList    Billing Country
-    VerifyText    Billing Address
-    VerifyText    Billing Street
-    VerifyText    Billing City
-    VerifyPickList    Billing State/Province
-    VerifyText    Billing State
+    UseModal    On
+    ComboBox    Search Accounts...    AACE International
+    TypeText    *Account Name    CRT SCM Account
+    TypeText    Website    www.google.com
+    PickList    Type of Content Provider    Taxonomy / Vocabulary Office
+    TypeText    ECR Id    ECR-100843701
     VerifyText    ECH City
-    VerifyText    ECR Id
-    VerifyText    ECH Region
-    VerifyText   ECH Registration State   
-    PickList    ECH Registration State    NOT_REGISTERED
-    VerifyText    ECH Country
-    VerifyText    ECH Send Date
-    VerifyText    ECH Postcode
-    VerifyText    ECH Send To
-    VerifyPickList    ECH Customer Set
-    VerifyText    ECH Send Error
-    VerifyText    ECH Created Date
-    VerifyText    Date
-    VerifyText    ECH Created Date
-    VerifyText    Time
-    VerifyPickList    ECH Sales Division
-    VerifyText    ECH Last Modified Date
-    VerifyText    Date
-    VerifyText    Time
-    VerifyText    ECH Classification
-    VerifyText    ECH Update Date
-    VerifyText    Date
-    VerifyText    Time
-    VerifyText    ECH Actual Start Date
-    VerifyText    ECH End Date
-    VerifyPickList    ECH Business Division
-    VerifyText    Cancel
-    VerifyText    Save & New
-    VerifyText    Save
+    TypeText    ECH City    oxford
+    VerifyText    We hit a snag.
+    VerifyText    View Duplicates
+    ClickText     View Duplicates
+    Log           SF Duplicate ECRID identification error successfully displayed, abort the flow         
+    ClickText    Cancel    anchor=Save & New
     UseModal      Off
     ClickText     Cancel and close
