@@ -14,7 +14,6 @@ Duplicate Account Creation Error
     Sleep                     2s
 
 #capture the UI objects
-
     VerifyText    Import
     HoverText     New
     VerifyText    New
@@ -38,6 +37,20 @@ Duplicate Account Creation Error
     TypeText    ECR Id    ECR-100843701
     VerifyText    ECH City
     TypeText    ECH City    oxford
+    
+#check whether duplicate or similar contact already exists
+    ${error_exists}=   IsText    We hit a snag    timeout=5s
+    IF    ${error_exists}
+        Log    Error popup detected!
+        VerifyText    We hit a snag.
+        ClickText    Close error dialog
+    ELSE
+        Log    >>> No duplicates found
+        ClickText    Save    partial_match=False
+    END
+   
+
+    
     VerifyText    We hit a snag.
     VerifyText    View Duplicates
     ClickText     View Duplicates
