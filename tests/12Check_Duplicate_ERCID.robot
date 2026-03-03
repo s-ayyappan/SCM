@@ -39,16 +39,90 @@ Duplicate Account Creation Error
     TypeText    ECH City    oxford
     
 #check whether duplicate or similar contact already exists
+    Log To Console     \n=== Starting Error Modal Check ===
+
+    # Wait for page to settle
+    Sleep              3s
+
+    UseModal           On
+    Log To Console     Modal mode activated
+
+    # Try to find the error
+    ${has_error}=      IsText    We hit a snag    timeout=5s
+
+    # Debug logging
+    Log To Console     Result from IsText: ${has_error}
+    Log To Console     Result type: ${has_error.__class__.__name__}
+    Log                Has error value: ${has_error}    level=WARN
+
+    # Try multiple IF syntaxes
+    IF    ${has_error}
+        Log To Console     IF condition ENTERED (direct boolean)
+        ClickText          Close
+        Sleep              1s
+    ELSE
+        Log To Console     IF condition NOT entered - no error found
+    END
+
+    UseModal           Off
+    Log To Console     === Error Modal Check Complete ===\n
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Sleep              2s    # Wait for modal to fully render
+    UseModal           On
+
+    ${error_displayed}=    IsText    We hit a snag    timeout=5
+
+    IF    ${error_displayed}
+        Log To Console     Error value: ${has_error}
+        Log To Console     Error type: ${has_error.__class__}
+        ClickText          Close
+        Sleep              1s
+    END
+
+    UseModal           Off
+
     ${error_exists}=   IsText    We hit a snag    timeout=5s
     IF    ${error_exists}
-        Log    Error popup detected!
         VerifyText    We hit a snag.
-        ClickText    Close error dialog
+        Log    Error popup detected!
+        #ClickText    Close error dialog
+        ClickElement      //button[contains(@class,'slds-modal__close')]
     ELSE
         Log    >>> No duplicates found
-        ClickText    Save    partial_match=False
+        #ClickText    Save    partial_match=False
     END
-   
+    ClickText    Cancel    anchor=Save & New
+
+    ClickElement      //button[contains(@class,'slds-modal__close')]
+
+
+
+
+    UseModal           On
+    ${has_error}=      IsText    We hit a snag    timeout=5s
+    Log To Console     Error value: ${has_error}
+    Log To Console     Error type: ${has_error.__class__}
+    Log                ${has_error}
+    UseModal           Off
+
 
     
     VerifyText    We hit a snag.
