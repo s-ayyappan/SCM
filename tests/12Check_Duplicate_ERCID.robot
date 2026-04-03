@@ -39,7 +39,7 @@ Duplicate Account Creation Error
     TypeText    ECH City    oxford
     
 #check whether duplicate or similar contact already exists
-    Log To Console     \n=== Starting Error Modal Check ===
+#    Log To Console     \n=== Starting Error Modal Check ===
 
     # Wait for page to settle
     Sleep              3s
