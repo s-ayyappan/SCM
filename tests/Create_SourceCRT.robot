@@ -21,11 +21,13 @@ Create New Source
     TypeText                      *Title Name    New CRT Title
     ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
+    PickList                      Content Set    Complete Collection
     MultiPickList                 License/SourceLink creation Process    Manual
 #   ClickText                     Move selection to Chosen
 
 #    ClickText    Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
+    MultiPickList    Content Type    Full Content Type Collection
 #enter valid format ISSN and EISSN
 #Generate random text (7 intergers)
     ${rand_issn}=                 Generate Random String  7    [NUMBERS]
