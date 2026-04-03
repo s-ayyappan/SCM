@@ -16,35 +16,38 @@ Create New Obligation in PR
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
     HoverText    Show Actions
-    TypeText     Search this list...    PR-00024530\n    anchor=Clear
+    TypeText     Search this list...    PR-00025645\n    anchor=Clear
     Sleep        2s
-    ClickText    PR-00024530
-    VerifyText   PR-00024530
+    ClickText    PR-00025645
+    VerifyText   PR-00025645
     ClickText    Related
     Sleep        2s
 
-#Create new Obligation for the RP
-    SwipeDown
-    VerifyText    Obligations
-    ClickText     Obligations 
+#Create new Obligation for the License
+    ClickText    L-011296               
+    ClickText    Rights and Permissions             partial_match=False
+    ClickText    RP-011085
+    ClickText    Obligations                        partial_match=False
+
     VerifyText    New                  
     ClickText     New    
     UseModal      On
-    ComboBox      Search Rights and Permissions...    RP-010583
+    
+
+    ComboBox    Search Rights and Permissions...    RP-011085
+    ComboBox      Search Rights and Permissions...    011085
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
     UseModal      Off
     Sleep        2s
-    ClickText    PR-00024530
+    ClickText    RP-011085
     ClickText    Related
-    
-   
       
 #Navigate to the obligations thru the license->RP->obligations
-    ClickText    L-010395
+    ClickText    L-011296
     ClickText    Rights and Permissions 
-    ClickText    RP-010583
+    ClickText    RP-011085
     ClickText    Obligations                        
 
 #Select the last created obligations using hotkeys and delete
