@@ -53,10 +53,14 @@ Check Two Primary Account Team Member error
 
 
     ClickText    Save
-    VerifyText    Add Row\nError\n\nCancel\n\nSave\nClose\nCan't save records with errors.\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
-#    VerifyText   Item 1 has an error: there is already primary/secondary Account Team Member for this account
-    HoverText    Cancel
+    
+
+    ClickText    Error    partial_match=False
+    VerifyText        Item 1 has errors: there is already primary/secondary Account Team Member for this account
     ClickText    Cancel    partial_match=False
+    ClickText    Cancel    partial_match=False
+#    VerifyText    Add Row\nError\n\nCancel\n\nSave\nClose\nCan't save records with errors.\nItem 1 has an error: there is already primary/secondary Account Team Member for this account
+#    VerifyText   Item 1 has an error: there is already primary/secondary Account Team Member for this account
     ClickText    Cancel and close
     UseModal     Off
     Log          Error successfully thrown with msg there is already primary/secondary Account Team Member for this account
