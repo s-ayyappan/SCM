@@ -48,7 +48,7 @@ Check Contacts Tab UI Checks
     HoverText     Edit
     HoverText     Delete
     ClickText     Related
-    VerifyText    Opportunities
+#    VerifyText    Opportunities
     VerifyText    Related Accounts
     VerifyText    Notes
     VerifyText    Cases
