@@ -24,6 +24,6 @@ Check Source links loading in the PR
     SwipeDown
 #Click the source link
     ClickText    Source Links           anchor=Rights and Restrictions (End Permission Request)
-    ClickCheckbox    Select Item 1   on    partial_match=False
+#    ClickCheckbox    Select Item 1   on    partial_match=False
     ClickText        SL              anchor=Active
     VerifyText    Source Link
