@@ -33,14 +33,14 @@ Create Contract Agreement
     VerifyText   Contract Agreement
     ClickText    Related
 #navigate to contract agreements
-    ClickText    Contract Agreements
-    ClickCheckbox    Select Item 1    on    partial_match=False
     ClickText    Show Actions    anchor=Show Contract Agreement Name column actions
-    HoverText    Delete
-    HoverText    Edit
+    ClickText    Delete    anchor=Delete Contract Agreement
+    UseModal     On
     ClickText    Delete
-    ClickText    Delete
-    Sleep        2s    
-    VerifyText   was deleted.
+    Sleep        3s
+    VerifyText   was deleted. Undo     partial_match=True
+    Sleep        2s
     Log          Contract succcessfully deleted.
+
+
 
