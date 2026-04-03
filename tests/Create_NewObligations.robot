@@ -24,8 +24,8 @@ Create New Obligation in PR
     Sleep        2s
 
 #Create new Obligation for the License
-    ClickText    L-011296               
-    ClickText    Rights and Permissions             partial_match=False
+    ClickText    L-011296      
+    ClickText    Rights and Permissions (1)
     ClickText    RP-011085
     ClickText    Obligations                        partial_match=False
 
@@ -34,8 +34,8 @@ Create New Obligation in PR
     UseModal      On
     
 
-    ComboBox    Search Rights and Permissions...    RP-011085
-    ComboBox      Search Rights and Permissions...    011085
+#    ComboBox    Search Rights and Permissions...    RP-011085
+#    ComboBox      Search Rights and Permissions...    011085
     PickList      Type    Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
