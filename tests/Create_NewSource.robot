@@ -26,6 +26,10 @@ Create New Source
     ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
+    
+
+    MultiPickList    Content Type    Full Content Type Collection
+    ClickText    Move selection to Chosen    anchor=Full Content Type Collection
 #   ClickText                     Move selection to Chosen
 
 #    ClickText    Move to Chosen    anchor=Manual
