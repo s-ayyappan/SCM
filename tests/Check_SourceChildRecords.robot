@@ -52,12 +52,13 @@ Create New Source Child Records
 
 #Check new PR is created
     ClickText    Related
-    ClickText    Permission Requests     partial_match=True
+    ClickText    Permission Requests(1)     partial_match=True
     VerifyText    Permission Requests
 #    ClickCheckbox    Select Item 1    on    partial_match=True
     Sleep              3s
 
-    VerifyText    Permission Requests       anchor=Sorted by Permission Request Name
+#    VerifyText    Permission Requests       anchor=Sorted by Permission Request Name
+    VerifyText    Permission Requests       anchor=Source
     UseTable                 Select Item 1 
 #    ClickCell                r1c1
 
