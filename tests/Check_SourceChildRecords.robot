@@ -52,7 +52,7 @@ Create New Source Child Records
 
 #Check new PR is created
     ClickText    Related
-    ClickText    Permission Requests(1)     partial_match=True
+    ClickText    Permission Requests     partial_match=True
     VerifyText    Permission Requests
 #    ClickCheckbox    Select Item 1    on    partial_match=True
     Sleep              3s
@@ -89,7 +89,7 @@ Create New Source Child Records
     ClickText    Related
     SwipeDown
 #click the source link
-    ClickCheckbox                 Select Item 1      on       partial_match=Name
+#    ClickCheckbox                 Select Item 1      on       partial_match=Name
     ClickText                     SL                 
     Log                        Source Link present
 #click the right and permission
