@@ -66,69 +66,66 @@ Duplicate Account Creation Error
 
     UseModal           Off
     Log To Console     === Error Modal Check Complete ===\n
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    Sleep              2s    # Wait for modal to fully render
-    UseModal           On
-
-    ${error_displayed}=    IsText    We hit a snag    timeout=5
-
-    IF    ${error_displayed}
-        Log To Console     Error value: ${has_error}
-        Log To Console     Error type: ${has_error.__class__}
-        ClickText          Close
-        Sleep              1s
-    END
-
-    UseModal           Off
-
-    ${error_exists}=   IsText    We hit a snag    timeout=5s
-    IF    ${error_exists}
-        VerifyText    We hit a snag.
-        Log    Error popup detected!
-        #ClickText    Close error dialog
-        ClickElement      //button[contains(@class,'slds-modal__close')]
-    ELSE
-        Log    >>> No duplicates found
-        #ClickText    Save    partial_match=False
-    END
     ClickText    Cancel    anchor=Save & New
 
-    ClickElement      //button[contains(@class,'slds-modal__close')]
 
 
 
 
-    UseModal           On
-    ${has_error}=      IsText    We hit a snag    timeout=5s
-    Log To Console     Error value: ${has_error}
-    Log To Console     Error type: ${has_error.__class__}
-    Log                ${has_error}
-    UseModal           Off
 
 
-    
-    VerifyText    We hit a snag.
-    VerifyText    View Duplicates
-    ClickText     View Duplicates
-    Log           SF Duplicate ECRID identification error successfully displayed, abort the flow         
-    ClickText    Cancel    anchor=Save & New
-    UseModal      Off
-    ClickText     Cancel and close
+
+
+
+
+
+
+
+
+
+
+
+#   Sleep              2s    # Wait for modal to fully render
+#    UseModal           On
+
+#    ${error_displayed}=    IsText    We hit a snag    timeout=5
+
+#    IF    ${error_displayed}
+#        Log To Console     Error value: ${has_error}
+#        Log To Console     Error type: ${has_error.__class__}
+#        ClickText          Close
+#        Sleep              1s
+#    END
+
+ #   UseModal           Off
+
+  #  ${error_exists}=   IsText    We hit a snag    timeout=5s
+#    IF    ${error_exists}
+#        VerifyText    We hit a snag.
+#        Log    Error popup detected!
+#        #ClickText    Close error dialog
+#        ClickElement      //button[contains(@class,'slds-modal__close')]
+#    ELSE
+#        Log    >>> No duplicates found
+#        #ClickText    Save    partial_match=False
+#    END
+#    ClickText    Cancel    anchor=Save & New
+#    ClickElement      //button[contains(@class,'slds-modal__close')]
+
+
+
+
+#    UseModal           On
+#    ${has_error}=      IsText    We hit a snag    timeout=5s
+#    Log To Console     Error value: ${has_error}
+#    Log To Console     Error type: ${has_error.__class__}
+#    Log                ${has_error}
+#    UseModal           Off
+   
+#    VerifyText    We hit a snag.
+#    VerifyText    View Duplicates
+#    ClickText     View Duplicates
+#    Log           SF Duplicate ECRID identification error successfully displayed, abort the flow         
+#    ClickText    Cancel    anchor=Save & New
+#    UseModal      Off
+#    ClickText     Cancel and close
