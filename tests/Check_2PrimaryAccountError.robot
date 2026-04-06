@@ -49,11 +49,12 @@ Check Two Primary Account Team Member error
     ClickText    Edit Primary: Item    anchor=Delete item 1
     HotKey       Space
     ClickText    Save
+    Sleep        2s
 #eror thrown, already a primary account member is present.
 
 
     ClickText    Save
-    
+    Sleep        2s
 
     ClickText    Error    partial_match=False
     VerifyText        Item 1 has errors: there is already primary/secondary Account Team Member for this account
