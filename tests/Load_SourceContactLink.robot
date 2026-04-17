@@ -18,14 +18,14 @@ Load Source Contact Link Loading
 #navigate to the Releated tab
     VerifyField    Title Id    T-56249    partial_match=True
     ClickText      Related
-    ClickText      PR-00025184
-    ClickText      PR-00025184
-    VerifyField    Permission Request Name    PR-00025184    partial_match=True
+    ClickText      PR-00026056
+    ClickText      PR-00026056
+    VerifyField    Permission Request Name    PR-0026056   partial_match=True
     HoverText      Fields
     VerifyField    Title Name    CRT Source Link Source   partial_match=True
     HoverText      Conversations
     ClickText      Related
-    ClickText      PRCR-00016808
+    ClickText      PRCR-00017667
     Sleep          2s
     ClickFieldValue    Permission Request
     Sleep          2s
