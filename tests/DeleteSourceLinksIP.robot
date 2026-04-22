@@ -51,8 +51,9 @@ Delete Contact and linked Source Link
     TypeText     Search this list...    CRT Test Source\n    anchor=Content Provider
     ClickText    T-56248
     VerifyText   CRT Test               anchor=Title Name
-#    ClickText    Related
+#   ClickText    Related
     Appstate                  Home
+    
 #delete the contact
     ClickText    Contacts
     Sleep        2s
