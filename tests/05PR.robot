@@ -28,7 +28,8 @@ Permission Requests UI Check
     HoverText    Cancel Permission Request
     HoverText    Create Contract Amendment
     HoverText    Create Contract Agreement
-    HoverText    Send with DS.
+    HoverText    Clone
+    HoverText    Edit
     HoverText    Delete
 #    ClickText    Show more actions
     HoverText    Clone
@@ -63,6 +64,7 @@ Permission Requests UI Check
     VerifyText    Communication Project
     VerifyText    Contact Detail
   # VerifyText    Clear Selection
+    SwipeDown
     VerifyText    Status
     VerifyText    Reject Remark
     VerifyText    Reviewed
@@ -80,6 +82,7 @@ Permission Requests UI Check
     VerifyText    Is Sensitive
     VerifyText    Key
     VerifyText    Form Content Delivery
+    SwipeDown
     VerifyText    Content Delivery
     VerifyText    Web Access
     VerifyText    SubmitMethodURL
@@ -99,6 +102,7 @@ Permission Requests UI Check
     VerifyText    Signer Contact Job Title
     VerifyText    Signed Date
     VerifyText    Audit Fields
+    SwipeDown
     VerifyText    Contacted Permission Holder Date
     VerifyText    Permission Granted Date
     VerifyText    Reviewed Date
