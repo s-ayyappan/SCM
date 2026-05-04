@@ -18,6 +18,8 @@ Check New Version of License create PR with Type of Title from Existing PR
 #navigate to a license
     ClickText    Select a List View: Licenses
     ClickText    All
+    ClickText    Select a List View: Licenses
+    ClickText    Recently Viewed (Pinned list)
     Sleep        2s
     TypeText     Search this list...    L-000054\n    anchor=Account, License Template, Version, and Last Refresh Date aren't searchable. Use filters or sort on these fields instead.
       
