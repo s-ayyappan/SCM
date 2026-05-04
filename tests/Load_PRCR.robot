@@ -14,6 +14,8 @@ Check PRCR Loading
 
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
+    ClickText    Select a List View: Permission Requests
+    ClickText    Recently Viewed (Pinned list)   
     HoverText    Show Actions
     TypeText     Search this list...    PR-00024512\n    anchor=Clear
     Sleep        2s
