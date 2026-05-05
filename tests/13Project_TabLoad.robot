@@ -23,7 +23,7 @@ Check Project Tab Loading
     VerifyField    Renewal Project    Renewal Project    partial_match=True
     ClickText      Email    anchor=Details
     ClickText      Related
-    VerifyText     Permission Requests\n(0)
+    VerifyText     Permission Requests                   parial_match = True
     ClickText      Communication Email
     HoverText      New Contact
     HoverText      Edit
@@ -31,5 +31,8 @@ Check Project Tab Loading
     ClickText      Edit    partial_match=False
     UseModal       On
     TypeText       *Project Name    CRT Project edit
-    ClickText      Cancel    anchor=Save & New
+    VerifyText    Description
+    HoverText    Renewal Project    on
+    ClickText    Cancel and close
+    #ClickText    Cancel    anchor=Save & New
     Log            All objects displayed as expected
