@@ -1,3 +1,9 @@
+*** Settings ***
+Library    QForce
+Resource                      ../resources/common.robot
+Suite Setup                   Setup Browser
+Suite Teardown                End suite
+
 *** Test Cases ***
 Check SDM app Loading
     [tags]                    Project
@@ -5,6 +11,7 @@ Check SDM app Loading
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 SDM
+
 
 #check the UI components for SDM app
     ClickText    CRT Project
