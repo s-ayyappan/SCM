@@ -10,9 +10,17 @@ Check SDM app Loading
     [Documentation]           Check the SDM App is loading with all necessary objects
     Appstate                  Home
     Sleep                     2s
-    LaunchApp                 SDM
+    LaunchApp    SDM
 
 
 #check the UI components for SDM app
-    ClickText    CRT Project
-#navigate to Project tab and check the default objects
+    VerifyText    SDM
+    ClickText    Accounts
+    ClickText    Contacts
+    HoverText    Sources
+    ClickText    Sources
+    ClickText    Licenses
+    ClickText    Permission Requests
+    ClickText    Contract Agreements
+    ClickText    Projects
+
