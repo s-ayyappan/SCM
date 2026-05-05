@@ -12,7 +12,6 @@ Check SDM app Loading
     Sleep                     2s
     LaunchApp    SDM
 
-
 #check the UI components for SDM app
     VerifyText    SDM
     ClickText    Accounts
