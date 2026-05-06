@@ -14,11 +14,10 @@ Permission Requests UI Check
 
 #check the UI objects in the screen
     ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
-    HoverText    Show Actions
-    TypeText     Search this list...    PR-00025486\n    anchor=Clear
-    ClickText    PR-00025486
-    VerifyText   PR-00025486
+    ClickText    Recently Viewed (Pinned list)
+    TypeText     Search this list...    PR-00003490\n    anchor=Clear
+    ClickText    PR-00003490
+    VerifyText   PR-00003490
 #    ClickText    Select a List View: Permission Requests
 #    ClickText    All Permission Requests
 #    TypeText     Search this list...    PR-00025133\n    anchor=Clear
