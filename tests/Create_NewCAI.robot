@@ -17,8 +17,8 @@ Create Contract Agreement
     ClickText    Select a List View: Permission Requests
     ClickText    Recently Viewed (Pinned list)
     HoverText    False
-    TypeText     Search this list...    PR-00025486\n    anchor=Title Id, Title Name, Subscription End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
-    ClickText    PR-00025486
+    TypeText     Search this list...    PR-00003474\n    anchor=Title Id, Title Name, Subscription End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
+    ClickText    PR-00003474
     HoverText    Fields
 #create new contract agreement
     ClickText    Create Contract Agreement
