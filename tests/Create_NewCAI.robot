@@ -25,7 +25,12 @@ Create Contract Agreement
     UseModal     On
     ClickText    Create Contract Agreement
     VerifyText   Create Contract Agreement
-    ClickText    Press delete or backspace to remove
+    #ClickText    Press delete or backspace to remove
+    ClickText    Cancel    partial_match=False
+    ClickText    Create Contract Agreement
+    UseModal    On
+    HoverText    To remove the selected record, press Backspace or Del.
+    ClickText    To remove the selected record, press Backspace or Del.
     ComboBox     Search Accounts...    Codogno Hospital
     ClickText    Save
     UseModal     Off
