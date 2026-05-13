@@ -25,8 +25,7 @@ Create New PRCR Delete
 #clean up the newly created PRCR
     ClickText    Permission Request Contact Roles     anchor=New
 # First verify that checkbox is present
-    ${exists}=    Is Text    Select Item 1
-
+    ${exists}=    Is Text    Select Item 1             
     IF    '${exists}' == 'True'
         ClickCheckbox    Select Item 1    on    partial_match=False
         ClickText    Show Actions    anchor=Show Contact Inactive column actions
