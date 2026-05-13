@@ -21,12 +21,15 @@ Create New Source Child Records
     VerifyText                    New Source: Full
     TypeText                      *Title Name    Source Child CRT
     ComboBox                      Search Accounts...    Aalborg University    index=1
+    HotKey                        Tab
+    ComboBox    Search Accounts...    Aalborg University    index=1
+    ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
 #   ClickText                     Move selection to Chosen
     ComboBox                       Search Accounts...    Avignon University
-    VerifyText    License/SourceLink creation Process
-    VerifyText    Frequency (nr. of issues per year)
+    VerifyText                     License/SourceLink creation Process
+    VerifyText                     Frequency (nr. of issues per year)
 #    MultiPickList                  License/SourceLink creation Process    Auto
 #    ClickText                      Move selection to Chosen    anchor=Auto
 #    ClickText                     Move to Chosen    anchor=Manual
@@ -131,3 +134,11 @@ Create New Source Child Records
     UseModal    On
     ClickText    Delete
     Log          Source Link delete successfully
+
+
+    ClickText                     New
+    UseModal                      On
+    ClickText                     Next
+    VerifyText                    New Source: Full
+    TypeText    *Title Name    New CRT Source
+    ComboBox    Search Accounts...    Aalborg University    index=1
