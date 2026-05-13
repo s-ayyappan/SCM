@@ -17,7 +17,7 @@ Create New PRCR Delete
     ClickText    Select a List View: Permission Requests
     ClickText    Recently Viewed (Pinned list)
     TypeText    Search this list...    PR-00024934\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
-    Sleep        2s
+    Sleep        3s
     ClickText    PR-00024934
     VerifyText   PR-00024934
     ClickText    Related
@@ -31,10 +31,10 @@ Create New PRCR Delete
         ClickCheckbox    Select Item 1    on    partial_match=False
         ClickText    Show Actions    anchor=Show Contact Inactive column actions
         ClickText    Delete
-        UseModal    On
-        VerifyText    Delete Permission Request Contact Role
+        UseModal     On
+        VerifyText   Delete Permission Request Contact Role
         ClickText    Delete
-        Sleep        2s
+        Sleep        3s
         VerifyText   was deleted.
         UseModal    Off
         Log    New PRCR successfully deleted
