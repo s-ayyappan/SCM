@@ -33,6 +33,7 @@ Create Contract Agreement
     ClickText    To remove the selected record, press Backspace or Del.
     ComboBox     Search Accounts...    Codogno Hospital
     ClickText    Save
+    Sleep        3s
     UseModal     Off
     Sleep        3s
     VerifyText   Contract Agreement
