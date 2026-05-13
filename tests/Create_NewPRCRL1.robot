@@ -25,7 +25,7 @@ Create New PRCR Delete
 #clean up the newly created PRCR
     ClickText    Permission Request Contact Roles     anchor=New
 # First verify that checkbox is present
-    ${exists}=    Is Text    Select Item 1    timeout=2
+    ${exists}=    Is Text    Select Item 1
 
     IF    '${exists}' == 'True'
         ClickCheckbox    Select Item 1    on    partial_match=False
@@ -34,6 +34,7 @@ Create New PRCR Delete
         UseModal    On
         VerifyText    Delete Permission Request Contact Role
         ClickText    Delete
+        Sleep        2s
         VerifyText   was deleted.
         UseModal    Off
         Log    New PRCR successfully deleted
@@ -42,4 +43,5 @@ Create New PRCR Delete
         Log    No New PRCR found for deletion
     END
 #end of script
+
 
