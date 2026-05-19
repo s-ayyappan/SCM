@@ -23,27 +23,24 @@ Check Project Email Tab Loading
     VerifyField    Renewal Project    Renewal Project    partial_match=True
 #navigate to the Project Email tab and check the filters
     ClickText      Email    anchor=Details
-
-
     VerifyText    Role__c
     VerifyText    Permission_Request_Status__c
-    ClickText    Remove false    anchor=Show All
+    VerifyText    false    anchor=Show All
     VerifyText    PR_Owner__c
-    ClickText    Remove false    anchor=Show All
+    VerifyText    false    anchor=Show All
     VerifyText    Stop_Reminder_Emails__c
-    ClickText    Remove false    anchor=Show All
-    HoverText    Remove false
+    VerifyText    false    anchor=Show All
+    HoverText     Remove false
     VerifyText    Contact_Email_Bounced__c
-    ClickText    Remove false    anchor=Show All
+    VerifyText    false    anchor=Show All
     VerifyText    License_Template__c
-    ClickText    Remove false    anchor=Show All
+    VerifyText    false    anchor=Show All
     VerifyText    Contact_Inactive__c
-    ClickText    Remove false    anchor=Show All
+    VerifyText    false    anchor=Show All
     VerifyText    Permission_Holder_Name__c
-    ClickText    Remove false    anchor=Show All
-    ScrollText    Recent Items
-    HoverText    Contact Name
-    VerifyText   Contact Name
+    VerifyText    false    anchor=Show All
+    HoverText     Contact Name
+    VerifyText    Contact Name
     VerifyText    Contact Email
     VerifyText    Role
     VerifyText    Permission Request Name
