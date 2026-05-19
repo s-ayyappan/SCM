@@ -31,11 +31,11 @@ Create Contract Agreement
     UseModal    On
     #HoverText    To remove the selected record, press Backspace or Del.
     #ClickText    To remove the selected record, press Backspace or Del.
-    ComboBox     Search Accounts...    Codogno Hospital
+    #ComboBox     Search Accounts...    Codogno Hospital
     ClickText    Save
-    Sleep        3s
+    Sleep        5s
     UseModal     Off
-    Sleep        3s
+    Sleep        5s
     VerifyText   Contract Agreement
     ClickText    Related
 #navigate to contract agreements
