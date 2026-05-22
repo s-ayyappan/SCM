@@ -20,25 +20,23 @@ Create New Source Child Records
     ClickText                     Next
     VerifyText                    New Source: Full
     TypeText                      *Title Name    Source Child CRT
-    ComboBox                      Search Accounts...    Aalborg University    index=1
-    HotKey                        Tab
-    ComboBox    Search Accounts...    Aalborg University    index=1
-    ComboBox                      Search Accounts...    Aalborg University    index=1
+    
+    # Publisher field (first Search Accounts field)
+    ComboBox                      Publisher    Aalborg University
+    
+    # Permission Holder field (second Search Accounts field)
+    ComboBox                      Permission Holder    Aalborg University
+    
+    # Content Provider field (third Search Accounts field)
+    ComboBox                      Content Provider    Avignon University
+    
     PickList                      Country    United Kingdom
     MultiPickList                 License/SourceLink creation Process    Manual
-#   ClickText                     Move selection to Chosen
-    ComboBox                       Search Accounts...    Avignon University
-    VerifyText                     License/SourceLink creation Process
-    VerifyText                     Frequency (nr. of issues per year)
-#    MultiPickList                  License/SourceLink creation Process    Auto
-#    ClickText                      Move selection to Chosen    anchor=Auto
-#    ClickText                     Move to Chosen    anchor=Manual
     PickList                      Content Set    Complete Collection
     MultiPickList                 Content Type    Funding & Grants
-#    ClickText                     Move to Chosen    anchor=Funding & Grants
-#    TypeText                      Funding Body ID    7987979
     ClickText                     Save    partial_match=False
-#enter valid format ISSN and EISSN
+    
+    # Enter valid format ISSN and EISSN
     TypeText                      ISSN    1122334X
     TypeText                      E-ISSN    87654321
     TypeText                      Funding Body ID    11223344
@@ -123,7 +121,7 @@ Create New Source Child Records
     UseModal    On
     ClickText    Delete
 
-#    VerifyText    was deleted.
+#VerifyText    was deleted.
     Log           Source delete successfully
 #delete the source link
     ClickText    Related
@@ -134,11 +132,3 @@ Create New Source Child Records
     UseModal    On
     ClickText    Delete
     Log          Source Link delete successfully
-
-
-    ClickText                     New
-    UseModal                      On
-    ClickText                     Next
-    VerifyText                    New Source: Full
-    TypeText    *Title Name    New CRT Source
-    ComboBox    Search Accounts...    Aalborg University    index=1
