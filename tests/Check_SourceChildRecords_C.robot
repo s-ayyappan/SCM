@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Create and validate Source Child Records with automated cleanup
-Library    QForce
+Library          QForce
 Library          String
 Resource         ../resources/common.robot
 Suite Setup      Setup Browser
@@ -45,7 +45,7 @@ ${RELATED_TAB}               Related
 *** Test Cases ***
 Create New Source Child Records
     [Documentation]    Creates a new source with all required fields, validates related records, and performs cleanup
-    [Tags]             New  Critical
+    [Tags]             New    Critical
     
     Launch Source Application
     Create New Source Record
@@ -74,10 +74,14 @@ Create Source With Invalid Data
     PickList          Country                   United Kingdom
 
     # Enter mandatory Content Set and Content Type
+    PickList          Content Set               Complete Collection
+    MultiPickList     Content Type              Book series
+    ClickText         Move selection to Chosen    anchor=Book series
+
+    # Enter mandatory Content Set and Content Type
     PickList          *Content Set    Complete Collection
     MultiPickList     Content Type    Book series
     ClickText         Move selection to Chosen    anchor=Book series
-
     # Enter invalid ISSN and save
     TypeText          ISSN                      INVALID123
     HotKey            Tab
