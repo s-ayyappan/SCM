@@ -45,7 +45,7 @@ ${RELATED_TAB}               Related
 *** Test Cases ***
 Create New Source Child Records
     [Documentation]    Creates a new source with all required fields, validates related records, and performs cleanup
-    [Tags]             New    Smoke    Critical
+    [Tags]             New  Critical
     
     Launch Source Application
     Create New Source Record
