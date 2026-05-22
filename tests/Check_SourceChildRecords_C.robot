@@ -21,6 +21,7 @@ ${FUNDING_BODY_ID}           11223344
 # Wait Times
 ${WAIT_SHORT}                2s
 ${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s 
 
 # Field Labels
 ${COUNTRY_FIELD}             Country
