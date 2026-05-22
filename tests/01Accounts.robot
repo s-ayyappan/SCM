@@ -3,7 +3,17 @@ Library    QForce
 Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
+Test Teardown                 Test Cleanup
 
+***Variables***
+# Wait Times
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s 
+
+# Selectors
+${NEW_BUTTON}                New
+${CANCEL_CLOSE_BUTTON}             Cancel and close
 
 *** Test Cases ***
 Accounts Tab UI Checks
@@ -11,7 +21,7 @@ Accounts Tab UI Checks
     [Documentation]           Accounts tab UI check
     Appstate                  Home
     LaunchApp                 Accounts
-    Sleep                     2s
+    Sleep                     ${WAIT_SHORT}
 
 #capture the UI objects
 
@@ -19,7 +29,7 @@ Accounts Tab UI Checks
     HoverText     New
     VerifyText    New
     TypeText      Search this list...    xyz\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    ClickText     New
+    ClickText     ${NEW_BUTTON}
     ClickText     New    anchor=Search this list...
     VerifyText    *Search Keyword
     ClickText     *Search Keyword
@@ -91,5 +101,14 @@ Accounts Tab UI Checks
     VerifyText    Save & New
     VerifyText    Save
     UseModal      Off
-    ClickText     Cancel and close
+    ClickText     ${CANCEL_CLOSE_BUTTON} 
 
+*** Keywords ***
+#----------------------------------
+# Test Cleanup
+#----------------------------------
+Test Cleanup
+    [Documentation]    Cleanup after each test case
+    Run Keyword If Test Failed    Capture Context
+    ${cleanup_status}=    Run Keyword And Return Status    Cleanup Created Records
+    Run Keyword Unless    ${cleanup_status}    Log    Cleanup may have failed    WARN
