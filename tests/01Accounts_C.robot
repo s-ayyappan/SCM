@@ -108,7 +108,7 @@ Accounts Tab UI Checks
     VerifyText        Save
     
     # Close the form
-    ClickText         Cancel
+    ClickText    Cancel and close
     Sleep             ${WAIT_SHORT}
     UseModal          Off
 
