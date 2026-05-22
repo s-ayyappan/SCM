@@ -32,20 +32,18 @@ Setup Browser
     Open Browser                about:blank    ${BROWSER}
     SetConfig                   LineBreak      ${EMPTY}
     SetConfig                   DefaultTimeout    ${DEFAULT_TIMEOUT}
-    Log                         Browser setup completed with timeout: ${DEFAULT_TIMEOUT}
+    Log                         Browser setup completed
 
 End Suite
     [Documentation]    Close all browser instances at suite completion
     Close All Browsers
-    Log                         All browsers closed successfully
+    Log                         All browsers closed
 
 #----------------------------------
 # Authentication Keywords
 #----------------------------------
 Login
     [Documentation]    Login to Salesforce instance with optional MFA support
-    ...                Requires ${username1} and ${password1} variables to be set
-    ...                If ${secret} is provided, MFA verification will be performed
     
     GoTo              ${login_url}
     TypeText          Username        ${username1}    delay=${CLICK_DELAY}
@@ -56,28 +54,19 @@ Login
     ${mfa_required}=    Run Keyword And Return Status    Should Not Be Equal    ${None}    ${secret}
     Run Keyword If      ${mfa_required}    Fill MFA
     
-    Log                 Login completed for user: ${username1}
+    Log                 Login completed
 
 Login As
     [Documentation]    Switch to a different persona in Salesforce
     ...                Requires admin rights to be logged in first
-    ...                
-    ...                Example:
-    ...                | Login As | Chatter Expert |
-    ...                | Login As | Sales Manager  |
     
     [Arguments]       ${persona}
     
-    # Navigate to Setup
     ClickText         Setup
     ClickText         Setup for current app
     SwitchWindow      NEW
-    
-    # Search for persona
     TypeText          Search Setup    ${persona}    delay=${SEARCH_DELAY}
     ClickText         User            anchor=${persona}    delay=5s
-    
-    # Wait for user page to load and login as that user
     VerifyText        Freeze          timeout=45s
     ClickText         Login           anchor=Freeze    delay=${CLICK_DELAY}
     
@@ -85,7 +74,6 @@ Login As
 
 Fill MFA
     [Documentation]    Fill Multi-Factor Authentication code
-    ...                Requires ${username}, ${secret}, and ${login_url} to be set
     
     ${mfa_code}=      GetOTP          ${username}    ${secret}    ${login_url}
     TypeSecret        Verification Code    ${mfa_code}
@@ -98,19 +86,14 @@ Fill MFA
 #----------------------------------
 Home
     [Documentation]    Navigate to Salesforce homepage
-    ...                Automatically handles login if session expired
     
     GoTo              ${home_url}
-    
-    # Check if login is required
     ${needs_login}=   IsText          To access this page, you have to log in to Salesforce.    timeout=2s
     Run Keyword If    ${needs_login}    Login
-    
-    # Navigate to Home
     ClickText         Home
     VerifyTitle       Home | Salesforce
     
-    Log               Successfully navigated to Home
+    Log               Navigated to Home
 
 Navigate To App
     [Documentation]    Navigate to a specific Salesforce app
@@ -128,74 +111,51 @@ Navigate To App
 #----------------------------------
 Verify Stage
     [Documentation]    Verifies opportunity stage selection state
-    ...                
-    ...                Arguments:
-    ...                - text: Stage name to verify
-    ...                - selected: Expected state (true/false), default is true
-    ...                
-    ...                Example:
-    ...                | Verify Stage | Qualification | true  |
-    ...                | Verify Stage | Closed Won    | false |
-    
     [Arguments]       ${text}    ${selected}=true
     
     VerifyElement     //a[@title\="${text}" and @aria-checked\="${selected}"]
-    Log               Stage "${text}" verified with selected=${selected}
+    Log               Stage verified: ${text}
 
 Verify No Data
-    [Documentation]    Verify that specified data text is not present on page
+    [Documentation]    Verify that specified data text is not present
     [Arguments]       ${data}    ${timeout}=3s
     
     VerifyNoText      ${data}    timeout=${timeout}    delay=${SEARCH_DELAY}
-    Log               Verified no data found: ${data}
+    Log               Verified no data: ${data}
 
 #----------------------------------
 # Data Cleanup Keywords
 #----------------------------------
 Delete Accounts
     [Documentation]    Delete account record and verify deletion
-    ...                Expects account to be visible in current list view
-    
     [Arguments]       ${account_name}
     
     ClickText         ${account_name}
     ClickText         Delete
     VerifyText        Are you sure you want to delete this account?
     ClickText         Delete    2
-    
-    # Wait for undo notification and verify it disappears
     VerifyText        Undo
     VerifyNoText      Undo      timeout=10s
-    
-    # Return to Accounts list
     ClickText         Accounts    partial_match=False
     
-    Log               Account deleted successfully: ${account_name}
+    Log               Account deleted: ${account_name}
 
 Delete Leads
     [Documentation]    Delete lead record and verify deletion
-    ...                Expects lead to be visible in current list view
-    
     [Arguments]       ${lead_name}
     
     ClickText         ${lead_name}
     ClickText         Delete
     VerifyText        Are you sure you want to delete this lead?
     ClickText         Delete    2
-    
-    # Wait for undo notification and verify it disappears
     VerifyText        Undo
     VerifyNoText      Undo      timeout=10s
-    
-    # Return to Leads list
     ClickText         Leads    partial_match=False
     
-    Log               Lead deleted successfully: ${lead_name}
+    Log               Lead deleted: ${lead_name}
 
 Delete Permission Request
     [Documentation]    Delete Permission Request record
-    ...                Expects to be on the Permission Request detail page
-    
     [Arguments]       ${pr_identifier}=L-010380
     
     HoverText         Fields
@@ -203,44 +163,26 @@ Delete Permission Request
     UseModal          On
     ClickText         Delete
     UseModal          Off
-    
-    # Navigate back to list or specified record
     ClickText         ${pr_identifier}
     
-    Log               Permission Request deleted successfully
+    Log               Permission Request deleted
 
 Delete Record Generic
     [Documentation]    Generic delete keyword for any Salesforce record
-    ...                Works for most standard and custom objects
-    ...                
-    ...                Arguments:
-    ...                - record_name: Name/identifier of record to delete
-    ...                - object_name: Object type (e.g., Accounts, Contacts, Sources)
-    ...                - confirmation_text: Expected confirmation dialog text (optional)
-    
     [Arguments]       ${record_name}    ${object_name}    ${confirmation_text}=Are you sure you want to delete
     
     ClickText         ${record_name}
     ClickText         Delete
     VerifyText        ${confirmation_text}
     ClickText         Delete    2
-    
-    # Wait for deletion to complete
     VerifyText        Undo
     VerifyNoText      Undo      timeout=10s
-    
-    # Return to object list view
     ClickText         ${object_name}    partial_match=False
     
-    Log               ${object_name} record deleted: ${record_name}
+    Log               Record deleted: ${record_name}
 
 Bulk Delete Records
     [Documentation]    Delete multiple records of the same type
-    ...                
-    ...                Example:
-    ...                | @{records}= | Create List | Account 1 | Account 2 | Account 3 |
-    ...                | Bulk Delete Records | ${records} | Accounts |
-    
     [Arguments]       ${record_list}    ${object_name}
     
     FOR    ${record}    IN    @{record_list}
@@ -248,18 +190,13 @@ Bulk Delete Records
         Run Keyword If    ${exists}    Delete Record Generic    ${record}    ${object_name}
     END
     
-    Log               Bulk deletion completed for ${object_name}
+    Log               Bulk deletion completed
 
 #----------------------------------
 # Modal and Dialog Keywords
 #----------------------------------
 Handle Confirmation Dialog
     [Documentation]    Handle standard Salesforce confirmation dialogs
-    ...                
-    ...                Arguments:
-    ...                - action: Button to click (e.g., Delete, Save, Cancel)
-    ...                - verify_text: Text to verify in dialog (optional)
-    
     [Arguments]       ${action}    ${verify_text}=${EMPTY}
     
     UseModal          On
@@ -267,28 +204,23 @@ Handle Confirmation Dialog
     ClickText         ${action}
     UseModal          Off
     
-    Log               Confirmation dialog handled with action: ${action}
+    Log               Dialog handled: ${action}
 
 #----------------------------------
 # Wait and Retry Keywords
 #----------------------------------
 Wait For Salesforce
     [Documentation]    Wait for Salesforce page to fully load
-    ...                Useful after navigation or record creation
-    
     [Arguments]       ${timeout}=${DEFAULT_TIMEOUT}
     
     Sleep             2s
-    # Wait for loading spinners to disappear
     ${spinner_present}=    Run Keyword And Return Status    IsText    Loading    timeout=1s
     Run Keyword If    ${spinner_present}    VerifyNoText    Loading    timeout=${timeout}
     
-    Log               Salesforce page loaded
+    Log               Page loaded
 
 Click With Retry
     [Documentation]    Click element with retry logic for flaky elements
-    ...                Useful for elements that may not be immediately clickable
-    
     [Arguments]       ${text}    ${retries}=3    ${anchor}=${EMPTY}
     
     FOR    ${i}    IN RANGE    ${retries}
@@ -308,25 +240,9 @@ Click With Retry
 #----------------------------------
 Capture Context
     [Documentation]    Capture current page context for debugging
-    ...                Useful in test teardown when failures occur
     
     ${current_url}=   Execute Javascript    return window.location.href
     Log               Current URL: ${current_url}
     
-    ${page_title}=    Get Title
+    ${page_title}=    GetTitle
     Log               Page Title: ${page_title}
-    
-    Log               Context captured for debugging
-
-Generate Unique Name
-    [Documentation]    Generate unique name with timestamp for test data
-    ...                
-    ...                Example:
-    ...                | ${account_name}= | Generate Unique Name | Test Account |
-    
-    [Arguments]       ${base_name}
-    
-    ${timestamp}=     Get Current Date    result_format=%Y%m%d_%H%M%S
-    ${unique_name}=   Set Variable    ${base_name}_${timestamp}
-    
-    [Return]          ${unique_name}
