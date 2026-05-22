@@ -5,7 +5,7 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 Test Teardown                 Test Cleanup
 
-***Variables***
+*** Variables ***
 # Wait Times
 ${WAIT_SHORT}                2s
 ${WAIT_MEDIUM}               3s
