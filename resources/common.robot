@@ -1,248 +1,283 @@
 *** Settings ***
-Documentation     Common keywords and setup for Salesforce test automation
-...               This resource file contains login, navigation, and data cleanup utilities
-Library           QForce
-Library           QWeb
-Library           String
-Suite Setup       Setup Browser
-Suite Teardown    End Suite
+Documentation    Create and validate Source Child Records with automated cleanup
+...              This test suite creates source records, validates related objects,
+...              and ensures proper cleanup of test data.
+Library          QWeb
+Library          String
+Resource         ../resources/common.robot
+Suite Setup      Setup Browser
+Suite Teardown   End Suite
+Test Teardown    Test Cleanup
+Default Tags     Regression
 
 *** Variables ***
-# Browser Configuration
-${BROWSER}                chrome
-${DEFAULT_TIMEOUT}        60s
-${SEARCH_DELAY}           2s
-${CLICK_DELAY}            1s
+# Test Data
+${SOURCE_TITLE}              Source Child CRT
+${PUBLISHER}                 Aalborg University
+${PERMISSION_HOLDER}         Aalborg University
+${CONTENT_PROVIDER}          Avignon University
+${ISSN_VALUE}                1122334X
+${EISSN_VALUE}               87654321
+${FUNDING_BODY_ID}           11223344
 
-# Salesforce Configuration
-${username}               pace.delivery1@qentinel.com.demonew
-${login_url}              https://qentinel--demonew.my.salesforce.com/
-${home_url}               ${login_url}/lightning/page/home
+# Wait Times
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
 
-# MFA Configuration
-${MFA_needed}             ${False}
+# Field Labels
+${COUNTRY_FIELD}             Country
+${LICENSE_PROCESS_FIELD}     License/SourceLink creation Process
+${CONTENT_SET_FIELD}         Content Set
+${CONTENT_TYPE_FIELD}        Content Type
+
+# Expected Values
+${EXPECTED_LICENSE}          Elsevier License Template
+${EXPECTED_PR_COUNT}         Permission Requests(1)
+${EXPECTED_RR_COUNT}         Rights and Restrictions (6)
+${EXPECTED_RPH_COUNT}        Right and Permission History (5)
+
+# Selectors
+${NEW_BUTTON}                New
+${SAVE_BUTTON}               Save
+${DELETE_BUTTON}             Delete
+${CONFIRM_BUTTON}            Confirm
+${RELATED_TAB}               Related
+
+*** Test Cases ***
+Create New Source Child Records
+    [Documentation]    Creates a new source with all required fields, validates related records, and performs cleanup
+    [Tags]             Sources    New    Smoke    Critical
+    
+    Launch Source Application
+    Create New Source Record
+    Validate Source Creation
+    Validate Permission Request
+    Validate Related Records
+    Validate Rights And Restrictions
+    Navigate Back To Source
+
+Create Source With Invalid Data
+    [Documentation]    Negative test: Validate error handling with invalid ISSN format
+    [Tags]             Sources    Negative    Validation
+    
+    Launch Source Application
+    ClickText         New
+    UseModal          On
+    ClickText         Next
+    TypeText          *Title Name               Invalid Source Test
+    ComboBox          Publisher                 ${PUBLISHER}
+    TypeText          ISSN                      INVALID123
+    ${error_present}=    Run Keyword And Return Status    VerifyText    Invalid ISSN format
+    Should Be True    ${error_present}    Expected ISSN validation error
+    ClickText         Cancel
+    UseModal          Off
+
+Create Source From Template
+    [Documentation]    Data-driven test: Create multiple sources with different parameters
+    [Tags]             Sources    DataDriven
+    [Template]        Create Source With Parameters
+    
+    # Title                Country          Publisher              Content Provider
+    Source UK Test        United Kingdom   Aalborg University     Avignon University
+    Source US Test        United States    Cambridge University   Oxford University
+    Source DE Test        Germany          Aalborg University     Aalborg University
 
 *** Keywords ***
 #----------------------------------
-# Browser Setup and Teardown
+# Test Cleanup
 #----------------------------------
-Setup Browser
-    [Documentation]    Initialize browser with QForce and QWeb configuration
-    Set Library Search Order    QForce    QWeb
-    Open Browser                about:blank    ${BROWSER}
-    SetConfig                   LineBreak      ${EMPTY}
-    SetConfig                   DefaultTimeout    ${DEFAULT_TIMEOUT}
-    Log                         Browser setup completed
-
-End Suite
-    [Documentation]    Close all browser instances at suite completion
-    Close All Browsers
-    Log                         All browsers closed
+Test Cleanup
+    [Documentation]    Cleanup after each test case
+    
+    Run Keyword If Test Failed    Capture Context
+    ${cleanup_status}=    Run Keyword And Return Status    Cleanup Created Records
+    Run Keyword Unless    ${cleanup_status}    Log    Cleanup may have failed    WARN
 
 #----------------------------------
-# Authentication Keywords
+# Main Test Flow Keywords
 #----------------------------------
-Login
-    [Documentation]    Login to Salesforce instance with optional MFA support
-    
-    GoTo              ${login_url}
-    TypeText          Username        ${username1}    delay=${CLICK_DELAY}
-    TypeText          Password        ${password1}
-    ClickText         Log In
-    
-    # Check if MFA is required
-    ${mfa_required}=    Run Keyword And Return Status    Should Not Be Equal    ${None}    ${secret}
-    Run Keyword If      ${mfa_required}    Fill MFA
-    
-    Log                 Login completed
+Launch Source Application
+    [Documentation]    Navigate to Sources application
+    Appstate          Home
+    Sleep             ${WAIT_SHORT}
+    LaunchApp         Sources
+    Log               Sources application launched
 
-Login As
-    [Documentation]    Switch to a different persona in Salesforce
-    ...                Requires admin rights to be logged in first
-    
-    [Arguments]       ${persona}
-    
-    ClickText         Setup
-    ClickText         Setup for current app
-    SwitchWindow      NEW
-    TypeText          Search Setup    ${persona}    delay=${SEARCH_DELAY}
-    ClickText         User            anchor=${persona}    delay=5s
-    VerifyText        Freeze          timeout=45s
-    ClickText         Login           anchor=Freeze    delay=${CLICK_DELAY}
-    
-    Log               Logged in as persona: ${persona}
-
-Fill MFA
-    [Documentation]    Fill Multi-Factor Authentication code
-    
-    ${mfa_code}=      GetOTP          ${username}    ${secret}    ${login_url}
-    TypeSecret        Verification Code    ${mfa_code}
-    ClickText         Verify
-    
-    Log               MFA verification completed
-
-#----------------------------------
-# Navigation Keywords
-#----------------------------------
-Home
-    [Documentation]    Navigate to Salesforce homepage
-    
-    GoTo              ${home_url}
-    ${needs_login}=   IsText          To access this page, you have to log in to Salesforce.    timeout=2s
-    Run Keyword If    ${needs_login}    Login
-    ClickText         Home
-    VerifyTitle       Home | Salesforce
-    
-    Log               Navigated to Home
-
-Navigate To App
-    [Documentation]    Navigate to a specific Salesforce app
-    [Arguments]       ${app_name}
-    
-    ClickText         App Launcher
-    TypeText          Search apps and items...    ${app_name}
-    ClickText         ${app_name}
-    VerifyText        ${app_name}
-    
-    Log               Navigated to app: ${app_name}
-
-#----------------------------------
-# Verification Keywords
-#----------------------------------
-Verify Stage
-    [Documentation]    Verifies opportunity stage selection state
-    [Arguments]       ${text}    ${selected}=true
-    
-    VerifyElement     //a[@title\="${text}" and @aria-checked\="${selected}"]
-    Log               Stage verified: ${text}
-
-Verify No Data
-    [Documentation]    Verify that specified data text is not present
-    [Arguments]       ${data}    ${timeout}=3s
-    
-    VerifyNoText      ${data}    timeout=${timeout}    delay=${SEARCH_DELAY}
-    Log               Verified no data: ${data}
-
-#----------------------------------
-# Data Cleanup Keywords
-#----------------------------------
-Delete Accounts
-    [Documentation]    Delete account record and verify deletion
-    [Arguments]       ${account_name}
-    
-    ClickText         ${account_name}
-    ClickText         Delete
-    VerifyText        Are you sure you want to delete this account?
-    ClickText         Delete    2
-    VerifyText        Undo
-    VerifyNoText      Undo      timeout=10s
-    ClickText         Accounts    partial_match=False
-    
-    Log               Account deleted: ${account_name}
-
-Delete Leads
-    [Documentation]    Delete lead record and verify deletion
-    [Arguments]       ${lead_name}
-    
-    ClickText         ${lead_name}
-    ClickText         Delete
-    VerifyText        Are you sure you want to delete this lead?
-    ClickText         Delete    2
-    VerifyText        Undo
-    VerifyNoText      Undo      timeout=10s
-    ClickText         Leads    partial_match=False
-    
-    Log               Lead deleted: ${lead_name}
-
-Delete Permission Request
-    [Documentation]    Delete Permission Request record
-    [Arguments]       ${pr_identifier}=L-010380
-    
-    HoverText         Fields
-    ClickText         Delete
+Create New Source Record
+    [Documentation]    Create new source with all required field values
+    ClickText         ${NEW_BUTTON}
     UseModal          On
-    ClickText         Delete
+    Sleep             1s
+    ClickText         Next
+    VerifyText        New Source: Full
+    
+    Fill Source Title Details
+    Fill Source Additional Fields
+    Save Initial Source Record
+    Fill Source Identification Numbers
+    Select And Confirm License
+
+Fill Source Title Details
+    [Documentation]    Fill the main source information fields
+    TypeText          *Title Name               ${SOURCE_TITLE}
+    ComboBox          Publisher                 ${PUBLISHER}
+    Sleep             1s
+    ComboBox          Permission Holder         ${PERMISSION_HOLDER}
+    Sleep             1s
+    ComboBox          Content Provider          ${CONTENT_PROVIDER}
+    Log               Title details filled
+
+Fill Source Additional Fields
+    [Documentation]    Fill country, license process, and content fields
+    PickList          ${COUNTRY_FIELD}          United Kingdom
+    MultiPickList     ${LICENSE_PROCESS_FIELD}  Manual
+    PickList          ${CONTENT_SET_FIELD}      Complete Collection
+    MultiPickList     ${CONTENT_TYPE_FIELD}     Funding & Grants
+    Log               Additional fields filled
+
+Save Initial Source Record
+    [Documentation]    Save the source record
+    ClickText         ${SAVE_BUTTON}            partial_match=False
+    Sleep             ${WAIT_SHORT}
+    Log               Initial record saved
+
+Fill Source Identification Numbers
+    [Documentation]    Enter ISSN, E-ISSN, and Funding Body ID
+    TypeText          ISSN                      ${ISSN_VALUE}
+    TypeText          E-ISSN                    ${EISSN_VALUE}
+    TypeText          Funding Body ID           ${FUNDING_BODY_ID}
+    Log               Identification numbers entered
+
+Select And Confirm License
+    [Documentation]    Select license template and confirm
+    ClickCheckbox     Select Item 2             on    partial_match=False
+    VerifyText        ${EXPECTED_LICENSE}
+    ClickText         ${CONFIRM_BUTTON}
+    Sleep             ${WAIT_SHORT}
     UseModal          Off
-    ClickText         ${pr_identifier}
-    
-    Log               Permission Request deleted
+    Log               License confirmed
 
-Delete Record Generic
-    [Documentation]    Generic delete keyword for any Salesforce record
-    [Arguments]       ${record_name}    ${object_name}    ${confirmation_text}=Are you sure you want to delete
-    
-    ClickText         ${record_name}
-    ClickText         Delete
-    VerifyText        ${confirmation_text}
-    ClickText         Delete    2
-    VerifyText        Undo
-    VerifyNoText      Undo      timeout=10s
-    ClickText         ${object_name}    partial_match=False
-    
-    Log               Record deleted: ${record_name}
+Validate Source Creation
+    [Documentation]    Verify the source was created successfully
+    Wait Until Keyword Succeeds    ${WAIT_MEDIUM}    500ms    VerifyText    ${SOURCE_TITLE}
+    Log               Source created successfully
 
-Bulk Delete Records
-    [Documentation]    Delete multiple records of the same type
-    [Arguments]       ${record_list}    ${object_name}
-    
-    FOR    ${record}    IN    @{record_list}
-        ${exists}=    Run Keyword And Return Status    IsText    ${record}    timeout=2s
-        Run Keyword If    ${exists}    Delete Record Generic    ${record}    ${object_name}
-    END
-    
-    Log               Bulk deletion completed
+Validate Permission Request
+    [Documentation]    Verify Permission Request was auto-created
+    ClickText         ${RELATED_TAB}
+    ClickText         ${EXPECTED_PR_COUNT}      partial_match=True
+    VerifyText        Permission Requests       anchor=Source
+    Sleep             ${WAIT_MEDIUM}
+    UseTable          Select Item 1
+    ClickText         PR-                       anchor=${PUBLISHER}
+    Log               Permission Request validated
+
+Validate Related Records
+    [Documentation]    Verify Source Link and Rights & Permissions were created
+    ClickText         ${RELATED_TAB}
+    SwipeDown
+    Verify Source Link Exists
+    Verify Rights And Permissions Exist
+
+Verify Source Link Exists
+    [Documentation]    Verify Source Link is present and accessible
+    ${sl_present}=    Run Keyword And Return Status    ClickText    SL
+    Should Be True    ${sl_present}    Source Link should be present
+    Log               Source Link validated
+
+Verify Rights And Permissions Exist
+    [Documentation]    Verify Rights and Permission records exist
+    ClickText         RP
+    Log               Rights and Permissions validated
+
+Validate Rights And Restrictions
+    [Documentation]    Verify Rights and Restrictions and history records
+    ClickText         ${EXPECTED_RR_COUNT}
+    Sleep             ${WAIT_SHORT}
+    VerifyText        Rights and Restrictions
+    Navigate Back
+    Sleep             ${WAIT_SHORT}
+    ClickText         ${EXPECTED_RPH_COUNT}
+    Sleep             ${WAIT_SHORT}
+    Navigate Back
+    Sleep             ${WAIT_SHORT}
+    Log               Rights and Restrictions validated
+
+Navigate Back To Source
+    [Documentation]    Navigate back to the main source record
+    ClickText         T-                        anchor=Source
+    Sleep             ${WAIT_SHORT}
+    VerifyText        Title Id
+    Log               Navigated back to source
 
 #----------------------------------
-# Modal and Dialog Keywords
+# Cleanup Keywords
 #----------------------------------
-Handle Confirmation Dialog
-    [Documentation]    Handle standard Salesforce confirmation dialogs
-    [Arguments]       ${action}    ${verify_text}=${EMPTY}
-    
+Cleanup Created Records
+    [Documentation]    Delete test data - Source and Source Link
+    Run Keyword And Ignore Error    Delete Source Record
+    Run Keyword And Ignore Error    Delete Source Link Record
+    Log               Cleanup completed
+
+Delete Source Record
+    [Documentation]    Delete the created source record
+    VerifyText        Title Id
+    Sleep             ${WAIT_SHORT}
+    VerifyText        Change Permission Holder
+    HoverText         Refresh DOAJ/URL Tracker
+    HoverText         Change Permission Holder
+    ClickText         Show more actions
+    HoverText         Log a Call
+    ClickText         ${DELETE_BUTTON}
     UseModal          On
-    Run Keyword If    '${verify_text}' != '${EMPTY}'    VerifyText    ${verify_text}
-    ClickText         ${action}
+    Sleep             1s
+    ClickText         ${DELETE_BUTTON}
+    Sleep             ${WAIT_SHORT}
+    Log               Source deleted
+
+Delete Source Link Record
+    [Documentation]    Delete the associated source link record
+    ClickText         ${RELATED_TAB}
+    SwipeDown
+    ClickText         Source Links
+    ${sl_present}=    Run Keyword And Return Status    ClickText    SL-
+    Return From Keyword If    not ${sl_present}
+    ClickText         ${DELETE_BUTTON}
+    UseModal          On
+    Sleep             1s
+    ClickText         ${DELETE_BUTTON}
+    Sleep             ${WAIT_SHORT}
+    Log               Source Link deleted
+
+#----------------------------------
+# Template Keywords for Data-Driven Testing
+#----------------------------------
+Create Source With Parameters
+    [Documentation]    Template keyword for creating sources with different parameters
+    [Arguments]       ${title}    ${country}    ${publisher}    ${content_provider}
+    
+    Launch Source Application
+    ClickText         ${NEW_BUTTON}
+    UseModal          On
+    Sleep             1s
+    ClickText         Next
+    TypeText          *Title Name               ${title}
+    ComboBox          Publisher                 ${publisher}
+    Sleep             1s
+    ComboBox          Permission Holder         ${publisher}
+    Sleep             1s
+    ComboBox          Content Provider          ${content_provider}
+    PickList          ${COUNTRY_FIELD}          ${country}
+    ClickText         ${SAVE_BUTTON}            partial_match=False
+    Sleep             ${WAIT_SHORT}
     UseModal          Off
-    
-    Log               Dialog handled: ${action}
-
-#----------------------------------
-# Wait and Retry Keywords
-#----------------------------------
-Wait For Salesforce
-    [Documentation]    Wait for Salesforce page to fully load
-    [Arguments]       ${timeout}=${DEFAULT_TIMEOUT}
-    
-    Sleep             2s
-    ${spinner_present}=    Run Keyword And Return Status    IsText    Loading    timeout=1s
-    Run Keyword If    ${spinner_present}    VerifyNoText    Loading    timeout=${timeout}
-    
-    Log               Page loaded
-
-Click With Retry
-    [Documentation]    Click element with retry logic for flaky elements
-    [Arguments]       ${text}    ${retries}=3    ${anchor}=${EMPTY}
-    
-    FOR    ${i}    IN RANGE    ${retries}
-        ${success}=    Run Keyword And Return Status    
-        ...            Run Keyword If    '${anchor}' != '${EMPTY}'    
-        ...            ClickText    ${text}    anchor=${anchor}    
-        ...            ELSE    
-        ...            ClickText    ${text}
-        Return From Keyword If    ${success}
-        Sleep         1s
-    END
-    
-    Fail              Failed to click "${text}" after ${retries} attempts
+    VerifyText        ${title}
+    Log               Source created: ${title}
+    Run Keyword And Ignore Error    Delete Source Record
 
 #----------------------------------
 # Utility Keywords
 #----------------------------------
-Capture Context
-    [Documentation]    Capture current page context for debugging
-    
-    ${current_url}=   Execute Javascript    return window.location.href
-    Log               Current URL: ${current_url}
-    
-    ${page_title}=    GetTitle
-    Log               Page Title: ${page_title}
+Navigate Back
+    [Documentation]    Navigate back using browser history
+    ExecuteJavaScript    window.history.back();
