@@ -105,7 +105,7 @@ Accounts Tab UI Checks
 # Test Cleanup
 #----------------------------------
 Launch Account Application
-    [Documentation]    Navigate to Sources application
+    [Documentation]    Navigate to Accounts application
     Appstate          Home
     Sleep             ${WAIT_SHORT}
     LaunchApp         Accounts
