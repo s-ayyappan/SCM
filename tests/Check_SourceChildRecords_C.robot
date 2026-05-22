@@ -55,7 +55,6 @@ Create New Source Child Records
     Validate Rights And Restrictions
     Navigate Back To Source
 
-*** Test Cases ***
 Create Source With Invalid Data
     [Documentation]    Negative test: Validate error handling with invalid ISSN format
     [Tags]             Negative    Validation
