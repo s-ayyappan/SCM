@@ -55,26 +55,18 @@ Create New Source Child Records
     Navigate Back To Source
 
 *** Test Cases ***
-*** Test Cases ***
 Create Source With Invalid Data
     [Documentation]    Negative test: Validate error handling with invalid ISSN format
     [Tags]             Negative    Validation
     
     Launch Source Application
-    Open New Source Form
-    Fill Required Fields For Validation Test
-    Enter Invalid ISSN And Trigger Validation
-    ${validation_exists}=    Check For Validation Error
-    Handle Validation Test Result    ${validation_exists}
-    Cleanup Validation Test
-
-*** Keywords ***
-Open New Source Form
+    
+    # Open form
     ClickText         New
     UseModal          On
     ClickText         Next
-
-Fill Required Fields For Validation Test
+    
+    # Fill required fields
     TypeText          *Title Name               Invalid Source Test
     ComboBox          Publisher                 ${PUBLISHER}
     ComboBox          Permission Holder         ${PUBLISHER}
@@ -86,37 +78,27 @@ Fill Required Fields For Validation Test
     MultiPickList     Content Type    Book series
     ClickText         Move selection to Chosen    anchor=Book series
 
-Enter Invalid ISSN And Trigger Validation
+    # Enter invalid ISSN and save
     TypeText          ISSN                      INVALID123
     HotKey            Tab
     Sleep             1s
     ClickText         Save                      partial_match=False
     Sleep             2s
-
-Check For Validation Error
-    [Documentation]    Returns True if validation error found, False otherwise
+    
+    # Check for errors
     ${error1}=        Run Keyword And Return Status    VerifyText    Invalid    timeout=2s
     ${error2}=        Run Keyword And Return Status    VerifyText    Error      timeout=1s
-    ${error3}=        Run Keyword And Return Status    VerifyText    Review     timeout=1s
-    ${any_error}=     Evaluate    ${error1} or ${error2} or ${error3}
-    [Return]          ${any_error}
-
-Handle Validation Test Result
-    [Arguments]       ${validation_exists}
+    ${any_error}=     Evaluate    ${error1} or ${error2}
     
-    Run Keyword If    '${validation_exists}' == 'True'
-    ...               Log    Validation error detected as expected
-    ...               ELSE
-    ...               Log    No validation error found - skipping test    WARN
+    # Skip if validation not configured
+    Run Keyword If    '${any_error}' == 'False'
+    ...               Skip    ISSN validation not configured
     
-    Run Keyword If    '${validation_exists}' == 'False'
-    ...               Skip    ISSN validation not configured in this org
+    Should Be True    ${any_error}    Expected ISSN validation error
     
-    Should Be True    ${validation_exists}    Expected ISSN validation error
-
-Cleanup Validation Test
-    ${cancel_exists}=    Run Keyword And Return Status    ClickText    Cancel    timeout=2s
-    Run Keyword If    ${cancel_exists}    UseModal    Off
+    # Cleanup
+    ClickText         Cancel    timeout=2s
+    UseModal          Off
 
 *** Keywords ***
 #----------------------------------
