@@ -4,7 +4,6 @@ Library           QForce
 Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End Suite
-Test Teardown     Test Cleanup
 
 *** Variables ***
 # Wait Times
@@ -121,15 +120,3 @@ Launch Account Application
     LaunchApp         Accounts
     Sleep             ${WAIT_MEDIUM}
     Log               Account application launched
-
-Test Cleanup
-    [Documentation]    Cleanup after each test case
-    Run Keyword If Test Failed    Capture Context
-    Run Keyword And Ignore Error  Close Any Open Modals
-    Log               Test cleanup completed
-
-Close Any Open Modals
-    [Documentation]    Attempt to close any open modals
-    ${cancel_exists}=    Run Keyword And Return Status    ClickText    Cancel    timeout=2s
-    Run Keyword If    ${cancel_exists}    UseModal    Off
-    Log               Modals closed if any were open
