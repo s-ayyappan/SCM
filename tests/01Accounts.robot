@@ -17,14 +17,11 @@ ${CANCEL_CLOSE_BUTTON}             Cancel and close
 
 *** Test Cases ***
 Accounts Tab UI Checks
-    [tags]                    Accounts
-    [Documentation]           Accounts tab UI check
-    Appstate                  Home
-    LaunchApp                 Accounts
-    Sleep                     ${WAIT_SHORT}
+    [Documentation]    Check Account UI
+    [Tags]             New    Account  Critical
+    Launch Account Application
 
 #capture the UI objects
-
     VerifyText    Import
     HoverText     New
     VerifyText    New
@@ -107,6 +104,14 @@ Accounts Tab UI Checks
 #----------------------------------
 # Test Cleanup
 #----------------------------------
+Launch Account Application
+    [Documentation]    Navigate to Sources application
+    Appstate          Home
+    Sleep             ${WAIT_SHORT}
+    LaunchApp         Accounts
+    Sleep             ${WAIT_SHORT}
+    Log               Account application launched
+
 Test Cleanup
     [Documentation]    Cleanup after each test case
     Run Keyword If Test Failed    Capture Context
