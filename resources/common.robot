@@ -25,17 +25,19 @@ ${MFA_needed}             ${False}
 # Browser Setup and Teardown
 #----------------------------------
 Setup Browser
-    [Documentation]    Open browser with disabled Chrome prompts
+    [Documentation]    Open browser and configure QForce settings
     
-    # Use OpenBrowser instead of any custom setup
-    OpenBrowser    about:blank    chrome    options=${chrome_options}
-    
-    Open Browser    about:blank    chrome    options=${chrome_options}
-    Set Library Search Order    QForce    QWeb
+    # Open browser once
     Open Browser                about:blank    ${BROWSER}
-    SetConfig                   LineBreak      ${EMPTY}
+    
+    # Set library search order for QForce
+    Set Library Search Order    QForce    QWeb
+    
+    # Configure QForce settings
+    SetConfig                   LineBreak         ${EMPTY}
     SetConfig                   DefaultTimeout    ${DEFAULT_TIMEOUT}
-    Log                         Browser setup completed
+    
+    Log                         Browser setup completed    level=INFO
 
 End Suite
     [Documentation]    Close all browser instances at suite completion
