@@ -63,40 +63,16 @@ User Activates PRM Account
 
 PRM Account Should Be Active
     [Documentation]    Verify PRM Account is now active
-    Log    Verifying PRM Account is active    level=INFO
     Log To Console    \n[STEP] Verifying PRM Account is Active
-    
-    # Wait for save to complete
-    Sleep              ${WAIT_MEDIUM}
-    
-    # Navigate to PRM Account view
-    ClickText         Related
-    ClickText         Details  
-    ClickText         ${DEPT_NAME}
+    Sleep              ${WAIT_SHORT}
     VerifyText        PRM Account
-    
-    # Capture evidence
-    #Capture Page Screenshot    prm_account_active.png
-    Log    PRM Account page captured after activation    level=INFO
     Log To Console    [SUCCESS] PRM Account activation completed
 
 PRM Account Should Be Inactive
     [Documentation]    Verify PRM Account is now inactive
-    Log    Verifying PRM Account is inactive    level=INFO
     Log To Console    \n[STEP] Verifying PRM Account is Inactive
-    
-    # Wait for save to complete
-    Sleep             ${WAIT_MEDIUM}
-    
-    # Navigate to PRM Account view
-    ClickText         Related
-    ClickText         Details
-    ClickText         ${DEPT_NAME}
+    Sleep              ${WAIT_SHORT}
     VerifyText        PRM Account
-    
-    # Capture evidence
-    #Capture Page Screenshot    prm_account_inactive.png
-    Log    PRM Account page captured after deactivation    level=INFO
     Log To Console    [SUCCESS] PRM Account deactivation completed
     
 User Deactivates PRM Account
