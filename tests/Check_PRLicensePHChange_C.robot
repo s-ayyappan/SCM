@@ -36,6 +36,7 @@ User Navigates To Source Record
     LaunchApp         Sources
     TypeText          Search this list...    ${SOURCE_ID}\n    anchor=${SEARCH_ANCHOR}
     ClickText         ${SOURCE_ID}
+    Log To Console    [SUCCESS] Successfully navigated to Source record
 
 User Verifies Source Link Status Is Inactive
     [Documentation]    Check that the source link has an Inactive status
@@ -44,6 +45,7 @@ User Verifies Source Link Status Is Inactive
     ClickText         ${SOURCE_LINK_ID}
     VerifyText        Inactive
     ClickText         ${SOURCE_ID}    anchor=Related
+    Log To Console    [SUCCESS] Source Link status verified as Inactive
 
 User Activates PRM Account
     [Documentation]    Enable PRM Account checkbox and save
@@ -54,12 +56,21 @@ User Activates PRM Account
     VerifyText        PRM Account
     ClickCheckbox     PRM Account    on
     ClickText         Save
+    Log To Console    [SUCCESS] PRM Account activated successfully
 
 PRM Account Should Be Active
     [Documentation]    Verify PRM Account is now active
+    Log    Verifying PRM Account is active    level=INFO
+    Log To Console    \n[STEP] Verifying PRM Account is Active
+    
     VerifyText        PRM Account
-    # Add verification for active status if needed
-
+    
+    # Direct verification with built-in error message
+    VerifyCheckboxValue    PRM Account    on
+    Log    PRM Account checkbox verified as checked (Active)    level=INFO
+    
+    Log To Console    [SUCCESS] PRM Account is Active
+    
 User Deactivates PRM Account
     [Documentation]    Disable PRM Account checkbox and save
     ClickText         Related
@@ -70,6 +81,7 @@ User Deactivates PRM Account
     VerifyText        PRM Account
     ClickCheckbox     PRM Account    off
     ClickText         Save
+    Log To Console    [SUCCESS] PRM Account deactivated successfully
 
 PRM Account Should Be Inactive
     [Documentation]    Verify PRM Account is now inactive
