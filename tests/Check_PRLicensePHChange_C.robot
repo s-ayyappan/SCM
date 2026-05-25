@@ -78,7 +78,7 @@ PRM Account Should Be Active
     # Capture evidence
     #Capture Page Screenshot    prm_account_active.png
     Log    PRM Account page captured after activation    level=INFO
-    Log To Console    [SUCCESS] PRM Account activation completed - screenshot saved
+    Log To Console    [SUCCESS] PRM Account activation completed
 
 PRM Account Should Be Inactive
     [Documentation]    Verify PRM Account is now inactive
@@ -97,7 +97,7 @@ PRM Account Should Be Inactive
     # Capture evidence
     #Capture Page Screenshot    prm_account_inactive.png
     Log    PRM Account page captured after deactivation    level=INFO
-    Log To Console    [SUCCESS] PRM Account deactivation completed - screenshot saved
+    Log To Console    [SUCCESS] PRM Account deactivation completed
     
 User Deactivates PRM Account
     [Documentation]    Disable PRM Account checkbox and save
