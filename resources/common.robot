@@ -27,18 +27,6 @@ ${MFA_needed}             ${False}
 Setup Browser
     [Documentation]    Open browser with disabled Chrome prompts
     
-    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    
-    Call Method    ${chrome_options}    add_argument    --disable-save-password-bubble
-    Call Method    ${chrome_options}    add_argument    --disable-autofill
-    
-    ${prefs}=    Create Dictionary
-    ...    credentials_enable_service=${False}
-    ...    profile.password_manager_enabled=${False}
-    ...    autofill.profile_enabled=${False}
-    
-    Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
-    
     # Use OpenBrowser instead of any custom setup
     OpenBrowser    about:blank    chrome    options=${chrome_options}
     
