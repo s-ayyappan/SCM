@@ -98,19 +98,27 @@ Then Error Message Should Prevent Duplicate Primary
     [Documentation]    Cancel operation after error and verify only one primary exists
     Log To Console    \n[STEP] Verifying Duplicate Prevention
     
-    # Note: Error toast appears but is difficult to verify with QForce
-    # We verify the business outcome instead
+    # Error toast appears (not verified by automation)
     Sleep             3s
-    Log               Error occurred (visible in UI but not verified by automation)    level=INFO
+    Log               Error occurred (visible in UI)    level=INFO
     
     # Cancel the Add Team Members modal
     ClickText         Cancel    partial_match=False
-    Sleep             ${WAIT_MEDIUM}
-    Log               Add Team Members operation canceled    level=INFO
+    Log               Cancel button clicked    level=INFO
     
-    # Verify business logic: first primary member is still primary
+    # Wait for modal to fully close
+    Sleep             ${WAIT_MEDIUM}
+    
+    # Ensure we're on the account record page
+    VerifyText        ${ACCOUNT_NAME}
+    Log               Returned to account page    level=INFO
+    
+    # Now click Related tab
+    Sleep             ${WAIT_SHORT}
     ClickText         Related
     Sleep             ${WAIT_SHORT}
+    
+    # Verify first primary member exists and is primary
     ClickText         ${PRIMARY_USER_1} Team Member Record
     VerifyText        Primary
     
