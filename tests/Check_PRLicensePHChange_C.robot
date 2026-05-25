@@ -63,14 +63,51 @@ PRM Account Should Be Active
     Log    Verifying PRM Account is active    level=INFO
     Log To Console    \n[STEP] Verifying PRM Account is Active
     
+    # Give time for Salesforce to process the save
+    Sleep    3s
+    
+    # Refresh page to get latest data
+    Refresh Page
+    Sleep    2s
+    
+    # Navigate to the PRM Account section
+    ClickText         Related
+    ClickText         Details
+    ClickText         ${DEPT_NAME}
     VerifyText        PRM Account
     
-    # Direct verification with built-in error message
-    VerifyCheckboxValue    PRM Account    on
+    # Try to verify with retry logic
+    Wait Until Keyword Succeeds    3x    2s    
+    ...    VerifyCheckboxValue    PRM Account    on
+    
     Log    PRM Account checkbox verified as checked (Active)    level=INFO
-    
     Log To Console    [SUCCESS] PRM Account is Active
+
+PRM Account Should Be Inactive
+    [Documentation]    Verify PRM Account is now inactive
+    Log    Verifying PRM Account is inactive    level=INFO
+    Log To Console    \n[STEP] Verifying PRM Account is Inactive
     
+    # Give time for Salesforce to process the save
+    Sleep    3s
+    
+    # Refresh page to get latest data
+    Refresh Page
+    Sleep    2s
+    
+    # Navigate to the PRM Account section
+    ClickText         Related
+    ClickText         Details
+    ClickText         ${DEPT_NAME}
+    VerifyText        PRM Account
+    
+    # Try to verify with retry logic
+    Wait Until Keyword Succeeds    3x    2s    
+    ...    VerifyCheckboxValue    PRM Account    off
+    
+    Log    PRM Account checkbox verified as unchecked (Inactive)    level=INFO
+    Log To Console    [SUCCESS] PRM Account is Inactive
+
 User Deactivates PRM Account
     [Documentation]    Disable PRM Account checkbox and save
     ClickText         Related
@@ -82,11 +119,6 @@ User Deactivates PRM Account
     ClickCheckbox     PRM Account    off
     ClickText         Save
     Log To Console    [SUCCESS] PRM Account deactivated successfully
-
-PRM Account Should Be Inactive
-    [Documentation]    Verify PRM Account is now inactive
-    VerifyText        PRM Account
-    # Add verification for inactive status if needed
 
 Navigate To Department Details
     [Documentation]    Helper keyword to navigate to department details page
