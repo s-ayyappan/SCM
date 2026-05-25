@@ -103,7 +103,7 @@ Then Error Message Should Prevent Duplicate Primary
     Log               Error occurred (visible in UI but not verified by automation)    level=INFO
     
     # Cancel the Add Team Members modal
-    ClickText         Cancel    partial_match=False
+    ClickText         Cancel    partial_match=True
     Log               Add Team Members operation canceled    level=INFO
     
     # CRITICAL: Close modal context
@@ -123,6 +123,7 @@ Then Error Message Should Prevent Duplicate Primary
     Log               First primary member verified as still primary    level=INFO
     
     Log To Console    [SUCCESS] First primary member verified - duplicate was prevented
+    
 And Cleanup Test Account
     [Documentation]    Delete the test account created during the test
     Log To Console    \n[STEP] Cleaning Up Test Account
