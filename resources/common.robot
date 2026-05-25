@@ -25,7 +25,21 @@ ${MFA_needed}             ${False}
 # Browser Setup and Teardown
 #----------------------------------
 Setup Browser
-    [Documentation]    Initialize browser with QForce and QWeb configuration
+    [Documentation]    Initialize browser with disabled Chrome prompts
+    
+    # Chrome preferences to disable autofill popups
+    ${prefs}=    Create Dictionary
+    ...    autofill.profile_enabled=${False}
+    ...    credentials_enable_service=${False}
+    ...    profile.password_manager_enabled=${False}
+    ...    profile.default_content_setting_values.notifications=2
+    
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${chrome_options}    add_experimental_option    prefs    ${prefs}
+    Call Method    ${chrome_options}    add_argument    --disable-save-password-bubble
+    Call Method    ${chrome_options}    add_argument    --disable-blink-features=AutomationControlled
+    
+    Open Browser    about:blank    chrome    options=${chrome_options}
     Set Library Search Order    QForce    QWeb
     Open Browser                about:blank    ${BROWSER}
     SetConfig                   LineBreak      ${EMPTY}
