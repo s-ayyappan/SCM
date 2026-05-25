@@ -95,35 +95,34 @@ When User Attempts To Add Second Primary Team Member
     Log To Console    [INFO] Save clicked - expecting error
 
 Then Error Message Should Prevent Duplicate Primary
-    [Documentation]    Cancel operation after error and verify only one primary exists
+    [Documentation]    Cancel operation and verify only one primary exists
     Log To Console    \n[STEP] Verifying Duplicate Prevention
     
-    # Error toast appears (not verified by automation)
+    # Wait for error toast
     Sleep             3s
-    Log               Error occurred (visible in UI)    level=INFO
+    Log               Error occurred (visible in UI but not verified by automation)    level=INFO
     
     # Cancel the Add Team Members modal
     ClickText         Cancel    partial_match=False
-    Log               Cancel button clicked    level=INFO
+    Log               Add Team Members operation canceled    level=INFO
     
-    # Wait for modal to fully close
+    # CRITICAL: Close modal context
+    UseModal          Off
     Sleep             ${WAIT_MEDIUM}
     
-    # Ensure we're on the account record page
+    # Verify we're on the account record page
     VerifyText        ${ACCOUNT_NAME}
-    Log               Returned to account page    level=INFO
     
-    # Now click Related tab
-    Sleep             ${WAIT_SHORT}
+    # Click Related tab
     ClickText         Related
     Sleep             ${WAIT_SHORT}
     
-    # Verify first primary member exists and is primary
+    # Verify first primary member is still primary
     ClickText         ${PRIMARY_USER_1} Team Member Record
     VerifyText        Primary
+    Log               First primary member verified as still primary    level=INFO
     
     Log To Console    [SUCCESS] First primary member verified - duplicate was prevented
-
 And Cleanup Test Account
     [Documentation]    Delete the test account created during the test
     Log To Console    \n[STEP] Cleaning Up Test Account
