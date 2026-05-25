@@ -12,8 +12,9 @@ Test Template     ${EMPTY}
 *** Variables ***
 ${SOURCE_ID}              T-15425
 ${SOURCE_LINK_ID}         SL-000410
-${WAIT_SHORT}             2s     
-${WAIT_MEDIUM}            3s
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s 
 ${DEPT_NAME}              Department of Science and Aerospacial Technology
 ${SEARCH_ANCHOR}          Account Manager, Content Provider, and Created Date aren't searchable. Use filters or sort on these fields instead.
 
@@ -66,7 +67,7 @@ PRM Account Should Be Active
     Log To Console    \n[STEP] Verifying PRM Account is Active
     
     # Wait for save to complete
-    Sleep    ${WAIT_MEDIUM}
+    Sleep              ${WAIT_MEDIUM}
     
     # Navigate to PRM Account view
     ClickText         Related
@@ -85,7 +86,7 @@ PRM Account Should Be Inactive
     Log To Console    \n[STEP] Verifying PRM Account is Inactive
     
     # Wait for save to complete
-    Sleep    ${WAIT_MEDIUM}
+    Sleep             ${WAIT_MEDIUM}
     
     # Navigate to PRM Account view
     ClickText         Related
