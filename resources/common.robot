@@ -27,12 +27,12 @@ ${MFA_needed}             ${False}
 Setup Browser
     [Documentation]    Open browser and configure QForce settings
     
-    # Open browser once
-    Open Browser                about:blank    ${BROWSER}
-    
     # Set library search order for QForce
     Set Library Search Order    QForce    QWeb
     
+    # Open browser once
+    Open Browser                about:blank    ${BROWSER}   
+
     # Configure QForce settings
     SetConfig                   LineBreak         ${EMPTY}
     SetConfig                   DefaultTimeout    ${DEFAULT_TIMEOUT}
