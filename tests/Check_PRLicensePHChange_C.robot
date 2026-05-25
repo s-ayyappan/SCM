@@ -6,8 +6,8 @@ Resource          ../resources/common.robot
 Suite Setup       Setup Browser
 Suite Teardown    End suite
 
-# This allows Given/When/Then/And/But prefixes
-Library           robot.libraries.BuiltIn    WITH NAME    BuiltIn
+# Enable BDD-style keyword prefixes
+Test Template     ${EMPTY}
 
 *** Variables ***
 ${SOURCE_ID}              T-15425
@@ -21,15 +21,15 @@ Verify PR License Becomes Inactive When PH Changes At Source Level
     [Documentation]   Validates that an active PR license automatically changes to Inactive
     ...               when there is a PH (Primary Holder) change at the Source level
     
-    Given User Navigates To Source Record
-    When User Verifies Source Link Status Is Inactive
-    And User Activates PRM Account
-    Then PRM Account Should Be Active
-    When User Deactivates PRM Account
-    Then PRM Account Should Be Inactive
+    User Navigates To Source Record
+    User Verifies Source Link Status Is Inactive
+    User Activates PRM Account
+    PRM Account Should Be Active
+    User Deactivates PRM Account
+    PRM Account Should Be Inactive
 
 *** Keywords ***
-Given User Navigates To Source Record
+User Navigates To Source Record
     [Documentation]    Navigate to the Sources app and search for specific source record
     Appstate          Home
     Sleep             2s
@@ -37,7 +37,7 @@ Given User Navigates To Source Record
     TypeText          Search this list...    ${SOURCE_ID}\n    anchor=${SEARCH_ANCHOR}
     ClickText         ${SOURCE_ID}
 
-When User Verifies Source Link Status Is Inactive
+User Verifies Source Link Status Is Inactive
     [Documentation]    Check that the source link has an Inactive status
     ClickText         Related
     VerifyText        Source Links
@@ -45,7 +45,7 @@ When User Verifies Source Link Status Is Inactive
     VerifyText        Inactive
     ClickText         ${SOURCE_ID}    anchor=Related
 
-When User Activates PRM Account
+User Activates PRM Account
     [Documentation]    Enable PRM Account checkbox and save
     Navigate To Department Details
     ClickText         Edit PRM Account
@@ -55,12 +55,12 @@ When User Activates PRM Account
     ClickCheckbox     PRM Account    on
     ClickText         Save
 
-Then PRM Account Should Be Active
+PRM Account Should Be Active
     [Documentation]    Verify PRM Account is now active
     VerifyText        PRM Account
     # Add verification for active status if needed
 
-When User Deactivates PRM Account
+User Deactivates PRM Account
     [Documentation]    Disable PRM Account checkbox and save
     ClickText         Related
     ClickText         Details
@@ -71,7 +71,7 @@ When User Deactivates PRM Account
     ClickCheckbox     PRM Account    off
     ClickText         Save
 
-Then PRM Account Should Be Inactive
+PRM Account Should Be Inactive
     [Documentation]    Verify PRM Account is now inactive
     VerifyText        PRM Account
     # Add verification for inactive status if needed
