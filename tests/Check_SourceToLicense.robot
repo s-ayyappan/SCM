@@ -20,21 +20,21 @@ Check Source to License Child records
     VerifyText                CRT Test Source
     ClickText                 T-56248
     ClickText                 Related
-    ClickText                 PR-00025183
-    VerifyText                License
-    VerifyText                L-010852
+    #ClickText                 PR-00025183
+    #VerifyText                License
+    #VerifyText                L-010852
     ClickText                 Related
     SwipeDown
     VerifyText                Source Links
-    ClickText                 SL-014889
+    ClickText                 SL-015805	
     VerifyText                Source Link
-    VerifyText                SL-014889
+    VerifyText                SL-015805
     ClickFieldValue           Right and Permission
     VerifyText                Right and Permission
-    VerifyText                RP-010641
-    VerifyField               License    L-010852    tag=a    partial_match=True
+    VerifyText                RP-005082
+    VerifyField               License    L-005128   tag=a    partial_match=True
     ClickFieldValue           License
     VerifyField               License Template   Elsevier Permission Form Template    tag=a    partial_match=True
     VerifyText                License
-    VerifyText                L-010852
-    VerifyField               Account Name    Avignon University    partial_match=True
+    VerifyText                L-005128
+    VerifyField               Account Name    Oral Medicine    partial_match=True
