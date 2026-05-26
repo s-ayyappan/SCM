@@ -12,7 +12,7 @@ ${LICENSE}               L-005128
 ${SOURCE}                T-56248
 ${SOURCE_LINK_ID}        SL-015805
 ${RIGHTS_PERMISSION}     RP-005082
-${ACCOUNT_NAME}          Oral Medicine  
+${ACCOUNT_NAME}          Oral Medicina 
 
 
 *** Test Cases ***
