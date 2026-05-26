@@ -5,6 +5,16 @@ Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
+*** Variables ***
+${WAIT_SHORT}            2s
+${SOURCE_TITLE}          CRT Test Source  
+${LICENSE}               L-005128 
+${SOURCE}                T-56248
+${SOURCE_LINK_ID}        SL-015805
+${RIGHTS_PERMISSION}     RP-005082
+${ACCOUNT_NAME}          Oral Medicine  
+
+
 *** Test Cases ***
 Check Source to License Child records
     [tags]                    Sources, PR, Source Links
@@ -16,9 +26,9 @@ Check Source to License Child records
     
     ClickText                 Select a List View: Sources
     ClickText                 All Titles
-    TypeText                  Search this list...    CRT Test Source\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
+    TypeText                  Search this list...    ${SOURCE_TITLE}\n    anchor=Account Manager, Created Date, and Content Provider aren't searchable. Use filters or sort on these fields instead.
     VerifyText                CRT Test Source
-    ClickText                 T-56248
+    ClickText                 ${SOURCE} 
     ClickText                 Related
     #ClickText                 PR-00025183
     #VerifyText                License
@@ -26,15 +36,15 @@ Check Source to License Child records
     ClickText                 Related
     SwipeDown
     VerifyText                Source Links
-    ClickText                 SL-015805	
+    ClickText                 ${SOURCE_LINK_ID}	
     VerifyText                Source Link
-    VerifyText                SL-015805
+    VerifyText                ${SOURCE_LINK_ID}
     ClickFieldValue           Right and Permission
     VerifyText                Right and Permission
-    VerifyText                RP-005082
-    VerifyField               License    L-005128   tag=a    partial_match=True
+    VerifyText                ${RIGHTS_PERMISSION}
+    VerifyField               License    ${LICENSE}   tag=a    partial_match=True
     ClickFieldValue           License
     VerifyField               License Template   Elsevier Permission Form Template    tag=a    partial_match=True
     VerifyText                License
-    VerifyText                L-005128
-    VerifyField               Account Name    Oral Medicine    partial_match=True
+    VerifyText                ${LICENSE}
+    VerifyField               Account Name    ${ACCOUNT_NAME}    partial_match=True
