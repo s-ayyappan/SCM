@@ -52,6 +52,7 @@ Login
     
     GoTo              ${login_url}
     TypeText          Username        ${username1}    delay=${CLICK_DELAY}
+    ClickText    Log In to Sandbox
     TypeText          Password        ${password1}
     ClickText         Log In
     
