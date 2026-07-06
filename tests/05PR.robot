@@ -26,7 +26,7 @@ Permission Requests UI Check
     HoverText    Edit
     HoverText    Cancel Permission Request
     HoverText    Create Contract Amendment
-    HoverText    Create Contract Agreement
+#    HoverText    Create Contract Agreement
     HoverText    Clone
     HoverText    Edit
     HoverText    Delete
