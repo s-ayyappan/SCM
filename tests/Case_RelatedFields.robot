@@ -42,7 +42,8 @@ Check New Case Related fields
     ClickText    All cases
     Sleep        2s
     ClickCheckbox    Select Item 1    on    partial_match=False
-    ClickText    00001007
+    TypeText    Search this list...    test\n
+    ClickText    test    partial_match=False
     VerifyText    Case
     ClickText    Related
     VerifyText    Emails
