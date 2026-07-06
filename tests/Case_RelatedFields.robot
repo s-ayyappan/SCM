@@ -15,25 +15,25 @@ Check New Case Related fields
     Sleep                     1s
     LaunchApp                 Cases
     
-#create new Serial Content case
+#create new Serial Content case  --this functionality is removed from case 30/06/2026
 #    ClickText    Serial Content
-    ClickText   New    anchor=Chage Owner, Assign Label
-    UseModal    On
-    ClickText   Serial Content
-    ClickText   Next
-    ComboBox    Search Contacts...    Auto CRT
-    PickList    *Case Origin    Email
-    PickList    *Category    Content Delivery
-    PickList    *Sub Category    Access set-up clarification
-    TypeText    Subject    CRT Case
-    ClickText   Save    partial_match=False
-    UseModal    Off
-    VerifyText  created.
-    VerifyText  Auto CRT
-    Log         Able to successfully open a new case
+#    ClickText   New    anchor=Chage Owner, Assign Label
+#    UseModal    On
+#    ClickText   Serial Content
+#    ClickText   Next
+#    ComboBox    Search Contacts...    Auto CRT
+#    PickList    *Case Origin    Email
+#    PickList    *Category    Content Delivery
+#    PickList    *Sub Category    Access set-up clarification
+#    TypeText    Subject    CRT Case
+#    ClickText   Save    partial_match=False
+#    UseModal    Off
+#    VerifyText  created.
+#    VerifyText  Auto CRT
+#    Log         Able to successfully open a new case
 
 #clean up the newly crated case
-    LaunchApp    Cases
+#    LaunchApp    Cases
     RefreshPage
     Sleep        2s
     VerifyText    Cases
