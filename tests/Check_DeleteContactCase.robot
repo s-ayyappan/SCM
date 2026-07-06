@@ -14,7 +14,8 @@ Delete Contact and Case
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Contacts
-#create a new contact for robotics testing
+
+#create new Serial Content case 
     ClickText    New
     UseModal     On
     PickList     Salutation    Mr.
@@ -26,20 +27,22 @@ Delete Contact and Case
     TypeText     Email    test@elsevier.invalid.com    
     ClickText    Save    partial_match=False
     UseModal     Off
-    VerifyField  Name    Mr. Robotics contact    partial_match=True
+    ClickText    Close error dialog
+    ClickText    Cancel and close
+#    VerifyField  Name    Mr. Robotics contact    partial_match=True
 
-#create new case 
-    LaunchApp    Cases
-    VerifyText   Cases
-    ClickText    New
-    UseModal     On
-    ClickText    Next    anchor=Cancel
-    ComboBox     Search Contacts...    Robotics contact
-    ComboBox     Search Accounts...    Aalborg University
-    PickList     *Case Origin    Email
-    ClickText    Save    partial_match=False
-    UseModal     Off
-    VerifyField  Contact Name    Robotics contact    tag=a    partial_match=True
+#create new case    --this functionality is removed from case 30/06/2026
+#    LaunchApp    Cases
+#    VerifyText   Cases
+#    ClickText    New
+#    UseModal     On
+#    ClickText    Next    anchor=Cancel
+#    ComboBox     Search Contacts...    Robotics contact
+#    ComboBox     Search Accounts...    Aalborg University
+#    PickList     *Case Origin    Email
+#    ClickText    Save    partial_match=False
+#    UseModal     Off
+#    VerifyField  Contact Name    Robotics contact    tag=a    partial_match=True
 
 #delete the contact    
     LaunchApp    Contacts
