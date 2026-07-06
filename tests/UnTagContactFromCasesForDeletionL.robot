@@ -38,8 +38,8 @@ Un-tag contacts from related cases before deletion
 
 #create a case for automation
     LaunchApp    Cases
-    HoverText    New
-    ClickText    New
+#    HoverText    New
+#    ClickText    New
     UseModal     On
     ClickText    Next
     VerifyText   Contact Name
