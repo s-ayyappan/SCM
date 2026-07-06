@@ -10,7 +10,7 @@ Suite Teardown    End suite
 *** Test Cases ***
 Check New Case Related fields
     [tags]                    Case, Serial Content
-    [Documentation]           Check new cases created without related fields
+    [Documentation]           Check cases related fields
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Cases
@@ -35,19 +35,28 @@ Check New Case Related fields
 #clean up the newly crated case
 #    LaunchApp    Cases
     RefreshPage
+#navigate to all cases
     Sleep        2s
     VerifyText    Cases
     ClickText    Select a List View: Cases
     ClickText    All cases
     Sleep        2s
-    TypeText     Search this list...    CRT Case\n    anchor=Date/Time Opened and Case Owner Alias aren't searchable. Use filters or sort on these fields instead.
-    Sleep        2s
-    ClickText    CRT Case
-    Sleep        2s
-    VerifyText   CRT Case
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    VerifyText   deleted
-    Log          Case successfully deleted
+    ClickCheckbox    Select Item 1    on    partial_match=False
+    ClickText    00001007
+    VerifyText    Case
+    ClickText    Related
+    VerifyText    Emails
+    VerifyText    Case Comments
+    VerifyText    Case History
+    VerifyText    Notes
+    VerifyText    Files
+    VerifyText    Open Activities
+    VerifyText    Activity History
+    VerifyText    Attachments
+    ScrollText    Open
+    ScrollText    Open
+    VerifyText    Details
+    VerifyField    Case Owner    Myles Selvey    tag=a    partial_match=True
+    ClickText    Activites
+    Log         Able to successfully check related fields
+
