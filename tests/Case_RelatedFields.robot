@@ -15,7 +15,7 @@ Check New Case Related fields
     Sleep                     1s
     LaunchApp                 Cases
     
-#create new Serial Content case  --this functionality is removed from case 30/06/2026
+#create new Serial Content case   --this functionality is removed from case 30/06/2026
 #    ClickText    Serial Content
 #    ClickText   New    anchor=Chage Owner, Assign Label
 #    UseModal    On
