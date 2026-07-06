@@ -45,7 +45,7 @@ New Note in Cases
     
 #delete the newly created note
     ClickText    Show Actions
-    ClickText    Delete    anchor=Delete File?
+    ClickText    Delete    anchor=Last Modified By
     UseModal     On
     ClickText    Delete
     Log          Able to successfully delete a note in a case 
