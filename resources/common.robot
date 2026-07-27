@@ -13,8 +13,8 @@ ${SEARCH_DELAY}           2s
 ${CLICK_DELAY}            1s
 
 # Salesforce Configuration
-${username1}              pace.delivery1@qentinel.com.demonew
-${login_url}              https://qentinel--demonew.my.salesforce.com/
+${username1}      s.ayyappan@elsevier.com.scm.uat
+${login_url}      https://qentinel--demonew.my.salesforce.com/
 ${home_url}               ${login_url}/lightning/page/home
 
 # JWT Configuration
