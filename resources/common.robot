@@ -256,3 +256,9 @@ Capture Context
 Navigate Back
     [Documentation]    Navigate back using browser history
     ExecuteJavaScript    window.history.back();
+
+
+Verify JWT Authentication
+    [Documentation]    Uses JWT Authentication via an external client app
+    JwtAuthenticate    ${client_id}    ${username1}    ${private_key}
+    JwtLogin
