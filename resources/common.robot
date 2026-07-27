@@ -13,9 +13,10 @@ ${SEARCH_DELAY}           2s
 ${CLICK_DELAY}            1s
 
 # Salesforce Configuration
+*** Variables ***
 ${username1}      s.ayyappan@elsevier.com.scm.uat
-${login_url}      https://qentinel--demonew.my.salesforce.com/
-${home_url}               ${login_url}/lightning/page/home
+${login_url}      https://relx-elsevier-operations--uat.sandbox.my.salesforce.com
+${home_url}       https://relx-elsevier-operations--uat.sandbox.lightning.force.com/lightning/page/home
 
 # JWT Configuration
 ${client_id}              ${EMPTY}
