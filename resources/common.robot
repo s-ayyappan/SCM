@@ -47,7 +47,7 @@ End Suite
 Login
     [Documentation]    Login to Salesforce using JWT bearer token authentication
     
-    JwtAuthenticate    ${client_id}    ${username1}    ${private_key}
+    JwtAuthenticate    ${client_id}    ${username1}    ${private_key}    sandbox=True
     JwtLogin
     VerifyText         Home
     
