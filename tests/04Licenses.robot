@@ -13,36 +13,28 @@ Licenses Tab UI Checks
     LaunchApp                 Licenses
     Sleep                     2s    
 
-#capture the UI objects in New License Modal
+#capture the UI objects for an existing License 
+   
+    ClickText    Select a List View: Licenses
+    ClickText    All
+    TypeText       Search this list...    L-011841\n
+    ClickText      L-011841
+    VerifyText     L-011841
+    VerifyText     Status
+    VerifyText     Agreement Date
+    VerifyText     License Template
+    VerifyField    Agreement Type    License agreement    partial_match=True
+    VerifyField    Is Sensitive    Is Sensitive    partial_match=True
+    VerifyField    Currency    EUR - Euro    partial_match=True
+    VerifyField    End Date    ${EMPTY}
+    VerifyField    Description    ${EMPTY}
+    VerifyField    Description    ${EMPTY}
+    VerifyField    Do Not Renew    Do Not Renew    partial_match=True
+    VerifyField    Status    Draft    partial_match=True
+    VerifyField    Origin    Salesforce    partial_match=True
+    VerifyField    Negotiation License    ${EMPTY}
+    VerifyField    Automatic Renewal    Automatic Renewal    partial_match=True
+    ClickText     Related
+    ClickText     Source Link Management
 
 
-    ClickText    Licenses List
-    ClickText    New License
-    UseModal    On
-    VerifyText    New License
-    VerifyText    Information
-    VerifyText    License Template   
-    VerifyText    Agreement Type
-    VerifyText    Status
-    VerifyText    Origin
-    VerifyText    Is Sensitive   
-    VerifyText    Negotiation License
-    VerifyPickList    Currency   
-    VerifyText    Automatic Renewal
-    VerifyText    Effective Date
-    VerifyText    End Date
-    VerifyText    Description
-    VerifyText    Account Name
-    VerifyText    Version Detail
-    VerifyText    Version    partial_match=False
-    VerifyText    Last Refresh Date
-    VerifyText    Agreement Date
-    VerifyText    To Refresh
-    VerifyText    System Information
-    VerifyText    Created By
-    VerifyText    Last Modified By
-    VerifyText    Cancel
-    VerifyText    Save & New
-    VerifyText    Save
-    VerifyText    Cancel and close
-    UseModal    Off
