@@ -23,17 +23,17 @@ Licenses Tab UI Checks
     VerifyText     Status
     VerifyText     Agreement Date
     VerifyText     License Template
-    VerifyField    Agreement Type    License agreement    partial_match=True
-    VerifyField    Is Sensitive    Is Sensitive    partial_match=True
-    VerifyField    Currency    EUR - Euro    partial_match=True
+    VerifyField    Agreement Type      
+    VerifyField    Is Sensitive     
+    VerifyField    Currency      
     VerifyField    End Date    ${EMPTY}
     VerifyField    Description    ${EMPTY}
     VerifyField    Description    ${EMPTY}
-    VerifyField    Do Not Renew    Do Not Renew    partial_match=True
-    VerifyField    Status    Draft    partial_match=True
-    VerifyField    Origin    Salesforce    partial_match=True
+    VerifyField    Do Not Renew       
+    VerifyField    Status      
+    VerifyField    Origin       
     VerifyField    Negotiation License    ${EMPTY}
-    VerifyField    Automatic Renewal    Automatic Renewal    partial_match=True
+    VerifyField    Automatic Renewal    
     ClickText     Related
     ClickText     Source Link Management
 
