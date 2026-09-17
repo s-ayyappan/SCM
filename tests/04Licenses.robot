@@ -26,13 +26,13 @@ Licenses Tab UI Checks
     VerifyText    Agreement Type   
     VerifyText    Is Sensitive    
     VerifyText    Currency    
-    VerifyText    End Date                ${EMPTY}
-    VerifyText    Description             ${EMPTY}
-    VerifyText    Description             ${EMPTY}
+    VerifyText    End Date                
+    VerifyText    Description             
+    VerifyText    Description             
     VerifyText    Do Not Renew  
     VerifyText    Status
     VerifyText    Origin       
-    VerifyText    Negotiation License     ${EMPTY}
+    VerifyText    Negotiation License     
     VerifyText    Automatic Renewal    
     ClickText     Related
     ClickText     Source Link Management
