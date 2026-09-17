@@ -23,7 +23,7 @@ Check Cases
     ClickText    Robotics Testing Case
     VerifyText   Robotics Testing Case
     VerifyText   User Responded
-    VerifyField  Case Owner    Change Owner    partial_match=True
+    VerifyField  Case Owner    Sundar Ayyappan   partial_match=True
     VerifyField  Case Origin    Email    partial_match=True
     VerifyField  Priority    Medium    partial_match=True
     ClickText    Details
