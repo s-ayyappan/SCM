@@ -17,15 +17,12 @@ Sources Tab UI Checks
 
     ClickText    Sources List
     ClickText    New Source
-    UseModal    On
-    ClickText    New
-    UseModal    On
-    VerifyText    New Source
+    UseModal     On
+    VerifyText    Full
     VerifyText    Prospect
     VerifyText    Unenriched
-    VerifyText    Full
     VerifyText    Cancel    partial_match=False
-    ClickText    Next
+    ClickText     Next
     VerifyText    New Source: Full
     VerifyText    Title Details
     VerifyText    Title Id
@@ -76,7 +73,8 @@ Sources Tab UI Checks
     VerifyText     Cancel    partial_match=False
     VerifyText     Save & New
     VerifyText     Save
-    UseModal        Off
+    ClickText    Cancel    partial_match=False
+
     
 
 
