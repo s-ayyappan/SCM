@@ -23,17 +23,17 @@ Licenses Tab UI Checks
     VerifyText     Status
     VerifyText     Agreement Date
     VerifyText     License Template
-    VerifyField    Agreement Type      
-    VerifyField    Is Sensitive     
-    VerifyField    Currency      
-    VerifyField    End Date    ${EMPTY}
-    VerifyField    Description    ${EMPTY}
-    VerifyField    Description    ${EMPTY}
-    VerifyField    Do Not Renew       
-    VerifyField    Status      
-    VerifyField    Origin       
-    VerifyField    Negotiation License    ${EMPTY}
-    VerifyField    Automatic Renewal    
+    VerifyText    Agreement Type   
+    VerifyText    Is Sensitive    
+    VerifyText    Currency    
+    VerifyText    End Date                ${EMPTY}
+    VerifyText    Description             ${EMPTY}
+    VerifyText    Description             ${EMPTY}
+    VerifyText    Do Not Renew  
+    VerifyText    Status
+    VerifyText    Origin       
+    VerifyText    Negotiation License     ${EMPTY}
+    VerifyText    Automatic Renewal    
     ClickText     Related
     ClickText     Source Link Management
 
