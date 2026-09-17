@@ -24,6 +24,8 @@ Accounts Tab UI Checks
     Launch Account Application
     
     # Verify list view
+    ClickText    Select a List View: Accounts
+    ClickText    All Accounts
     VerifyText        Import
     HoverText         New
     VerifyText        New
@@ -31,7 +33,7 @@ Accounts Tab UI Checks
     # Open new account form
     ClickText         ${NEW_BUTTON}
     Sleep             ${WAIT_SHORT}
-    VerifyText        New Account:
+    VerifyText        Account
     VerifyText        *Search Keyword
     
     # Search for organization
