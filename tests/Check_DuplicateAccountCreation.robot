@@ -20,12 +20,12 @@ Check Duplicate Account Creation
     ClickText    Select a List View: Accounts
     ClickText    All Accounts
     ClickText    New    anchor=Import
-    TypeText     Enter Keyword To Search For An Organisation...    Robot Duplicate account
+    TypeText     Enter Keyword To Search For An Organisation...    Robot account
     ClickText    Search    partial_match=False
     ClickText    Create New Account
     UseModal     On
-    TypeText     *Account Name    Robot Duplicate account
-    TypeText     Publisher Display Name    Robot Duplicate account
+    TypeText     *Account Name    Robot account
+    TypeText     Publisher Display Name    Robot account
 #enter the existing ECR id
     TypeText     ECR Id    ECR-102004186
     TypeText     ECH Country                United Kingdom
