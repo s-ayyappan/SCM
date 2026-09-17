@@ -17,8 +17,8 @@ Create New Source
 #create a new source by clicking New       
     ClickText                     New
     UseModal                      On
-    ClickText                     Next
     VerifyText                    New Source: Full
+    ClickText                     Next
 #Generate random text (12 characters)
     Evaluate                      random.seed()    random
     ${rand_name}=                 Generate Random String  12    [LETTERS]
