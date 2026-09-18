@@ -14,11 +14,13 @@ Create New Source Child Records
     Sleep                     2s
     LaunchApp                 Sources
 
-#create a new source by clicking New       
-    ClickText                     New
-    UseModal                      On
-    ClickText                     Next
-    VerifyText                    New Source: Full
+#create a new source by clicking New     
+    ClickText         Sources List
+    ClickText         New Source
+    UseModal          On
+    Sleep             1s
+    ClickText         Next
+    VerifyText        New Source: Full  
     TypeText                      *Title Name    Source Child CRT
     
     # Publisher field (first Search Accounts field)
