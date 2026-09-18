@@ -48,7 +48,7 @@ Create New Source Child Records
     VerifyText    Elsevier License Template
     ClickText    Confirm
 #Save the source
-#    ClickText                     Save    partial_match=False
+#ClickText                     Save    partial_match=False
     Sleep                         2s
     UseModal                      Off
     VerifyText                    Source Child CRT
@@ -57,7 +57,7 @@ Create New Source Child Records
     ClickText    Related
     ClickText    Permission Requests(1)     partial_match=True
     VerifyText    Permission Requests
-#    ClickCheckbox    Select Item 1    on    partial_match=True
+#ClickCheckbox    Select Item 1    on    partial_match=True
     Sleep              3s
 
 #    VerifyText    Permission Requests       anchor=Sorted by Permission Request Name
