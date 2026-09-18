@@ -14,21 +14,13 @@ Duplicate Account Creation Error
     Sleep                     2s
 
 #capture the UI objects
-    VerifyText    Import
-    HoverText     New
-    VerifyText    New
-#    TypeText      Search this list...    SCM CRT Account\n    anchor=PRM Account, Owner Last Name, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    ClickText     New
-    ClickText     New    anchor=Search this list...
-    VerifyText    *Search Keyword
-    ClickText     *Search Keyword
-    VerifyText    New Account:
-    VerifyText    Search
-    TypeText      Enter Keyword To Search For An Organisation...    SCM CRT Account
-    ClickText     Search    partial_match=False
-    VerifyText    Create New Account
-    VerifyText    Cancel
-    ClickText     Create New Account
+    ClickText    Select a List View: Accounts
+    ClickText    All Accounts
+    HoverText    False
+    ClickText    New
+    TypeText    Enter Keyword To Search For An Organisation...    SCM CRT Account
+    ClickText    Search    partial_match=False
+    ClickText    Create New Account
     UseModal    On
     ComboBox    Search Accounts...    AACE International
     TypeText    *Account Name    CRT SCM Account
