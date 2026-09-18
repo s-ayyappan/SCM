@@ -28,9 +28,7 @@ Create Contract Agreement
     ClickText    Save
     UseModal    Off
     Sleep        5s
-    UseModal     Off
-    Sleep        5s
-    VerifyText   Contract Agreement
+    VerifyText   Create Contract Amendment
     ClickText    Related
 #navigate to contract agreements
     ClickText    Show Actions    anchor=Show Contract Agreement Name column actions
