@@ -21,18 +21,12 @@ Create Contract Agreement
     ClickText    PR-00003474
     HoverText    Fields
 #create new contract agreement
-    ClickText    Create Contract Agreement
-    UseModal     On
-    ClickText    Create Contract Agreement
-    VerifyText   Create Contract Agreement
-    #ClickText    Press delete or backspace to remove
-    ClickText    Cancel    partial_match=False
-    ClickText    Create Contract Agreement
+
+
+    ClickText    Create Contract Amendment
     UseModal    On
-    #HoverText    To remove the selected record, press Backspace or Del.
-    #ClickText    To remove the selected record, press Backspace or Del.
-    #ComboBox     Search Accounts...    Codogno Hospital
     ClickText    Save
+    UseModal    Off
     Sleep        5s
     UseModal     Off
     Sleep        5s
