@@ -37,6 +37,7 @@ ${EXPECTED_RPH_COUNT}        Right and Permission History (5)
 
 # Selectors
 ${NEW_BUTTON}                New
+${NEW_SOURCELIST}            Sources List
 ${SAVE_BUTTON}               Save
 ${DELETE_BUTTON}             Delete
 ${CONFIRM_BUTTON}            Confirm
@@ -126,7 +127,7 @@ Launch Source Application
 
 Create New Source Record
     [Documentation]    Create new source with all required field values
-    ClickText         ${NEW_BUTTON}
+    ClickText         ${NEW_SOURCELIST}    
     UseModal          On
     Sleep             1s
     ClickText         Next
