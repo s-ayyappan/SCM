@@ -14,10 +14,12 @@ Create New Source
     LaunchApp                 Sources
 
 #create a new source by clicking New       
-    ClickText                     New
-    UseModal                      On
-    ClickText                     Next
-    VerifyText                    New Source: Full
+    ClickText    Select a List View: Sources
+    ClickText    All Titles
+    ClickText    Sources List
+    ClickText    New Source
+    UseModal    On
+    ClickText    Next
     TypeText                      *Title Name    New CRT Title
     ComboBox                      Search Accounts...    Aalborg University    index=1
     PickList                      Country    United Kingdom
