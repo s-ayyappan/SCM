@@ -46,12 +46,14 @@ Delete Contact and Case
 
 #delete the contact    
     LaunchApp    Contacts
-    TypeText     Search this list...    robotics contact\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
+    ClickText    Select a List View: Contacts
+    ClickText    All Contacts
+    TypeText     Search this list...    Robotics\n    anchor=Owner Last Name and Left Employment? aren't searchable. Use filters or sort on these fields instead.
     ClickText    Robotics contact     
     UseModal     On
     ClickText    Delete
     Sleep        1s
-    ClickText    Delete
+   # ClickText    Delete
     Sleep        2s
     ${result}    Run Keyword And Ignore Error  VerifyText   Nothing to see here
     Log          Verification Result: ${result}
