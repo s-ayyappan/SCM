@@ -14,11 +14,13 @@ Create New Source
     Sleep                     2s
     LaunchApp                 Sources
 
-#create a new source by clicking New       
-    ClickText                     New
-    UseModal                      On
-    VerifyText                    New Source: Full
-    ClickText                     Next
+#create a new source by clicking New      
+    ClickText    Select a List View: Sources
+    ClickText    All Titles
+    ClickText    Sources List
+    ClickText    New Source
+    UseModal    On
+    ClickText    Next
 #Generate random text (12 characters)
     Evaluate                      random.seed()    random
     ${rand_name}=                 Generate Random String  12    [LETTERS]
