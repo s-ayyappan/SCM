@@ -27,8 +27,8 @@ Delete Contact and Case
     TypeText     Email    test@elsevier.invalid.com    
     ClickText    Save    partial_match=False
     UseModal     Off
-    ClickText    Close error dialog
-    ClickText    Cancel and close
+    #ClickText    Close error dialog
+    #ClickText    Cancel and close
 #    VerifyField  Name    Mr. Robotics contact    partial_match=True
 
 #create new case    --this functionality is removed from case 30/06/2026
