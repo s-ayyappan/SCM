@@ -11,7 +11,7 @@ Suite Teardown    End suite
 Un-tag contacts from related cases before deletion
 #scms-911 ticket functionality
     [tags]                    Cases
-    [Documentation]           Un-tag Contacts from related cases before deletion     
+    [Documentation]           Un-tag Contacts from related cases before deletion     - create a case for automation - This functionality is deprecated, cannot create new case 
     Appstate                  Home
     Sleep                     1s
     LaunchApp                 Contacts
@@ -36,42 +36,42 @@ Un-tag contacts from related cases before deletion
         ClickText    Save    partial_match=False
     END
 
-#create a case for automation
-    LaunchApp    Cases
+#create a case for automation - This functionality is deprecated, cannot create new case 
+#    LaunchApp    Cases
 #    HoverText    New
 #    ClickText    New
-    UseModal     On
-    ClickText    Next
-    VerifyText   Contact Name
-    ComboBox     Search Contacts...    Automation CRT
-    PickList     *Case Origin    Email
+#    UseModal     On
+#    ClickText    Next
+#    VerifyText   Contact Name
+#    ComboBox     Search Contacts...    Automation CRT
+#    PickList     *Case Origin    Email
 
 #save the new case with new contact created
-    ClickText    Save    partial_match=False
-    ClickText    Related
-    ClickText    Details
+#    ClickText    Save    partial_match=False
+#    ClickText    Related
+#    ClickText    Details
 
 #new case with newly create contact tagged
-    HoverText    Automation CRT
-    VerifyField   Contact Name    Automation CRT    tag=a    partial_match=True
-    ClickFieldValue    Contact Name
-    ClickText    Related
+#    HoverText    Automation CRT
+#    VerifyField   Contact Name    Automation CRT    tag=a    partial_match=True
+#    ClickFieldValue    Contact Name
+#    ClickText    Related
     
 #delete the contact
-    VerifyText   Automation CRT
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    VerifyText   Contact "Automation CRT"
+#    VerifyText   Automation CRT
+#    ClickText    Delete
+#    UseModal     On
+#    ClickText    Delete
+#    UseModal     Off
+#    VerifyText   Contact "Automation CRT"
 
 
 #contact name removed from the case
-    VerifyField  Contact Name    ${EMPTY}
+#    VerifyField  Contact Name    ${EMPTY}
 
 #delete the case created for automation purpose
-    ClickText    Delete
-    UseModal     On
-    ClickText    Delete
-    UseModal     Off
-    VerifyText   was deleted. Undo
+#    ClickText    Delete
+#    UseModal     On
+#    ClickText    Delete
+#    UseModal     Off
+#    VerifyText   was deleted. Undo
