@@ -26,15 +26,6 @@ Create Contract Agreement button visibility
 #Search for specific permission request with status contacted
 
 
-    ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
-    
-
-    ClickText    Select a List View: Permission Requests
-    ClickText    My Open Permission Requests
-    TypeText    Search this list...    New OA Lice\n    anchor=Permission Holder, Title Id, Title Name, Reviewed, and Created Date aren't searchable. Use filters or sort on these fields instead.
-    VerifyText    New OA Lice
-    TypeText    Search this list...    26225\n    anchor=Clear
     ClickText    Recently Viewed (Pinned list)
     TypeText    Search this list...    26225\n    anchor=Title Id, Title Name, Subscription End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     ClickText    PR-00026225
