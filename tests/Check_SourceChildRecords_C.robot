@@ -64,9 +64,12 @@ Create Source With Invalid Data
     Launch Source Application
     
     # Open form
-    ClickText         New
-    UseModal          On
-    ClickText         Next
+    
+
+    ClickText    Sources List
+    ClickText    New Source
+    UseModal    On
+    ClickText    Next
     
     # Fill required fields
     TypeText          *Title Name               Invalid Source Test
