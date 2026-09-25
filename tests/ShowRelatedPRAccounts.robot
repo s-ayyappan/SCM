@@ -42,7 +42,7 @@ Verify Permission Request Appears In Related Account
     ClickText         Details
 
     # --- Navigate to the related Account, then back into its Related PR list ---
-    ClickText         Oral Medicine
+    ClickText         International Journal on Smart Sensing and Intelligent Systems
     ClickText         Related
     SwipeDown
     VerifyText        Sources (Publisher)
