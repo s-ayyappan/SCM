@@ -20,6 +20,18 @@ Verify Permission Request Appears In Related Account
     ClickText         All Permission Requests
     HoverText         Show Actions
     TypeText          Search this list...    PR-00003499\n    anchor=Clear
+
+    # --- Guard against an empty search result before trying to click the row ---
+    ${found}=    Run Keyword And Return Status    VerifyText    PR-00003499    timeout=10
+    IF    not ${found}
+        ${no_results}=    Run Keyword And Return Status    VerifyText    No items to display
+        IF    ${no_results}
+            Fail    Search for PR-00003499 returned no results under "All Permission Requests". Verify the record exists, is not filtered out (owner/record-type filters), and search indexing is not delayed.
+        ELSE
+            Fail    PR-00003499 not found after search, and no explicit "no results" message was detected either — check list view state/screenshot for the actual cause.
+        END
+    END
+
     ClickText         PR-00003499
     VerifyText        PR-00003499
 
