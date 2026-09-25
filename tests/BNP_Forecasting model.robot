@@ -13,8 +13,6 @@ Check B&P model forecasting
     Sleep                     2s
     LaunchApp                 Permission Requests
     
-
-
     ClickText    Permission Requests
     ClickItem    search-button
     TypeText     Search...    PR-00024931\n    tag=input
