@@ -40,15 +40,6 @@ Create Contract Agreement button visibility
 
 
 
-
-
-
-
-
-
-
-
-
 *** Keywords ***
 Launch Account Application
     [Documentation]    Navigate to Accounts application
