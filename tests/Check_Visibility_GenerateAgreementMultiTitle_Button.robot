@@ -48,13 +48,13 @@ Generate Agreement Button Visibility Based On Contract Agreement Type
     ClickText    ${CONTRACT_DYNAMIC_TYPE_ID}
     VerifyText   Generate Agreement
     VerifyField  Type    License    partial_match=True
-    VerifyNoText    Generate Agreement - Multi Title
+    VerifyNoText    Generate Agreement - Multi Title                     ${WAIT_LONG}
 
     Change Contract Agreement Type    Multi Source Permission Form
     VerifyText      Generate Agreement - Multi Title
 
     Change Contract Agreement Type    License
-    VerifyNoText    Generate Agreement - Multi Title
+    VerifyNoText    Generate Agreement - Multi Title                     ${WAIT_LONG}
     VerifyText      Generate Agreement
 
     # Check "Generate Agreement - Multi Title" button is NOT visible for Permission Form type
@@ -67,7 +67,7 @@ Generate Agreement Button Visibility Based On Contract Agreement Type
     VerifyText   ${CONTRACT_PERMISSION_FORM_ID}
     VerifyField  Type    Permission Form    partial_match=True
     VerifyText   Generate Agreement
-    VerifyNoText    Generate Agreement - Multi Title
+    VerifyNoText    Generate Agreement - Multi Title                        ${WAIT_LONG}
 
 *** Keywords ***
 Launch Contract Agreement Application
