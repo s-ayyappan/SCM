@@ -48,7 +48,7 @@ Generate Agreement Button Visibility Based On Contract Agreement Type
     VerifyText   Contract Agreement\n${CONTRACT_PERMISSION_FORM_ID}
     VerifyField  Type    Permission Form    partial_match=True
     VerifyText   Generate Agreement
-    VerifyTextNotPresent    Generate Agreement - Multi Title
+    VerifyNoText    Generate Agreement - Multi Title
 
 *** Keywords ***
 Launch Contract Agreement Application
