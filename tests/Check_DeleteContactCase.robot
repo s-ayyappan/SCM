@@ -8,7 +8,7 @@ Suite Teardown    End suite
 
 
 *** Test Cases ***
-Delete Contact and Case
+Check Delete Contact and Case
     [tags]                    Contacts Cases
     [Documentation]           Delete the Contact then case relation is removed  
     Appstate                  Home
