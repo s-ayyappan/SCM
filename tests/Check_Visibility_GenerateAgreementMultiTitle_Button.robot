@@ -45,7 +45,8 @@ Generate Agreement Button Visibility Based On Contract Agreement Type
     ClickText    All
     TypeText     Search this list...    ${CONTRACT_PERMISSION_FORM_ID}\n    anchor=Clear
     ClickText    ${CONTRACT_PERMISSION_FORM_ID}
-    VerifyText   Contract Agreement\n${CONTRACT_PERMISSION_FORM_ID}
+    VerifyText   Contract Agreement
+    VerifyText   ${CONTRACT_PERMISSION_FORM_ID}
     VerifyField  Type    Permission Form    partial_match=True
     VerifyText   Generate Agreement
     VerifyNoText    Generate Agreement - Multi Title
