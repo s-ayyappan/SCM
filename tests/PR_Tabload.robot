@@ -4,6 +4,15 @@ Resource                      ../resources/common.robot
 Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
+*** Variables ***
+# Wait Times
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s
+
+# Test Data
+
+
 *** Test Cases ***
 Check Permission Requests
     [tags]                    Permission Request
