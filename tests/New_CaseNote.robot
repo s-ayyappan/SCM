@@ -68,6 +68,6 @@ New Note In Cases
     ClickText    Delete
     UseModal     Off
     Sleep        ${WAIT_SHORT}
-    VerifyNoText    ${DELETE_TEXT}    timeout=${WAIT_LONG}
-    #VerifyText    Content Note "Robotics note" was deleted.
+    #VerifyNoText    ${DELETE_TEXT}    timeout=${WAIT_LONG}
+    VerifyText    Content Note "Robotics note" was deleted.
     Log          Able to successfully delete a note from a case
