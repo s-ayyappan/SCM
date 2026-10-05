@@ -35,9 +35,9 @@ New Note In Cases
     ClickText    ${CASE_NAME}
     VerifyText   ${CASE_NAME}
     VerifyText   User Responded
-    VerifyField  Case Owner     Change Owner    partial_match=True
-    VerifyField  Case Origin    Email           partial_match=True
-    VerifyField  Priority       Medium          partial_match=True
+    VerifyField	Case Owner	Change Owner	partial_match=True
+    VerifyField	Case Origin	Email	partial_match=True
+    VerifyField	Priority	Medium	partial_match=True
     ClickText    Details
     ClickText    Related
     Log          Able to successfully open an existing case
@@ -48,7 +48,7 @@ New Note In Cases
     TypeText     Compose text     ${NOTE_BODY}
     ClickText    Done
     ClickText    Related
-    ClickText    Notes          anchor=New
+    ClickText    Notes    anchor=New
     ClickText    ${NOTE_TITLE}
     UseModal     On
     VerifyText   ${NOTE_BODY}
@@ -62,6 +62,6 @@ New Note In Cases
     UseModal     On
     ClickText    Delete
     UseModal     Off
-    Sleep              ${WAIT_SHORT}
-    VerifyNoText       ${NOTE_TITLE}    timeout=${WAIT_LONG}
+    Sleep        ${WAIT_SHORT}
+    VerifyNoText    ${NOTE_TITLE}    timeout=${WAIT_LONG}
     Log          Able to successfully delete a note from a case
