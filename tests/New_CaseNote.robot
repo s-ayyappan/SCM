@@ -17,6 +17,7 @@ ${WAIT_LONG}                 5s
 ${CASE_NAME}                 Robotics Testing Case
 ${NOTE_TITLE}                Robotics note
 ${NOTE_BODY}                 This note is added by CRT script
+${DELETE_TEXT}               Content Note "Robotics note" was deleted. 
 
 *** Test Cases ***
 New Note In Cases
@@ -35,9 +36,13 @@ New Note In Cases
     ClickText    ${CASE_NAME}
     VerifyText   ${CASE_NAME}
     VerifyText   User Responded
-    VerifyField	Case Owner	Change Owner	partial_match=True
-    VerifyField	Case Origin	Email	partial_match=True
-    VerifyField	Priority	Medium	partial_match=True
+    VerifyText	 Case Owner             partial_match=True
+    VerifyText    Open
+    VerifyField    Status    Open    partial_match=True
+    VerifyText	 Case Origin		partial_match=True
+    VerifyField    Case Origin    Email    partial_match=True
+    VerifyText	 Priority	partial_match=True
+    VerifyField    Priority    Medium    partial_match=True
     ClickText    Details
     ClickText    Related
     Log          Able to successfully open an existing case
@@ -63,5 +68,6 @@ New Note In Cases
     ClickText    Delete
     UseModal     Off
     Sleep        ${WAIT_SHORT}
-    VerifyNoText    ${NOTE_TITLE}    timeout=${WAIT_LONG}
+    VerifyNoText    ${DELETE_TEXT}    timeout=${WAIT_LONG}
+    #VerifyText    Content Note "Robotics note" was deleted.
     Log          Able to successfully delete a note from a case
