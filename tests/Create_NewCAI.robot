@@ -1,44 +1,45 @@
 *** Settings ***
-Library    QForce
-Resource                      ../resources/common.robot
-Suite Setup                   Setup Browser
-Suite Teardown                End suite
+Library           QForce
+Resource          ../resources/common.robot
+Suite Setup       Setup Browser
+Suite Teardown    End Suite
+
+*** Variables ***
+# Wait Times
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s
+
+# Test Data
+${CONTRACT_ID}                CON-000003
+${LINKED_PR}                  PR-00004669
+${OWNER_NAME}                  Elavenhil PallipattiMohan
 
 *** Test Cases ***
 Load Contract Agreement
-    [tags]                    Permission Request, Contract Agreement
-    [Documentation]           Test to check loading of Contract Agreement
-    Appstate                  Home
-    Sleep                     2s
-    LaunchApp                 Permission Requests
-#navigate to Permission Requests
-    ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
-    ClickText    Select a List View: Permission Requests
-    ClickText    Recently Viewed (Pinned list)
-    HoverText    False
-    TypeText     Search this list...    PR-00003474\n    anchor=Title Id, Title Name, Subscription End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
-    ClickText    PR-00003474
-    HoverText    Fields
-#create new contract agreement
+    [Documentation]    Test to check loading of Contract Agreement
+    [Tags]             Permission Request    Contract Agreement
 
+    Appstate         Home
+    Sleep             ${WAIT_SHORT}
+    LaunchApp         Contract Agreements
 
-    ClickText    Create Contract Amendment
-    UseModal    On
-    ClickText    Save
-    UseModal    Off
-    Sleep        5s
-    VerifyText   Create Contract Amendment
-    ClickText    Related
-#navigate to contract agreements
-    ClickText    Show Actions    anchor=Show Contract Agreement Name column actions
-    ClickText    Delete    anchor=Delete Contract Agreement
-    UseModal     On
-    ClickText    Delete
-    Sleep        5s
-    VerifyText   was deleted. Undo     partial_match=True
-    Sleep        3s
-    Log          Contract succcessfully deleted.
+    # Navigate to a Contract Agreement
+    ClickText    Select a List View: Contract Agreements
+    ClickText    All
+    TypeText     Search this list...    ${CONTRACT_ID}\n    anchor=Import
+    ClickText    ${CONTRACT_ID}    partial_match=False
+    Log          Contract Agreement record opened successfully
 
-
-
+    # Load the Contract Agreement and check the UI
+    VerifyText    Contract Agreement
+    VerifyField   Contract Agreement Name    ${CONTRACT_ID}    partial_match=True
+    VerifyField   Status    Active    partial_match=True
+    VerifyField   Permission Request    ${LINKED_PR}    tag=a    partial_match=True
+    VerifyField   Owner    ${OWNER_NAME}    tag=a    partial_match=True
+    ClickText     Related
+    VerifyText    Conga Sign Transactions
+    ScrollText    View All
+    VerifyText    Files
+    ClickText     Details
+    Log           Contract Agreement UI verified successfully
