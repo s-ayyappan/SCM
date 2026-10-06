@@ -1,71 +1,74 @@
 *** Settings ***
-Library    QForce
-Library    QVision
-Resource                      ../resources/common.robot
-Suite Setup                   Setup Browser
-Suite Teardown                End suite
+Library           QForce
+Library           QVision
+Resource          ../resources/common.robot
+Suite Setup       Setup Browser
+Suite Teardown    End Suite
+
+*** Variables ***
+# Wait Times
+${WAIT_SHORT}                2s
+${WAIT_MEDIUM}               3s
+${WAIT_LONG}                 5s
+
+# Test Data
+${PR_NUMBER}                  PR-00025645
+${LICENSE_ID}                 L-011296
+${RP_ID}                      RP-011085
 
 *** Test Cases ***
 Create New Obligation in PR
-    [tags]                    Permission Request
-    [Documentation]           Test to check PRCR under Permission Request is loading as normal
-    Appstate                  Home
-    Sleep                     2s
-    LaunchApp                 Permission Requests
+    [Documentation]    Test to check PRCR under Permission Request is loading as normal
+    [Tags]             Permission Request
+
+    Appstate         Home
+    Sleep             ${WAIT_SHORT}
+    LaunchApp         Permission Requests
 
     ClickText    Select a List View: Permission Requests
     ClickText    All Permission Requests
-    HoverText    Show Actions
-    TypeText     Search this list...    PR-00025645\n    anchor=Clear
-    Sleep        2s
-    ClickText    PR-00025645
-    VerifyText   PR-00025645
+    TypeText     Search this list...    ${PR_NUMBER}\n    anchor=Clear
+    Sleep        ${WAIT_SHORT}
+    ClickText    ${PR_NUMBER}
+    VerifyText   ${PR_NUMBER}
     ClickText    Related
-    Sleep        2s
+    Sleep        ${WAIT_SHORT}
 
-#Create new Obligation for the License
-    ClickText    L-011296      
+    # Create a new Obligation for the License
+    ClickText    ${LICENSE_ID}
     ClickText    Rights and Permissions (1)
-    ClickText    RP-011085
-    ClickText    Obligations                        partial_match=False
+    ClickText    ${RP_ID}
+    ClickText    Obligations    partial_match=False
 
-    VerifyText    New                  
-    ClickText     New    
+    VerifyText    New
+    ClickText     New
     UseModal      On
-    
-
-#    ComboBox    Search Rights and Permissions...    RP-011085
-#    ComboBox      Search Rights and Permissions...    011085
-    PickList      Type    Attribution
+    PickList      Type      Attribution
     PickList      Status    Pending
     ClickText     Save    partial_match=False
     UseModal      Off
-    Sleep        2s
-    ClickText    RP-011085
-    ClickText    Related
-      
-#Navigate to the obligations thru the license->RP->obligations
-    ClickText    L-011296
-    ClickText    Rights and Permissions 
-    ClickText    RP-011085
-    ClickText    Obligations                        
+    Sleep         ${WAIT_SHORT}
+    Log           New Obligation created successfully
 
-#Select the last created obligations using hotkeys and delete
+    # Navigate to the Obligations list via License -> Rights and Permissions -> Obligations
+    ClickText    ${LICENSE_ID}
+    ClickText    Rights and Permissions (1)
+    ClickText    ${RP_ID}
+    ClickText    Obligations    partial_match=False
+
+    # Select the last created Obligation using hotkeys and delete it
     VerifyText    New
-# First verify that checkbox is not present using Is Text
-    ${exists}=         Is Text          Select Item 1    timeout=2
-    IF  ${exists}
+    ${exists}=    Is Text    Select Item 1    timeout=${WAIT_SHORT}
+    IF    ${exists}
         ClickCheckbox    Select Item 1    on    partial_match=False
         HotKey       Tab
-        ClickText    O                  anchor=Select Item 1
-        #delete the created obligation
-        ClickText   Delete
-        UseModal    On
-        ClickText   Delete
-        UseModal    Off
-        VerifyText  was deleted. Undo
-    ELSE            
-        Log  Checkbox not found, skipping this step
+        ClickText    O    anchor=Select Item 1
+        ClickText    Delete
+        UseModal     On
+        ClickText    Delete
+        UseModal     Off
+        VerifyText   was deleted. Undo
+        Log          Newly created Obligation deleted successfully
+    ELSE
+        Log    Checkbox not found, skipping delete step
     END
-
-
