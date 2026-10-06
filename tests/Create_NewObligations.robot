@@ -26,7 +26,7 @@ Create New Obligation in PR
     LaunchApp         Permission Requests
 
     ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
+    ClickText    Recently Viewed
     TypeText     Search this list...    ${PR_NUMBER}\n    anchor=Clear
     Sleep        ${WAIT_SHORT}
     ClickText    ${PR_NUMBER}
@@ -36,7 +36,7 @@ Create New Obligation in PR
 
     # Create a new Obligation for the License
     ClickText    ${LICENSE_ID}
-    ClickText    Rights and Permissions (1)
+    ClickText    Rights and Permissions
     ClickText    ${RP_ID}
     ClickText    Obligations    partial_match=False
 
@@ -50,9 +50,11 @@ Create New Obligation in PR
     Sleep         ${WAIT_SHORT}
     Log           New Obligation created successfully
 
-    # Navigate to the Obligations list via License -> Rights and Permissions -> Obligations
+    # Breadcrumb back up to the License via the RP's Related tab, then drill back down to Obligations
+    ClickText    ${RP_ID}
+    ClickText    Related
     ClickText    ${LICENSE_ID}
-    ClickText    Rights and Permissions (1)
+    ClickText    Rights and Permissions
     ClickText    ${RP_ID}
     ClickText    Obligations    partial_match=False
 
