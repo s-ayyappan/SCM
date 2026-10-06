@@ -5,9 +5,9 @@ Suite Setup                   Setup Browser
 Suite Teardown                End suite
 
 *** Test Cases ***
-Create Contract Agreement
+Load Contract Agreement
     [tags]                    Permission Request, Contract Agreement
-    [Documentation]           Test to create new Contract Agreement
+    [Documentation]           Test to check loading of Contract Agreement
     Appstate                  Home
     Sleep                     2s
     LaunchApp                 Permission Requests
