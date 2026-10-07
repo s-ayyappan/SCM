@@ -34,7 +34,7 @@ Load Contract Agreement
     # Load the Contract Agreement and check the UI
     VerifyText    Contract Agreement
     VerifyText    Generate Amendment
-    VerifyText    Sned for Negotiation
+    VerifyText    Send for Negotiation
     VerifyField   Contract Agreement Name    ${CONTRACT_ID}    partial_match=True
     VerifyField   Status    Active    partial_match=True
     VerifyField   Permission Request    ${LINKED_PR}    tag=a    partial_match=True
