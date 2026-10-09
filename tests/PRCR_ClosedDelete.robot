@@ -15,7 +15,7 @@ ${WAIT_LONG}                 5s
 ${PR_NUMBER}                  PR-00024935
 ${ACCOUNT_NAME}                Avignon University
 ${CONTACT_NAME}                Auto CRT
-${DUPLICATE_WARNING_TEXT}      You can't save this record because a duplicate record already exists
+${DUPLICATE_WARNING_TEXT}      View Duplicates
 
 *** Test Cases ***
 PR Closed Won Deletion PRCR
@@ -30,7 +30,6 @@ PR Closed Won Deletion PRCR
     LaunchApp         Permission Requests
 
     ClickText    Select a List View: Permission Requests
-    ClickText    Recently Viewed
     ClickText    All Permission Requests
     TypeText     Search this list...    ${PR_NUMBER}\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     Sleep        ${WAIT_SHORT}
@@ -52,7 +51,7 @@ PR Closed Won Deletion PRCR
     ClickText    Save    partial_match=False
 
     # Check whether Salesforce flagged this as a duplicate PRCR
-    ${is_duplicate}=    Is Text    ${DUPLICATE_WARNING_TEXT}    timeout=${WAIT_SHORT}
+    ${is_duplicate}=    Is Text    ${DUPLICATE_WARNING_TEXT}    timeout=${WAIT_MEDIUM}
     ${actual_contact_name}=    Set Variable    ${CONTACT_NAME}
     IF    ${is_duplicate}
         Log    Duplicate PRCR detected for "${CONTACT_NAME}" - creating a unique Contact instead
