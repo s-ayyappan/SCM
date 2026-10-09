@@ -25,7 +25,7 @@ Check Permission Requests
 
     # Navigate to and open the Permission Request record
     ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
+    ClickText    Recently Viewed (Pinned list)
     TypeText     Search this list...    ${PR_NUMBER}\n
     Sleep        ${WAIT_MEDIUM}
     ClickText    ${PR_NUMBER}
