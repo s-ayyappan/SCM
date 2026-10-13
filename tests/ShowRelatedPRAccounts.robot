@@ -17,7 +17,8 @@ Verify Permission Request Appears In Related Account
     LaunchApp         Permission Requests
 
     ClickText         Select a List View: Permission Requests
-    ClickText         All Permission Requests
+    ClickText         Recently Viewed (Pinned list)
+    #ClickText         All Permission Requests
     HoverText         Show Actions
     TypeText          Search this list...    PR-00003499\n    anchor=Clear
 
