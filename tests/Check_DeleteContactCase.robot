@@ -29,6 +29,7 @@ Check Delete Contact And Case
     Appstate         Home
     Sleep             ${WAIT_SHORT}
     LaunchApp         Contacts
+    Sleep        ${WAIT_MEDIUM}
 
     # Create a new Contact
     ClickText    New
