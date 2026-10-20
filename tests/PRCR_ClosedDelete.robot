@@ -28,9 +28,12 @@ PR Closed Won Deletion PRCR
     Appstate         Home
     Sleep             ${WAIT_SHORT}
     LaunchApp         Permission Requests
+    Sleep             ${WAIT_SHORT}
 
     ClickText    Select a List View: Permission Requests
-    ClickText    All Permission Requests
+    ClickText    Recently Viewed (Pinned list)
+    #ClickText    Recently Viewed
+    #ClickText    All Permission Requests
     TypeText     Search this list...    ${PR_NUMBER}\n    anchor=License, Title Id, Title Name, End Date, Created Date, Is PRM, Owner Last Name, and Stop Reminder Emails aren't searchable. Use filters or sort on these fields instead.
     Sleep        ${WAIT_SHORT}
     ClickText    ${PR_NUMBER}
