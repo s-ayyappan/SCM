@@ -97,31 +97,36 @@ When User Attempts To Add Second Primary Team Member
 Then Error Message Should Prevent Duplicate Primary
     [Documentation]    Cancel operation and verify only one primary exists
     Log To Console    \n[STEP] Verifying Duplicate Prevention
-    
-    # Wait for error toast
-    Sleep             3s
-    Log               Error occurred (visible in UI but not verified by automation)    level=INFO
-    
-    # Cancel the Add Team Members modal
-    ClickText         Cancel    partial_match=True
-    Log               Add Team Members operation canceled    level=INFO
-    
+
+    # Dismiss the error dialog if Salesforce rendered one (it can steal the modal scope)
+    ${error_dialog}=    Is Text    Close error dialog    timeout=${WAIT_LONG}
+    IF    ${error_dialog}
+        ClickText    Close error dialog
+    END
+
+    # Cancel the Add Team Members modal only if it is still open
+    ${cancel_found}=    Is Text    Cancel    timeout=${WAIT_MEDIUM}
+    IF    ${cancel_found}
+        ClickText    Cancel    partial_match=False
+        Log          Add Team Members operation canceled    level=INFO
+    ELSE
+        Log          Cancel not found - modal already closed by the error    level=WARN
+    END
+
     # CRITICAL: Close modal context
     UseModal          Off
     Sleep             ${WAIT_MEDIUM}
-    
+
     # Verify we're on the account record page
     VerifyText        ${ACCOUNT_NAME}
-    
-    # Click Related tab
+
+    # Verify first primary member is still primary
     ClickText         Related
     Sleep             ${WAIT_SHORT}
-    
-    # Verify first primary member is still primary
     ClickText         ${PRIMARY_USER_1} Team Member Record
     VerifyText        Primary
     Log               First primary member verified as still primary    level=INFO
-    
+
     Log To Console    [SUCCESS] First primary member verified - duplicate was prevented
     
 And Cleanup Test Account
