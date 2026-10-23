@@ -4,9 +4,8 @@ Library           QForce
 Library           QWeb
 Library           QVision
 Resource          ../resources/common.robot
-
 Suite Setup       Setup Browser
-Suite Teardown    End suite
+Suite Teardown    End Suite
 
 *** Variables ***
 ${ACCOUNT_NAME}           Robot Account
@@ -25,77 +24,63 @@ ${SEARCH_ANCHOR_2}        Created Date, Owner Last Name, and PRM Account aren't 
 
 *** Test Cases ***
 Verify Only One Primary Account Team Member Allowed Per Account
-    [Tags]                Accounts    TeamMember    Validation    Regression
-    [Documentation]       Validates that attempting to add a second primary Account Team Member
-    ...                   is prevented. Error message appears in UI (red toast) but automation
-    ...                   verifies the business outcome: only one primary member exists.
-    
+    [Documentation]    Validates that attempting to add a second primary Account Team Member
+    ...                is prevented. The error appears in the UI (red toast), and automation
+    ...                verifies the business outcome: only the first primary member exists.
+    [Tags]             Accounts    TeamMember    Validation    Regression
+    [Teardown]         And Cleanup Test Account
+
     Given User Creates New Account
     When User Adds First Primary Team Member
     Then First Primary Team Member Should Be Verified
     When User Attempts To Add Second Primary Team Member
     Then Error Message Should Prevent Duplicate Primary
-    And Cleanup Test Account
 
 *** Keywords ***
 Given User Creates New Account
     [Documentation]    Navigate to Accounts and create a new account with required details
     Log To Console    \n[STEP] Creating New Account
-    
+
     Navigate To Accounts App
     Click New Account Button
     Create Account With Details
     Verify Account Created Successfully
-    
+
     Log To Console    [SUCCESS] Account created successfully
 
 When User Adds First Primary Team Member
     [Documentation]    Add first team member and mark as primary
     Log To Console    \n[STEP] Adding First Primary Team Member
-    
+
     Navigate To Account Record
     Add Team Member    ${PRIMARY_USER_1}    primary=${True}
-    
+
     Log To Console    [SUCCESS] First primary team member added
 
 Then First Primary Team Member Should Be Verified
     [Documentation]    Verify the first primary team member was assigned correctly
     Log To Console    \n[STEP] Verifying First Primary Team Member
-    
+
     ClickText         Details
     VerifyField       Account Owner    ${PRIMARY_USER_1}    tag=a    partial_match=True
     Log               First primary team member verified as account owner    level=INFO
-    
+
     Log To Console    [SUCCESS] First primary team member verified
 
 When User Attempts To Add Second Primary Team Member
     [Documentation]    Attempt to add a second primary team member (should trigger error)
     Log To Console    \n[STEP] Attempting To Add Second Primary Team Member
-    
-    # Navigate and open Add Team Members modal
-    ClickText         Related
-    ClickText         Add Team Members
-    Sleep             ${WAIT_MEDIUM}
-    UseModal          On
-    
-    # Fill in second team member details
-    ClickText         Edit User: Item    anchor=Team Role
-    ComboBox          Search People...    ${PRIMARY_USER_2}
-    ClickText         Edit Team Role: Item    anchor=Team Role
-    PickList          Team Role    ${TEAM_ROLE}
-    
-    # Mark as primary
-    VerifyText        Primary
-    ClickText         Edit Primary: Item    anchor=Delete item 1
-    HotKey            Space
-    
+
+    # Fill in the second member as primary but leave the modal open
+    Add Team Member    ${PRIMARY_USER_2}    primary=${True}    save=${False}
+
     # Click Save - this triggers the error
     ClickText         Save
-    
+
     Log To Console    [INFO] Save clicked - expecting error
 
 Then Error Message Should Prevent Duplicate Primary
-    [Documentation]    Cancel operation and verify only one primary exists
+    [Documentation]    Dismiss the unsaved modal and verify only one primary exists
     Log To Console    \n[STEP] Verifying Duplicate Prevention
 
     # Dismiss the error dialog if Salesforce rendered one (it can steal the modal scope)
@@ -104,38 +89,40 @@ Then Error Message Should Prevent Duplicate Primary
         ClickText    Close error dialog
     END
 
-    # Cancel the Add Team Members modal only if it is still open
-    ${cancel_found}=    Is Text    Cancel    timeout=${WAIT_MEDIUM}
-    IF    ${cancel_found}
-        ClickText    Cancel    partial_match=False
-        Log          Add Team Members operation canceled    level=INFO
-    ELSE
-        Log          Cancel not found - modal already closed by the error    level=WARN
-    END
-
-    # CRITICAL: Close modal context
-    UseModal          Off
+    # Allow the error toast to render
     Sleep             ${WAIT_MEDIUM}
+    Log               Error occurred (visible in UI but not verified by automation)    level=INFO
+
+    # Dismiss the unsaved Add Team Members modal without relying on the Cancel button
+    HotKey            Escape
+    UseModal          Off
+    Sleep             ${WAIT_SHORT}
+    ${still_open}=    Is Text    Edit User: Item    timeout=${WAIT_SHORT}
+    IF    ${still_open}
+        Navigate To Account Record
+    END
 
     # Verify we're on the account record page
     VerifyText        ${ACCOUNT_NAME}
 
-    # Verify first primary member is still primary
+    # Verify first primary member is still primary and the second was not added
     ClickText         Related
     Sleep             ${WAIT_SHORT}
     ClickText         ${PRIMARY_USER_1} Team Member Record
     VerifyText        Primary
-    Log               First primary member verified as still primary    level=INFO
+    VerifyNoText      ${PRIMARY_USER_2} Team Member Record    timeout=${WAIT_SHORT}
+    Log               First primary member still primary, second member not added    level=INFO
 
     Log To Console    [SUCCESS] First primary member verified - duplicate was prevented
-    
+
 And Cleanup Test Account
     [Documentation]    Delete the test account created during the test
     Log To Console    \n[STEP] Cleaning Up Test Account
-    
+
+    UseModal          Off
     Navigate To Accounts App
     Search And Delete Account    ${ACCOUNT_NAME}
-    
+
     Log To Console    [SUCCESS] Test account deleted
 
 # ========== Helper Keywords ==========
@@ -161,26 +148,26 @@ Create Account With Details
     TypeText          Enter Keyword To Search For An Organisation...    ${ACCOUNT_NAME}
     ClickText         Search    partial_match=False
     ClickText         Create New Account
-    
+
     UseModal          On
-    
+
     # Basic details
     TypeText          *Account Name    ${ACCOUNT_NAME}
     TypeText          Publisher Display Name    ${PUBLISHER_NAME}
-    
+
     # Location details
     TypeText          ECH Country    ${COUNTRY}
     TypeText          ECH City    ${CITY}
-    
+
     # Billing address
     ComboBox          Search Address    ${CITY}
     TypeText          Billing Zip/Postal Code    ${POSTAL_CODE}
-    
+
     SwipeDown         1
     ClickText         Save    partial_match=False
     Sleep             ${WAIT_MEDIUM}
     UseModal          Off
-    
+
     Log               Account details filled and saved    level=INFO
 
 Verify Account Created Successfully
@@ -195,41 +182,45 @@ Navigate To Account Record
     Appstate          Home
     Sleep             ${WAIT_SHORT}
     LaunchApp         Accounts
-    
+
     TypeText          Search this list...    ${ACCOUNT_NAME}\n    anchor=${SEARCH_ANCHOR_1}
     ClickText         ${ACCOUNT_NAME}
     Sleep             ${WAIT_MEDIUM}
     VerifyText        ${ACCOUNT_NAME}
-    
+
     Log               Navigated to account record    level=INFO
 
 Add Team Member
-    [Documentation]    Add a team member with specified role and primary status
-    ...               Args: user_name, primary (True/False), save (True/False)
-    [Arguments]       ${user_name}    ${primary}=${False}    ${save}=${True}
-    
+    [Documentation]    Add a team member with specified role and primary status.
+    ...                Args: user_name, primary (True/False), save (True/False)
+    [Arguments]        ${user_name}    ${primary}=${False}    ${save}=${True}
+
     ClickText         Related
     ClickText         Add Team Members
     Sleep             ${WAIT_MEDIUM}
     UseModal          On
-    
+
     # Select user
     ClickText         Edit User: Item    anchor=Team Role
     ComboBox          Search People...    ${user_name}
-    
+
     # Select team role
     ClickText         Edit Team Role: Item    anchor=Team Role
     PickList          Team Role    ${TEAM_ROLE}
-    
+
     # Set primary if requested
-    Run Keyword If    ${primary}    Set Team Member As Primary
-    
-    # Save or leave modal open
-    Run Keyword If    ${save}    Run Keywords
-    ...    ClickText    Save
-    ...    AND    UseModal    Off
-    ...    AND    Log    Team member ${user_name} saved    level=INFO
-    ...    ELSE    Log    Team member ${user_name} added but not saved    level=INFO
+    IF    ${primary}
+        Set Team Member As Primary
+    END
+
+    # Save, or leave the modal open for the caller
+    IF    ${save}
+        ClickText     Save
+        UseModal      Off
+        Log           Team member ${user_name} saved    level=INFO
+    ELSE
+        Log           Team member ${user_name} added but not saved    level=INFO
+    END
 
 Set Team Member As Primary
     [Documentation]    Mark the current team member as primary
@@ -240,25 +231,26 @@ Set Team Member As Primary
 
 Search And Delete Account
     [Documentation]    Search for account and delete it
-    [Arguments]       ${account_name}
-    
+    [Arguments]        ${account_name}
+
     Sleep             ${WAIT_MEDIUM}
     TypeText          Search this list...    ${account_name}\n    anchor=${SEARCH_ANCHOR_2}
     Sleep             ${WAIT_MEDIUM}
     VerifyText        ${account_name}
-    
+
     # Open actions menu and delete
     ClickText         Show Actions
     HoverText         Show more actions
     HoverText         Delete
     ClickText         Delete
     Sleep             ${WAIT_LONG}
-    
+
     # Confirm deletion
     UseModal          On
     VerifyText        Are you sure you want to delete this account?
     ClickText         Delete
     UseModal          Off
     Sleep             ${WAIT_LONG}
-    
-    Log               Account ${account_name} deleted    level=INFO
+
+    ${deleted}=       Is Text    was deleted    timeout=${WAIT_SHORT}
+    Log               Account ${account_name} deleted (confirmation toast seen: ${deleted})    level=INFO
